@@ -1,0 +1,186 @@
+/* =========================
+   GALLERY PAGE
+========================= */
+
+.gallery-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 24px;
+}
+
+.gallery-item {
+    position: relative;
+
+    min-height: 360px;
+
+    overflow: hidden;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 22px;
+
+    background: #111;
+
+    text-align: left;
+}
+
+.gallery-item.large {
+    grid-row: span 2;
+
+    min-height: 600px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    inset: 0;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.gallery-item::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.8),
+            transparent 60%
+        );
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-caption {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 28px;
+    right: 28px;
+    bottom: 25px;
+
+    color: white;
+}
+
+.gallery-caption .cat {
+    color: var(--hope-300);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+}
+
+.title-row {
+    margin-top: 8px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.title-row h2 {
+    font-size: 25px;
+
+    line-height: 1.1;
+}
+
+.round-arrow {
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: var(--dark);
+}
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+
+    border-radius: 12px;
+}
+
+.lightbox-close {
+    position: absolute;
+
+    top: 25px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: white;
+
+    color: var(--dark);
+}
+
+@media (max-width: 700px) {
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item,
+    .gallery-item.large {
+        grid-row: auto;
+
+        min-height: 400px;
+    }
+}
