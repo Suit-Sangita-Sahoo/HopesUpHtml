@@ -1,0 +1,890 @@
+/* =====================================================
+   THE HOPE SUP
+   INDIVIDUAL BLOG PAGE
+===================================================== */
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: #faf8f4;
+    color: #302a26;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    line-height: 1.8;
+}
+
+
+/* ================= HEADER ================= */
+
+.blog-header {
+    background: #17110f;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.blog-header-inner {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 22px 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.blog-logo {
+    color: #f1c56e;
+
+    text-decoration: none;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    letter-spacing: -1px;
+}
+
+
+.back-home {
+    color: #d8d0c8;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+
+.back-home:hover {
+    color: #e5b65d;
+}
+
+
+/* ================= BLOG PAGE ================= */
+
+.blog-page {
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 70px 25px 100px;
+}
+
+
+/* ================= ARTICLE HEADER ================= */
+
+.article-header {
+    max-width: 780px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding-bottom: 50px;
+}
+
+
+.article-category {
+    display: inline-block;
+
+    color: #a97a32;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+}
+
+
+.article-header h1 {
+    color: #261d18;
+
+    font-size:
+        clamp(48px, 8vw, 82px);
+
+    font-weight: normal;
+
+    line-height: 1.02;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 25px;
+}
+
+
+.article-subtitle {
+    max-width: 650px;
+
+    margin: auto;
+
+    color: #766d65;
+
+    font-size: 20px;
+
+    line-height: 1.6;
+}
+
+
+.article-meta {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+    color: #948b83;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+}
+
+
+/* ================= FEATURED IMAGE ================= */
+
+.featured-image {
+    margin: 0 0 65px;
+}
+
+
+.featured-image img {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    border-radius: 2px;
+
+    box-shadow:
+        0 20px 55px
+        rgba(50, 35, 20, 0.15);
+}
+
+
+/* ================= ARTICLE CONTENT ================= */
+
+.article-content {
+    max-width: 720px;
+
+    margin: auto;
+}
+
+
+.article-content p {
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: #504943;
+
+    margin-bottom: 25px;
+}
+
+
+/* ================= OPENING ================= */
+
+.article-content .opening {
+    font-size: 22px;
+
+    line-height: 1.75;
+
+    color: #39312c;
+
+    margin-bottom: 55px;
+
+    padding-left: 25px;
+
+    border-left:
+        3px solid #d1a052;
+}
+
+
+/* ================= HEADINGS ================= */
+
+.article-content h2 {
+    color: #29211d;
+
+    font-size: 34px;
+
+    font-weight: normal;
+
+    line-height: 1.3;
+
+    margin-top: 65px;
+
+    margin-bottom: 22px;
+}
+
+
+.article-content h2::after {
+    content: "";
+
+    display: block;
+
+    width: 40px;
+
+    height: 2px;
+
+    background: #d1a052;
+
+    margin-top: 14px;
+}
+
+
+/* ================= QUOTES ================= */
+
+blockquote {
+    margin: 55px 0;
+
+    padding: 35px 40px;
+
+    background: #211713;
+
+    color: #edc477;
+
+    border-left:
+        5px solid #d1a052;
+
+    font-size: 25px;
+
+    font-style: italic;
+
+    line-height: 1.55;
+
+    box-shadow:
+        0 12px 35px
+        rgba(30, 20, 10, 0.12);
+}
+
+
+/* ================= HIGHLIGHT QUOTE ================= */
+
+.highlight-quote {
+    background: #f3eadb;
+
+    color: #654c2c;
+
+    border-left-color: #bd8d42;
+
+    box-shadow: none;
+}
+
+
+/* ================= IMPORTANT BOX ================= */
+
+.important-box {
+    margin: 55px 0;
+
+    padding: 30px 35px;
+
+    background: #fff8e9;
+
+    border: 1px solid #ead6ad;
+
+    position: relative;
+}
+
+
+.box-label {
+    display: block;
+
+    color: #a47732;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+
+.important-box p {
+    margin: 0;
+
+    color: #5b4c3b;
+}
+
+
+/* ================= FINAL MESSAGE ================= */
+
+.final-message {
+    margin-top: 75px;
+
+    padding: 60px 45px;
+
+    text-align: center;
+
+    background: #211713;
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.final-message::before {
+    content: "✦";
+
+    position: absolute;
+
+    right: 25px;
+
+    top: -45px;
+
+    font-size: 150px;
+
+    color: rgba(230, 180, 80, 0.08);
+}
+
+
+.final-label {
+    color: #e5b65d;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+.final-message h2 {
+    color: white;
+
+    font-size: 43px;
+
+    line-height: 1.15;
+
+    font-weight: normal;
+
+    margin: 20px 0;
+}
+
+
+.final-message p {
+    max-width: 600px;
+
+    margin: 15px auto;
+
+    color: #d2c5ba;
+
+    font-size: 16px;
+}
+
+
+.final-message strong {
+    display: block;
+
+    margin-top: 28px;
+
+    color: #edc477;
+
+    font-size: 17px;
+}
+
+
+/* ================= AUTHOR ================= */
+
+.article-author {
+    max-width: 720px;
+
+    margin: 65px auto 0;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid #e4ddd4;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.author-avatar {
+    width: 58px;
+
+    height: 58px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #211713;
+
+    color: #e5b65d;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    border:
+        1px solid #bd8d42;
+}
+
+
+.author-label {
+    color: #a08770;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+.author-details h3 {
+    color: #332923;
+
+    font-size: 18px;
+
+    margin: 2px 0;
+}
+
+
+.author-details p {
+    color: #827970;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   RELATED ARTICLES
+===================================================== */
+
+.related-articles {
+    max-width: 1100px;
+
+    margin:
+        100px auto 0;
+
+    padding-top: 70px;
+
+    border-top:
+        1px solid #e2dbd2;
+}
+
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.section-heading span {
+    color: #ad7d35;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+.section-heading h2 {
+    color: #2b221d;
+
+    font-size: 36px;
+
+    font-weight: normal;
+
+    margin-top: 10px;
+}
+
+
+.related-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.related-card {
+    display: block;
+
+    padding: 28px;
+
+    background: white;
+
+    border:
+        1px solid #eee6dc;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+
+.related-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(50, 35, 20, 0.09);
+}
+
+
+.related-card > span {
+    color: #b18039;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+.related-card h3 {
+    color: #302720;
+
+    font-size: 21px;
+
+    line-height: 1.35;
+
+    font-weight: normal;
+
+    margin: 15px 0;
+}
+
+
+.related-card p {
+    color: #746b63;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+
+.related-card strong {
+    color: #a77730;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.blog-footer {
+    background: #17110f;
+
+    color: white;
+
+    padding: 55px 25px 25px;
+}
+
+
+.footer-inner {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.footer-logo {
+    color: #e5b65d;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+
+.footer-inner p {
+    color: #9e938b;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+}
+
+
+.footer-inner > a {
+    color: #d4c9c0;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+
+.footer-inner > a:hover {
+    color: #e5b65d;
+}
+
+
+.footer-bottom {
+    max-width: 1100px;
+
+    margin:
+        35px auto 0;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    color: #6f655e;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .blog-header-inner {
+        padding: 18px 16px;
+    }
+
+
+    .blog-logo {
+        font-size: 20px;
+    }
+
+
+    .back-home {
+        font-size: 11px;
+    }
+
+
+    .blog-page {
+        padding:
+            45px 16px 70px;
+    }
+
+
+    .article-header {
+        padding-bottom: 35px;
+    }
+
+
+    .article-header h1 {
+        font-size: 52px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .article-subtitle {
+        font-size: 17px;
+    }
+
+
+    .featured-image {
+        margin-bottom: 45px;
+    }
+
+
+    .article-content .opening {
+        font-size: 19px;
+
+        padding-left: 18px;
+    }
+
+
+    .article-content p {
+        font-size: 17px;
+
+        line-height: 1.8;
+    }
+
+
+    .article-content h2 {
+        font-size: 28px;
+
+        margin-top: 50px;
+    }
+
+
+    blockquote {
+        padding: 25px;
+
+        font-size: 20px;
+
+        margin: 40px 0;
+    }
+
+
+    .important-box {
+        padding: 25px;
+    }
+
+
+    .final-message {
+        padding: 45px 22px;
+
+        margin-top: 55px;
+    }
+
+
+    .final-message h2 {
+        font-size: 34px;
+    }
+
+
+    .article-author {
+        margin-top: 45px;
+    }
+
+
+    .related-articles {
+        margin-top: 70px;
+
+        padding-top: 50px;
+    }
+
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
+
+    .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .article-header h1 {
+        font-size: 43px;
+    }
+
+
+    .article-header h1 br {
+        display: none;
+    }
+
+
+    .article-content h2 {
+        font-size: 25px;
+    }
+
+
+    .final-message h2 {
+        font-size: 30px;
+    }
+
+}
