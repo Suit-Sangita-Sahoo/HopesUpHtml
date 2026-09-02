@@ -1,399 +1,858 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Graphic Design | Hopes Up</title>
+    <title>Graphic Design | Hopes Up</title>
 
-<link rel="stylesheet" href="/Style/ServiceDetails.css">
+    <link rel="stylesheet" href="/Style/ServiceDetails.css">
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ================================
+           GRAPHIC DESIGN CONTENT SECTION
+        ================================= */
+
+        .visual-section {
+            padding: 110px 0;
+            background: #f7f4ee;
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 90px;
+            align-items: start;
+        }
+
+        .visual-heading {
+            position: sticky;
+            top: 120px;
+        }
+
+        .visual-heading h2 {
+            margin-top: 20px;
+            max-width: 520px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(46px, 5vw, 72px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            color: #302a26;
+        }
+
+        .visual-heading h2 span {
+            display: block;
+            color: #8a9b63;
+        }
+
+        .visual-mark {
+            margin-top: 35px;
+            font-size: 30px;
+            color: #8a9b63;
+        }
+
+        .visual-content {
+            max-width: 760px;
+        }
+
+        .visual-content p {
+            margin: 0 0 27px;
+            color: #5b544e;
+            font-family: "DM Sans", sans-serif;
+            font-size: 18px;
+            line-height: 1.85;
+        }
+
+        .visual-content .visual-intro {
+            color: #302a26;
+            font-size: 24px;
+            line-height: 1.65;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .meaning-message {
+            margin: 45px 0;
+            padding: 35px 40px;
+            border-left: 4px solid #8a9b63;
+            background: #ffffff;
+            box-shadow: 0 15px 40px rgba(48, 42, 38, 0.06);
+        }
+
+        .meaning-message h3 {
+            margin: 0 0 8px;
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            line-height: 1.2;
+            color: #302a26;
+        }
+
+        .meaning-message p {
+            margin: 0;
+            font-size: 17px;
+            color: #6b625b;
+        }
+
+
+        /* ================================
+           RESPONSIVE DESIGN
+        ================================= */
+
+        @media (max-width: 900px) {
+
+            .visual-section {
+                padding: 80px 0;
+            }
+
+            .visual-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .visual-heading {
+                position: static;
+            }
+
+            .visual-heading h2 {
+                max-width: 650px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .visual-section {
+                padding: 65px 0;
+            }
+
+            .visual-grid {
+                gap: 30px;
+            }
+
+            .visual-heading h2 {
+                font-size: 44px;
+                letter-spacing: -1px;
+            }
+
+            .visual-content p {
+                font-size: 16px;
+                line-height: 1.75;
+            }
+
+            .visual-content .visual-intro {
+                font-size: 20px;
+                line-height: 1.65;
+            }
+
+            .meaning-message {
+                margin: 35px 0;
+                padding: 28px 25px;
+            }
+
+            .meaning-message h3 {
+                font-size: 25px;
+            }
+
+            .meaning-message p {
+                font-size: 16px;
+            }
+
+        }
+    </style>
 
 </head>
 
+
 <body>
+
+
+<!-- ================================
+     HEADER
+================================= -->
 
 <header class="site-header">
 
-<div class="container nav-inner">
+    <div class="container nav-inner">
 
-<a href="index.html" class="brand">
+        <a href="index.html" class="brand">
 
-<div class="brand-mark">H</div>
+            <div class="brand-mark">H</div>
 
-<div>
+            <div>
 
-<div class="brand-name">
-Hopes<span>Up</span>
-</div>
+                <div class="brand-name">
+                    Hopes<span>Up</span>
+                </div>
 
-<div class="brand-sub">
-Growth • Mindset • Life
-</div>
+                <div class="brand-sub">
+                    Growth • Mindset • Life
+                </div>
 
-</div>
+            </div>
 
-</a>
+        </a>
 
-<nav class="desktop-nav">
-            <a href="index.html">Home</a>
-            <a href="Service.html" class="active">Services</a>
-            <a href="/gallery.html">Gallery</a>
-            <a href="/Blog.html">Blog</a>
-            <a href="/Contact.html">Contact</a>
+
+        <nav class="desktop-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="Service.html" class="active">
+                Services
+            </a>
+
+            <a href="/gallery.html">
+                Gallery
+            </a>
+
+            <a href="/Blog.html">
+                Blog
+            </a>
+
+            <a href="/Contact.html">
+                Contact
+            </a>
+
         </nav>
 
 
-<a href="/Contact.html" class="nav-button">
-Start a Project ↗
-</a>
+        <a href="/Contact.html" class="nav-button">
+            Start a Project ↗
+        </a>
 
-<button class="mobile-toggle" id="mobileToggle">
-☰
-</button>
 
-</div>
+        <button class="mobile-toggle" id="mobileToggle">
+            ☰
+        </button>
 
-<div class="mobile-menu" id="mobileMenu">
+    </div>
 
-<a href="index.html">Home</a>
-<a href="Service.html">Services</a>
-<a href="gallery.html">Gallery</a>
-<a href="blog.html">Blog</a>
-<a href="contact.html">Contact</a>
 
-</div>
+    <div class="mobile-menu" id="mobileMenu">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="Service.html">
+            Services
+        </a>
+
+        <a href="gallery.html">
+            Gallery
+        </a>
+
+        <a href="blog.html">
+            Blog
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </div>
 
 </header>
 
 
+
+<!-- ================================
+     HERO SECTION
+================================= -->
+
 <section class="detail-hero">
 
-<div class="container">
+    <div class="container">
 
-<a href="Service.html" class="back-link">
-← Back to Services
-</a>
+        <a href="Service.html" class="back-link">
+            ← Back to Services
+        </a>
 
-<div class="hero-layout">
 
-<div>
+        <div class="hero-layout">
 
-<div class="eyebrow">
-SERVICE 03
-</div>
+            <div>
 
-<h1>
-Graphic
-<span>Design</span>
-</h1>
+                <div class="eyebrow">
+                    SERVICE 03
+                </div>
 
-<p class="hero-description">
-Visual communication that makes your brand
-recognisable, professional and memorable.
-</p>
 
-<div class="hero-buttons">
+                <h1>
+                    Graphic
+                    <span>Design</span>
+                </h1>
 
-<a href="contact.html" class="primary-button">
-Start a Project ↗
-</a>
 
-<a href="#what-we-do" class="secondary-button">
-Explore Service ↓
-</a>
+                <p class="hero-description">
+                    Visual communication that makes your brand
+                    recognisable, professional and memorable.
+                </p>
 
-</div>
 
-</div>
+                <div class="hero-buttons">
 
-<div class="hero-card">
+                    <a href="contact.html" class="primary-button">
+                        Start a Project ↗
+                    </a>
 
-<div class="hero-icon">◉</div>
+                    <a href="#what-we-do" class="secondary-button">
+                        Explore Service ↓
+                    </a>
 
-<div class="big-word">
-DESIGN
-</div>
+                </div>
 
-<p>
-Strong visuals make
-strong impressions.
-</p>
+            </div>
 
-</div>
 
-</div>
+            <div class="hero-card">
 
-</div>
+                <div class="hero-icon">
+                    ◉
+                </div>
+
+                <div class="big-word">
+                    DESIGN
+                </div>
+
+                <p>
+                    Strong visuals make
+                    strong impressions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
+
+
+<!-- ================================
+     INTRO SECTION
+================================= -->
 
 <section class="intro-section" id="what-we-do">
 
-<div class="container two-column">
+    <div class="container two-column">
 
-<div>
+        <div>
 
-<div class="section-label">
-WHAT WE DO
-</div>
+            <div class="section-label">
+                WHAT WE DO
+            </div>
 
-<h2>
-Make your brand
-<span>stand out.</span>
-</h2>
 
-</div>
+            <h2>
+                Make your brand
+                <span>stand out.</span>
+            </h2>
 
-<div>
+        </div>
 
-<p>
-Design should do more than look beautiful.
-It should communicate your message quickly
-and create a consistent experience.
-</p>
 
-<p>
-We create visual assets that combine clarity,
-creativity and your brand identity.
-</p>
+        <div>
 
-</div>
+            <p>
+                Design should do more than look beautiful.
+                It should communicate your message quickly
+                and create a consistent experience.
+            </p>
 
-</div>
+
+            <p>
+                We create visual assets that combine clarity,
+                creativity and your brand identity.
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
+
+
+<!-- ================================
+     NEW GRAPHIC DESIGN CONTENT
+================================= -->
+
+<section class="visual-section">
+
+    <div class="container visual-grid">
+
+
+        <div class="visual-heading">
+
+            <div class="section-label">
+                VISUAL COMMUNICATION
+            </div>
+
+
+            <h2>
+                Humans are
+                <span>visual creatures.</span>
+            </h2>
+
+
+            <div class="visual-mark">
+                ✦
+            </div>
+
+        </div>
+
+
+
+        <div class="visual-content">
+
+            <p class="visual-intro">
+                Visuals can spark emotion, communicate ideas,
+                and make information easier to understand,
+                all in an instant.
+            </p>
+
+
+            <p>
+                Great design helps people understand, feel,
+                and remember.
+            </p>
+
+
+            <p>
+                And because visual communication can
+                transcend language and cultural barriers,
+                it can make your message more universal.
+            </p>
+
+
+            <p>
+                We create thoughtful, purposeful graphics
+                that bring your brand and content to life.
+            </p>
+
+
+            <p>
+                From social media creatives and infographics
+                to presentations and digital assets, we
+                combine strong visual storytelling with a
+                deep understanding of your brand.
+            </p>
+
+
+            <div class="meaning-message">
+
+                <h3>
+                    Meaning, made visual.
+                </h3>
+
+                <p>
+                    We use visual cues to create strong
+                    impressions and communicate what words
+                    alone sometimes can’t.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     DESIGN SERVICES
+================================= -->
 
 <section class="services-detail">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-heading">
+        <div class="section-heading">
 
-<div class="section-label">
-DESIGN SERVICES
-</div>
+            <div class="section-label">
+                DESIGN SERVICES
+            </div>
 
-<h2>
-Visuals with
-<span>purpose.</span>
-</h2>
 
-</div>
+            <h2>
+                Visuals with
+                <span>purpose.</span>
+            </h2>
 
-<div class="feature-grid">
+        </div>
 
-<div class="feature-card">
-<div class="feature-number">01</div>
-<h3>Brand Graphics</h3>
-<p>
-Visual assets that maintain your
-brand identity across platforms.
-</p>
-</div>
 
-<div class="feature-card">
-<div class="feature-number">02</div>
-<h3>Social Media Design</h3>
-<p>
-Scroll-stopping graphics designed
-for social platforms.
-</p>
-</div>
+        <div class="feature-grid">
 
-<div class="feature-card">
-<div class="feature-number">03</div>
-<h3>Marketing Materials</h3>
-<p>
-Professional graphics for campaigns,
-presentations and promotions.
-</p>
-</div>
 
-<div class="feature-card">
-<div class="feature-number">04</div>
-<h3>Visual Storytelling</h3>
-<p>
-Design concepts that communicate
-ideas clearly and creatively.
-</p>
-</div>
+            <div class="feature-card">
 
-</div>
+                <div class="feature-number">
+                    01
+                </div>
 
-</div>
+                <h3>
+                    Brand Graphics
+                </h3>
+
+                <p>
+                    Visual assets that maintain your
+                    brand identity across platforms.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    02
+                </div>
+
+                <h3>
+                    Social Media Design
+                </h3>
+
+                <p>
+                    Scroll-stopping graphics designed
+                    for social platforms.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    03
+                </div>
+
+                <h3>
+                    Marketing Materials
+                </h3>
+
+                <p>
+                    Professional graphics for campaigns,
+                    presentations and promotions.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    04
+                </div>
+
+                <h3>
+                    Visual Storytelling
+                </h3>
+
+                <p>
+                    Design concepts that communicate
+                    ideas clearly and creatively.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
+
+
+<!-- ================================
+     DESIGN PROCESS
+================================= -->
 
 <section class="process-section">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-heading center">
 
-<div class="section-label">
-DESIGN PROCESS
-</div>
+        <div class="section-heading center">
 
-<h2>
-From concept to
-<span>creation.</span>
-</h2>
+            <div class="section-label">
+                DESIGN PROCESS
+            </div>
 
-</div>
 
-<div class="process-grid">
+            <h2>
+                From concept to
+                <span>creation.</span>
+            </h2>
 
-<div class="process-step">
-<span>01</span>
-<h3>Understand</h3>
-<p>
-We learn about your brand,
-audience and visual direction.
-</p>
-</div>
+        </div>
 
-<div class="process-step">
-<span>02</span>
-<h3>Concept</h3>
-<p>
-We develop creative directions
-for the project.
-</p>
-</div>
 
-<div class="process-step">
-<span>03</span>
-<h3>Design</h3>
-<p>
-We turn the selected direction
-into polished visuals.
-</p>
-</div>
 
-<div class="process-step">
-<span>04</span>
-<h3>Deliver</h3>
-<p>
-Final designs are prepared
-for your required platforms.
-</p>
-</div>
+        <div class="process-grid">
 
-</div>
 
-</div>
+            <div class="process-step">
+
+                <span>
+                    01
+                </span>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+                    We learn about your brand,
+                    audience and visual direction.
+                </p>
+
+            </div>
+
+
+
+            <div class="process-step">
+
+                <span>
+                    02
+                </span>
+
+                <h3>
+                    Concept
+                </h3>
+
+                <p>
+                    We develop creative directions
+                    for the project.
+                </p>
+
+            </div>
+
+
+
+            <div class="process-step">
+
+                <span>
+                    03
+                </span>
+
+                <h3>
+                    Design
+                </h3>
+
+                <p>
+                    We turn the selected direction
+                    into polished visuals.
+                </p>
+
+            </div>
+
+
+
+            <div class="process-step">
+
+                <span>
+                    04
+                </span>
+
+                <h3>
+                    Deliver
+                </h3>
+
+                <p>
+                    Final designs are prepared
+                    for your required platforms.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
+
+
+<!-- ================================
+     CTA SECTION
+================================= -->
 
 <section class="cta-section">
 
-<div class="container">
+    <div class="container">
 
-<div class="cta-box">
+        <div class="cta-box">
 
-<div>
 
-<div class="section-label light">
-LET'S DESIGN
-</div>
+            <div>
 
-<h2>
-Give your ideas
-<span>a visual voice.</span>
-</h2>
+                <div class="section-label light">
+                    LET'S DESIGN
+                </div>
 
-<p>
-Let's create visuals your audience
-will recognise and remember.
-</p>
 
-</div>
+                <h2>
+                    Give your ideas
+                    <span>a visual voice.</span>
+                </h2>
 
-<a href="/Contact.html" class="cta-button">
-Start a Conversation ↗
-</a>
 
-</div>
+                <p>
+                    Let's create visuals your audience
+                    will recognise and remember.
+                </p>
 
-</div>
+            </div>
+
+
+            <a href="/Contact.html" class="cta-button">
+                Start a Conversation ↗
+            </a>
+
+
+        </div>
+
+    </div>
 
 </section>
 
 
+
+<!-- ================================
+     FOOTER
+================================= -->
+
 <footer class="footer">
 
-<div class="container footer-content">
+    <div class="container footer-content">
 
-<div>
 
-<div class="footer-brand">
+        <div>
 
-<div class="brand-mark">H</div>
+            <div class="footer-brand">
 
-<div class="brand-name">
-Hopes<span>Up</span>
-</div>
+                <div class="brand-mark">
+                    H
+                </div>
 
-</div>
+                <div class="brand-name">
+                    Hopes<span>Up</span>
+                </div>
 
-<p>
-Meaningful ideas. Creative content.
-Better possibilities.
-</p>
+            </div>
 
-</div>
 
-<div>
+            <p>
+                Meaningful ideas. Creative content.
+                Better possibilities.
+            </p>
 
-<h4>Services</h4>
+        </div>
 
-<a href="ContentCreation.html">Content Creation</a>
-<a href="ContentMarketing.html">Content Marketing</a>
-<a href="GraphicDesign.html">Graphic Design</a>
-<a href="SEOContent.html">SEO Content</a>
 
-</div>
 
-<div>
+        <div>
 
-<h4>More</h4>
+            <h4>
+                Services
+            </h4>
 
-<a href="EbookWhitePaper.html">Ebook & White Paper</a>
-<a href="Blogging.html">Blogging</a>
-<a href="InfographicCopy.html">Infographic Copy</a>
-<a href="Newsletter.html">Newsletter</a>
+            <a href="ContentCreation.html">
+                Content Creation
+            </a>
 
-</div>
+            <a href="ContentMarketing.html">
+                Content Marketing
+            </a>
 
-</div>
+            <a href="GraphicDesign.html">
+                Graphic Design
+            </a>
 
-<div class="container copyright">
-© 2026 Hopes Up. All rights reserved.
-</div>
+            <a href="SEOContent.html">
+                SEO Content
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h4>
+                More
+            </h4>
+
+            <a href="EbookWhitePaper.html">
+                Ebook & White Paper
+            </a>
+
+            <a href="Blogging.html">
+                Blogging
+            </a>
+
+            <a href="InfographicCopy.html">
+                Infographic Copy
+            </a>
+
+            <a href="Newsletter.html">
+                Newsletter
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="container copyright">
+
+        © 2026 Hopes Up. All rights reserved.
+
+    </div>
 
 </footer>
 
 
+
+<!-- ================================
+     MOBILE MENU SCRIPT
+================================= -->
+
 <script>
 
-document
-.getElementById("mobileToggle")
-.addEventListener("click", () => {
+    document
+        .getElementById("mobileToggle")
+        .addEventListener("click", () => {
 
-document
-.getElementById("mobileMenu")
-.classList.toggle("show");
+            document
+                .getElementById("mobileMenu")
+                .classList.toggle("show");
 
-});
+        });
 
 </script>
 
+
 </body>
+
 </html>

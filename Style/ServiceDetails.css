@@ -131,6 +131,276 @@ a {
     text-transform: uppercase;
 }
 
+/* ================= WRITING IS THINKING ================= */
+
+.writing-section {
+    padding: 110px 0;
+    background: #f7f4ee;
+}
+
+.writing-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 90px;
+    align-items: start;
+}
+
+.writing-heading {
+    position: sticky;
+    top: 120px;
+}
+
+.writing-heading h2 {
+    margin-top: 20px;
+    max-width: 500px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(46px, 5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: #302a26;
+}
+
+.writing-heading h2 span {
+    display: block;
+    color: #8a9b63;
+}
+
+.writing-mark {
+    margin-top: 35px;
+    font-size: 30px;
+    color: #8a9b63;
+}
+
+.writing-content {
+    max-width: 760px;
+}
+
+.writing-content p {
+    margin: 0 0 27px;
+    color: #5b544e;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.85;
+}
+
+.writing-content .writing-intro {
+    color: #302a26;
+    font-size: 23px;
+    line-height: 1.7;
+    font-weight: 500;
+    margin-bottom: 32px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .writing-section {
+        padding: 80px 0;
+    }
+
+    .writing-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .writing-heading {
+        position: static;
+    }
+
+    .writing-heading h2 {
+        max-width: 650px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .writing-section {
+        padding: 65px 0;
+    }
+
+    .writing-grid {
+        gap: 30px;
+    }
+
+    .writing-heading h2 {
+        font-size: 44px;
+        letter-spacing: -1px;
+    }
+
+    .writing-content p {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    .writing-content .writing-intro {
+        font-size: 20px;
+        line-height: 1.65;
+    }
+
+}
+
+
+/* Content Marketing */
+
+/* =====================================================
+   CONTENT BUILT TO BE SEEN
+===================================================== */
+
+.visibility-section {
+    padding: 110px 0;
+    background: #f7f4ee;
+}
+
+.visibility-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 90px;
+    align-items: start;
+}
+
+.visibility-heading {
+    position: sticky;
+    top: 120px;
+}
+
+.visibility-heading h2 {
+    margin-top: 20px;
+    max-width: 500px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(46px, 5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: #302a26;
+}
+
+.visibility-heading h2 span {
+    display: block;
+    color: #8a9b63;
+}
+
+.visibility-mark {
+    margin-top: 35px;
+    font-size: 30px;
+    color: #8a9b63;
+}
+
+.visibility-content {
+    max-width: 760px;
+}
+
+.visibility-content p {
+    margin: 0 0 27px;
+    color: #5b544e;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.85;
+}
+
+.visibility-content .visibility-intro {
+    color: #302a26;
+    font-size: 24px;
+    line-height: 1.65;
+    font-weight: 500;
+    margin-bottom: 32px;
+}
+
+
+/* =====================================================
+   DEMAND MESSAGE
+===================================================== */
+
+.demand-message {
+    margin: 45px 0;
+    padding: 35px 40px;
+    border-left: 4px solid #8a9b63;
+    background: #ffffff;
+    box-shadow: 0 15px 40px rgba(48, 42, 38, 0.06);
+}
+
+.demand-message h3 {
+    margin: 0 0 8px;
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #302a26;
+}
+
+.demand-message p {
+    margin: 0;
+    font-size: 17px;
+    color: #6b625b;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .visibility-section {
+        padding: 80px 0;
+    }
+
+    .visibility-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .visibility-heading {
+        position: static;
+    }
+
+    .visibility-heading h2 {
+        max-width: 650px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .visibility-section {
+        padding: 65px 0;
+    }
+
+    .visibility-grid {
+        gap: 30px;
+    }
+
+    .visibility-heading h2 {
+        font-size: 44px;
+        letter-spacing: -1px;
+    }
+
+    .visibility-content p {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    .visibility-content .visibility-intro {
+        font-size: 20px;
+        line-height: 1.65;
+    }
+
+    .demand-message {
+        margin: 35px 0;
+        padding: 28px 25px;
+    }
+
+    .demand-message h3 {
+        font-size: 25px;
+    }
+
+    .demand-message p {
+        font-size: 16px;
+    }
+
+}
 .desktop-nav {
     display: flex;
     gap: 32px;

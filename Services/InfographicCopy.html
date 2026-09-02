@@ -12,9 +12,160 @@
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
+<style>
+
+/* =========================================
+   INFOGRAPHIC COPY CONTENT SECTION
+========================================= */
+
+.infographic-content-section {
+    padding: 110px 0;
+    background: #f7f4ee;
+}
+
+.infographic-content-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 90px;
+    align-items: start;
+}
+
+.infographic-content-heading {
+    position: sticky;
+    top: 120px;
+}
+
+.infographic-content-heading h2 {
+    margin-top: 20px;
+    max-width: 520px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(46px, 5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: #302a26;
+}
+
+.infographic-content-heading h2 span {
+    display: block;
+    color: #8a9b63;
+}
+
+.infographic-content-mark {
+    margin-top: 35px;
+    font-size: 30px;
+    color: #8a9b63;
+}
+
+.infographic-content-body {
+    max-width: 760px;
+}
+
+.infographic-content-body p {
+    margin: 0 0 27px;
+    color: #5b544e;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.85;
+}
+
+.infographic-content-body .infographic-intro {
+    color: #302a26;
+    font-size: 24px;
+    line-height: 1.65;
+    font-weight: 500;
+    margin-bottom: 32px;
+}
+
+.simplify-message {
+    margin: 45px 0;
+    padding: 35px 40px;
+    border-left: 4px solid #8a9b63;
+    background: #ffffff;
+    box-shadow: 0 15px 40px rgba(48, 42, 38, 0.06);
+}
+
+.simplify-message h3 {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    line-height: 1.25;
+    color: #302a26;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .infographic-content-section {
+        padding: 80px 0;
+    }
+
+    .infographic-content-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .infographic-content-heading {
+        position: static;
+    }
+
+    .infographic-content-heading h2 {
+        max-width: 650px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .infographic-content-section {
+        padding: 65px 0;
+    }
+
+    .infographic-content-grid {
+        gap: 30px;
+    }
+
+    .infographic-content-heading h2 {
+        font-size: 44px;
+        letter-spacing: -1px;
+    }
+
+    .infographic-content-body p {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    .infographic-content-body .infographic-intro {
+        font-size: 20px;
+        line-height: 1.65;
+    }
+
+    .simplify-message {
+        margin: 35px 0;
+        padding: 28px 25px;
+    }
+
+    .simplify-message h3 {
+        font-size: 25px;
+    }
+
+}
+
+</style>
+
 </head>
 
+
 <body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
 
 <header class="site-header">
 
@@ -38,36 +189,73 @@ Growth • Mindset • Life
 
 </a>
 
+
 <nav class="desktop-nav">
 
 <a href="index.html">Home</a>
-<a href="Service.html" class="active">Services</a>
-<a href="gallery.html">Gallery</a>
-<a href="Blogging.html">Blog</a>
-<a href="/Contact.html">Contact</a>
+
+<a href="Service.html" class="active">
+Services
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+<a href="Blogging.html">
+Blog
+</a>
+
+<a href="/Contact.html">
+Contact
+</a>
 
 </nav>
+
 
 <a href="/Contact.html" class="nav-button">
 Start a Project ↗
 </a>
 
-<button class="mobile-toggle" id="mobileToggle">☰</button>
+
+<button class="mobile-toggle" id="mobileToggle">
+☰
+</button>
 
 </div>
 
+
 <div class="mobile-menu" id="mobileMenu">
 
-<a href="index.html">Home</a>
-<a href="Service.html">Services</a>
-<a href="gallery.html">Gallery</a>
-<a href="/Blogging.html">Blog</a>
-<a href="/Contact.html">Contact</a>
+<a href="index.html">
+Home
+</a>
+
+<a href="Service.html">
+Services
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+<a href="/Blogging.html">
+Blog
+</a>
+
+<a href="/Contact.html">
+Contact
+</a>
 
 </div>
 
 </header>
 
+
+
+<!-- =========================================
+     HERO SECTION
+========================================= -->
 
 <section class="detail-hero">
 
@@ -77,7 +265,9 @@ Start a Project ↗
 ← Back to Services
 </a>
 
+
 <div class="hero-layout">
+
 
 <div>
 
@@ -85,21 +275,25 @@ Start a Project ↗
 SERVICE 07
 </div>
 
+
 <h1>
 Infographic
 <span>Copy</span>
 </h1>
+
 
 <p class="hero-description">
 Concise and powerful copy that transforms
 complex information into clear visual stories.
 </p>
 
+
 <div class="hero-buttons">
 
 <a href="/Contact.html" class="primary-button">
 Start a Project ↗
 </a>
+
 
 <a href="#what-we-do" class="secondary-button">
 Explore Service ↓
@@ -109,9 +303,13 @@ Explore Service ↓
 
 </div>
 
+
+
 <div class="hero-card">
 
-<div class="hero-icon">⊙</div>
+<div class="hero-icon">
+⊙
+</div>
 
 <div class="big-word">
 SIMPLIFY
@@ -124,6 +322,7 @@ Clear communication.
 
 </div>
 
+
 </div>
 
 </div>
@@ -131,9 +330,15 @@ Clear communication.
 </section>
 
 
+
+<!-- =========================================
+     INTRO SECTION
+========================================= -->
+
 <section class="intro-section" id="what-we-do">
 
 <div class="container two-column">
+
 
 <div>
 
@@ -141,12 +346,15 @@ Clear communication.
 WHAT WE DO
 </div>
 
+
 <h2>
 Make complex
 <span>ideas simple.</span>
 </h2>
 
 </div>
+
+
 
 <div>
 
@@ -156,10 +364,86 @@ statistic and supporting line needs to communicate
 quickly.
 </p>
 
+
 <p>
 We transform information into structured,
 easy-to-understand copy that works with visual design.
 </p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     NEW INFOGRAPHIC CONTENT SECTION
+========================================= -->
+
+<section class="infographic-content-section">
+
+<div class="container infographic-content-grid">
+
+
+<div class="infographic-content-heading">
+
+<div class="section-label">
+SIMPLIFYING COMPLEXITY
+</div>
+
+
+<h2>
+Making complex ideas
+<span>simple.</span>
+</h2>
+
+
+<div class="infographic-content-mark">
+✦
+</div>
+
+</div>
+
+
+
+<div class="infographic-content-body">
+
+
+<p class="infographic-intro">
+Making complex ideas simple is an underrated art.
+</p>
+
+
+<p>
+The challenge isn’t just making information easier
+to understand. It’s making it easier to remember,
+share, and act on.
+</p>
+
+
+<p>
+We turn complex data, processes, insights, and
+statistics into compelling narratives that go beyond
+aesthetics.
+</p>
+
+
+<p>
+Every word, visual, and idea has a purpose.
+</p>
+
+
+<div class="simplify-message">
+
+<h3>
+Good communication simplifies without losing meaning.
+</h3>
+
+</div>
+
 
 </div>
 
@@ -168,15 +452,22 @@ easy-to-understand copy that works with visual design.
 </section>
 
 
+
+<!-- =========================================
+     SERVICES SECTION
+========================================= -->
+
 <section class="services-detail">
 
 <div class="container">
+
 
 <div class="section-heading">
 
 <div class="section-label">
 WHAT WE CREATE
 </div>
+
 
 <h2>
 Words that work
@@ -185,43 +476,85 @@ Words that work
 
 </div>
 
+
+
 <div class="feature-grid">
 
+
 <div class="feature-card">
-<div class="feature-number">01</div>
-<h3>Research Copy</h3>
+
+<div class="feature-number">
+01
+</div>
+
+<h3>
+Research Copy
+</h3>
+
 <p>
 Research-backed information
 for credible visual content.
 </p>
+
 </div>
 
+
+
 <div class="feature-card">
-<div class="feature-number">02</div>
-<h3>Headlines</h3>
+
+<div class="feature-number">
+02
+</div>
+
+<h3>
+Headlines
+</h3>
+
 <p>
 Short and powerful headlines
 that communicate the main idea.
 </p>
+
 </div>
 
+
+
 <div class="feature-card">
-<div class="feature-number">03</div>
-<h3>Data Storytelling</h3>
+
+<div class="feature-number">
+03
+</div>
+
+<h3>
+Data Storytelling
+</h3>
+
 <p>
 Turn numbers and information
 into an understandable story.
 </p>
+
 </div>
 
+
+
 <div class="feature-card">
-<div class="feature-number">04</div>
-<h3>Visual Structure</h3>
+
+<div class="feature-number">
+04
+</div>
+
+<h3>
+Visual Structure
+</h3>
+
 <p>
 Copy organised to work naturally
 with the infographic layout.
 </p>
+
 </div>
+
 
 </div>
 
@@ -230,15 +563,22 @@ with the infographic layout.
 </section>
 
 
+
+<!-- =========================================
+     PROCESS SECTION
+========================================= -->
+
 <section class="process-section">
 
 <div class="container">
+
 
 <div class="section-heading center">
 
 <div class="section-label">
 OUR PROCESS
 </div>
+
 
 <h2>
 Information to
@@ -247,43 +587,85 @@ Information to
 
 </div>
 
+
+
 <div class="process-grid">
 
+
 <div class="process-step">
-<span>01</span>
-<h3>Collect</h3>
+
+<span>
+01
+</span>
+
+<h3>
+Collect
+</h3>
+
 <p>
 Gather information, research
 and important data.
 </p>
+
 </div>
 
+
+
 <div class="process-step">
-<span>02</span>
-<h3>Organise</h3>
+
+<span>
+02
+</span>
+
+<h3>
+Organise
+</h3>
+
 <p>
 Find the clearest structure
 for the information.
 </p>
+
 </div>
 
+
+
 <div class="process-step">
-<span>03</span>
-<h3>Write</h3>
+
+<span>
+03
+</span>
+
+<h3>
+Write
+</h3>
+
 <p>
 Create concise copy that
 supports the visual story.
 </p>
+
 </div>
 
+
+
 <div class="process-step">
-<span>04</span>
-<h3>Refine</h3>
+
+<span>
+04
+</span>
+
+<h3>
+Refine
+</h3>
+
 <p>
 Edit every line for maximum
 clarity and impact.
 </p>
+
 </div>
+
 
 </div>
 
@@ -292,11 +674,18 @@ clarity and impact.
 </section>
 
 
+
+<!-- =========================================
+     CTA SECTION
+========================================= -->
+
 <section class="cta-section">
 
 <div class="container">
 
+
 <div class="cta-box">
+
 
 <div>
 
@@ -304,10 +693,12 @@ clarity and impact.
 HAVE COMPLEX INFORMATION?
 </div>
 
+
 <h2>
 Let's make it
 <span>easy to understand.</span>
 </h2>
+
 
 <p>
 Turn your research and data
@@ -316,9 +707,12 @@ into a clear visual story.
 
 </div>
 
+
+
 <a href="/Contact.html" class="cta-button">
 Start a Conversation ↗
 </a>
+
 
 </div>
 
@@ -327,21 +721,30 @@ Start a Conversation ↗
 </section>
 
 
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
 <footer class="footer">
 
 <div class="container footer-content">
+
 
 <div>
 
 <div class="footer-brand">
 
-<div class="brand-mark">H</div>
+<div class="brand-mark">
+H
+</div>
 
 <div class="brand-name">
 Hopes<span>Up</span>
 </div>
 
 </div>
+
 
 <p>
 Meaningful ideas. Creative content.
@@ -350,36 +753,75 @@ Better possibilities.
 
 </div>
 
-<div>
 
-<h4>Services</h4>
-
-<a href="ContentCreation.html">Content Creation</a>
-<a href="ContentMarketing.html">Content Marketing</a>
-<a href="GraphicDesign.html">Graphic Design</a>
-<a href="SEOContent.html">SEO Content</a>
-
-</div>
 
 <div>
 
-<h4>More</h4>
+<h4>
+Services
+</h4>
 
-<a href="EbookWhitePaper.html">Ebook & White Paper</a>
-<a href="Blogging.html">Blogging</a>
-<a href="InfographicCopy.html">Infographic Copy</a>
-<a href="Newsletter.html">Newsletter</a>
+<a href="ContentCreation.html">
+Content Creation
+</a>
+
+<a href="ContentMarketing.html">
+Content Marketing
+</a>
+
+<a href="GraphicDesign.html">
+Graphic Design
+</a>
+
+<a href="SEOContent.html">
+SEO Content
+</a>
 
 </div>
 
+
+
+<div>
+
+<h4>
+More
+</h4>
+
+<a href="EbookWhitePaper.html">
+Ebook & White Paper
+</a>
+
+<a href="Blogging.html">
+Blogging
+</a>
+
+<a href="InfographicCopy.html">
+Infographic Copy
+</a>
+
+<a href="Newsletter.html">
+Newsletter
+</a>
+
 </div>
+
+
+</div>
+
 
 <div class="container copyright">
+
 © 2026 Hopes Up. All rights reserved.
+
 </div>
 
 </footer>
 
+
+
+<!-- =========================================
+     MOBILE MENU SCRIPT
+========================================= -->
 
 <script>
 
@@ -395,5 +837,7 @@ document
 
 </script>
 
+
 </body>
+
 </html>
