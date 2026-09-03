@@ -9,22 +9,16 @@
    ========================================================= */
 
 :root {
-    --header-bg: rgba(250, 248, 243, 0.96);
-
+    --header-bg: rgba(250, 248, 243, 0.97);
     --header-white: #fffdf9;
-
     --header-ink: #241f19;
     --header-text: #4d463f;
     --header-muted: #8b8178;
-
     --header-amber: #c8791f;
     --header-orange: #e45b35;
-
     --header-teal: #124d50;
     --header-teal-dark: #07595d;
-
     --header-mega-bg: #e7f4f3;
-
     --header-border: rgba(36, 31, 25, 0.09);
 
     --header-shadow:
@@ -43,6 +37,12 @@
         Georgia,
         serif;
 }
+
+
+/* =========================================================
+   HERO STAMP
+   ========================================================= */
+
 .hero-figure {
     position: relative;
 }
@@ -63,10 +63,63 @@
     display: block;
 }
 
+/* =========================================================
+   MOBILE HERO STAMP — FULLY VISIBLE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .hero-figure {
+        position: relative;
+        overflow: visible;
+    }
+
+    .hero-stamp {
+        position: absolute;
+
+        /* Keep the complete circle inside the screen */
+        left: 8px;
+        right: auto;
+
+        /* Adjust vertical position */
+        top: 155px;
+
+        /* Smaller and cleaner on phone */
+        width: 95px;
+        height: 95px;
+
+        z-index: 10;
+
+        pointer-events: none;
+    }
+
+    .hero-stamp svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        overflow: visible;
+    }
+}
+
 
 /* =========================================================
-   SERVICES TEXT SIZE ONLY
-========================================================= */
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .hero-stamp {
+        left: 5px;
+        top: 145px;
+
+        width: 82px;
+        height: 82px;
+    }
+}
+
+/* =========================================================
+   SERVICES TEXT
+   ========================================================= */
 
 .mega-column > a {
     font-size: 16px;
@@ -104,13 +157,11 @@
 .site-header {
     position: sticky;
     top: 0;
-
     z-index: 9999;
 
     height: 64px;
 
     background: var(--header-bg);
-
     border-bottom: 1px solid var(--header-border);
 
     backdrop-filter: blur(14px);
@@ -125,8 +176,7 @@
    ========================================================= */
 
 .site-header .container {
-    width: min(1180px, calc(100% - 40px));
-
+    width: min(1160px, calc(100% - 36px));
     height: 64px;
 
     margin: 0 auto;
@@ -142,8 +192,7 @@
 
 .site-header .nav {
     justify-content: space-between;
-
-    gap: 24px;
+    gap: 20px;
 }
 
 
@@ -153,17 +202,14 @@
 
 .brand-logo {
     display: inline-flex;
-
     align-items: center;
-
     gap: 8px;
 
     flex-shrink: 0;
 
     color: var(--header-ink);
 
-    transition:
-        transform 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .brand-logo:hover {
@@ -191,14 +237,11 @@
 
     overflow: visible;
 
-    transition:
-        transform 0.45s ease;
+    transition: transform 0.45s ease;
 }
 
 .brand-logo:hover .logo-symbol svg {
-    transform:
-        rotate(15deg)
-        scale(1.05);
+    transform: rotate(15deg) scale(1.05);
 }
 
 
@@ -206,11 +249,8 @@
 
 .logo-orbit {
     fill: none;
-
     stroke: var(--header-ink);
-
     stroke-width: 1.4;
-
     opacity: 0.55;
 }
 
@@ -219,9 +259,7 @@
 
 .logo-sun {
     fill: var(--header-amber);
-
     stroke: var(--header-ink);
-
     stroke-width: 1.2;
 }
 
@@ -230,11 +268,8 @@
 
 .logo-rays {
     fill: none;
-
     stroke: var(--header-amber);
-
     stroke-width: 1.6;
-
     stroke-linecap: round;
 }
 
@@ -245,35 +280,26 @@
 
 .brand-text {
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     line-height: 1;
 }
 
 .brand-name {
     font-family: var(--header-display);
-
     font-size: 19px;
-
     font-weight: 600;
-
     letter-spacing: -0.7px;
-
     white-space: nowrap;
 }
 
 .brand-name span {
     color: #8b5422;
-
     font-weight: 500;
 }
 
 .brand-name strong {
     color: var(--header-amber);
-
     font-weight: 700;
 }
 
@@ -286,11 +312,8 @@
     color: var(--header-muted);
 
     font-family: var(--header-font);
-
     font-size: 6px;
-
     font-weight: 700;
-
     letter-spacing: 1.8px;
 
     text-transform: uppercase;
@@ -303,11 +326,9 @@
 
 .desktop-nav {
     display: flex;
-
     align-items: center;
 
     gap: 3px;
-
     margin-left: auto;
 
     height: 64px;
@@ -321,13 +342,10 @@
     position: relative;
 
     display: inline-flex;
-
     align-items: center;
-
     gap: 5px;
 
     height: 36px;
-
     padding: 0 12px;
 
     border-radius: 7px;
@@ -335,7 +353,6 @@
     color: var(--header-text);
 
     font-size: 13px;
-
     font-weight: 500;
 
     white-space: nowrap;
@@ -352,8 +369,7 @@
 .mega-trigger:hover {
     color: var(--header-amber);
 
-    background:
-        rgba(200, 121, 31, 0.07);
+    background: rgba(200, 121, 31, 0.07);
 }
 
 
@@ -367,7 +383,6 @@
     height: 64px;
 
     display: flex;
-
     align-items: center;
 }
 
@@ -380,7 +395,6 @@
     color: #a58c72;
 
     font-size: 11px;
-
     line-height: 1;
 
     transition:
@@ -390,7 +404,6 @@
 
 .nav-mega:hover .mega-arrow {
     color: var(--header-amber);
-
     transform: rotate(180deg);
 }
 
@@ -403,28 +416,21 @@
     position: absolute;
 
     top: 58px;
-
     left: 50%;
 
-    width: min(
-        920px,
-        calc(100vw - 40px)
-    );
+    width: min(880px, calc(100vw - 32px));
 
     transform:
         translateX(-50%)
         translateY(8px);
 
     opacity: 0;
-
     visibility: hidden;
-
     pointer-events: none;
 
     background: var(--header-white);
 
     border: 1px solid var(--header-border);
-
     border-radius: 16px;
 
     box-shadow: var(--header-shadow);
@@ -438,7 +444,7 @@
 }
 
 
-/* Invisible bridge prevents popup disappearing */
+/* Invisible bridge */
 
 .mega-menu::before {
     content: "";
@@ -446,11 +452,9 @@
     position: absolute;
 
     top: -14px;
-
     left: 0;
 
     width: 100%;
-
     height: 15px;
 }
 
@@ -460,9 +464,7 @@
 .nav-mega:hover .mega-menu,
 .nav-mega:focus-within .mega-menu {
     opacity: 1;
-
     visibility: visible;
-
     pointer-events: auto;
 
     transform:
@@ -478,9 +480,9 @@
 .mega-container {
     display: grid;
 
-    grid-template-columns: 290px 1fr;
+    grid-template-columns: 260px 1fr;
 
-    min-height: 260px;
+    min-height: 245px;
 }
 
 
@@ -493,13 +495,13 @@
 
     display: grid;
 
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 42% 58%;
 
     align-items: center;
 
-    gap: 16px;
+    gap: 13px;
 
-    padding: 24px;
+    padding: 20px;
 
     overflow: hidden;
 
@@ -519,11 +521,11 @@
 
     position: absolute;
 
-    width: 170px;
-    height: 170px;
+    width: 160px;
+    height: 160px;
 
-    left: -90px;
-    bottom: -100px;
+    left: -85px;
+    bottom: -95px;
 
     border:
         1px solid
@@ -534,7 +536,7 @@
 
 
 /* =========================================================
-   PROMO IMAGE
+   PROMO IMAGE — SMALLER
    ========================================================= */
 
 .promo-image {
@@ -542,23 +544,27 @@
 
     z-index: 1;
 
-    width: 100%;
+    width: 92%;
+    max-width: 125px;
+
+    justify-self: center;
 }
 
 .promo-image img {
-    width: 100%;
+    display: block;
 
-    height: 125px;
+    width: 100%;
+    height: 105px;
 
     object-fit: cover;
 
-    border-radius: 5px;
+    border-radius: 6px;
 
     transform: rotate(-4deg);
 
     box-shadow:
-        0 12px 25px
-        rgba(36, 31, 25, 0.15);
+        0 10px 22px
+        rgba(36, 31, 25, 0.14);
 
     transition:
         transform 0.45s ease;
@@ -586,6 +592,8 @@
             transparent,
             rgba(36, 31, 25, 0.18)
         );
+
+    border-radius: 6px;
 }
 
 
@@ -594,10 +602,10 @@
 .promo-badge {
     position: absolute;
 
-    top: 7px;
-    left: 7px;
+    top: 6px;
+    left: 6px;
 
-    padding: 4px 7px;
+    padding: 4px 6px;
 
     color: white;
 
@@ -607,10 +615,8 @@
     border-radius: 20px;
 
     font-size: 6px;
-
     font-weight: 700;
-
-    letter-spacing: 1.2px;
+    letter-spacing: 1.1px;
 }
 
 
@@ -620,47 +626,42 @@
 
 .promo-content {
     position: relative;
-
     z-index: 2;
 }
 
 .promo-small {
     display: block;
 
-    margin-bottom: 7px;
+    margin-bottom: 6px;
 
     color: var(--header-teal-dark);
 
     font-size: 8px;
-
     font-weight: 700;
-
-    letter-spacing: 1.6px;
+    letter-spacing: 1.5px;
 }
 
 .promo-content h3 {
-    margin: 0 0 9px;
+    margin: 0 0 8px;
 
     color: var(--header-ink);
 
     font-family: var(--header-display);
 
-    font-size: 22px;
-
+    font-size: 20px;
     line-height: 1.05;
 
     letter-spacing: -0.5px;
 }
 
 .promo-content p {
-    max-width: 23ch;
+    max-width: 22ch;
 
-    margin: 0 0 14px;
+    margin: 0 0 12px;
 
     color: #526b6b;
 
-    font-size: 10px;
-
+    font-size: 9px;
     line-height: 1.5;
 }
 
@@ -669,18 +670,16 @@
 
 .promo-link {
     display: inline-flex;
-
     align-items: center;
 
-    gap: 6px;
+    gap: 5px;
 
     color: var(--header-teal);
 
-    font-size: 9px;
-
+    font-size: 8px;
     font-weight: 700;
 
-    letter-spacing: 1px;
+    letter-spacing: 0.9px;
 
     text-transform: uppercase;
 }
@@ -688,7 +687,7 @@
 .promo-link span {
     color: var(--header-orange);
 
-    font-size: 16px;
+    font-size: 15px;
 
     transition:
         transform 0.2s ease;
@@ -705,57 +704,85 @@
 
 .mega-services {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-    padding: 30px 28px;
+
+    gap: 18px;
+
+    padding: 26px 24px;
 }
+
 
 /* =========================================================
    SERVICE COLUMN
-========================================================= */
+   ========================================================= */
 
 .mega-column {
     display: flex;
+
     flex-direction: column;
+
     align-items: flex-start;
 }
 
+
 /* Column heading */
+
 .mega-heading {
     display: block;
-    margin-bottom: 10px;
+
+    margin-bottom: 8px;
+
     color: var(--header-teal-dark);
-    font-size: 10px;
+
+    font-size: 9px;
     font-weight: 700;
-    letter-spacing: 1.7px;
+
+    letter-spacing: 1.5px;
 }
 
+
 /* Service links */
+
 .mega-column a {
     position: relative;
+
     display: flex;
     align-items: center;
-    gap: 8px;
+
+    gap: 7px;
+
     width: 100%;
-    padding: 8px 5px;
+
+    padding: 7px 5px;
+
     margin-left: -5px;
+
     border-radius: 6px;
+
     color: var(--header-teal);
-    font-size: 15px;
-    line-height: 1.4;
+
+    font-size: 14px;
+    line-height: 1.35;
+
     transition:
         color 0.2s ease,
         background 0.2s ease,
         transform 0.2s ease;
 }
 
+
 /* Number */
+
 .mega-column a span {
-    min-width: 20px;
+    min-width: 19px;
+
     color: #a99b8e;
-    font-size: 10px;
+
+    font-size: 9px;
     font-weight: 600;
 }
+
 
 /* Hover */
 
@@ -779,9 +806,9 @@
 
     align-items: center;
 
-    gap: 10px;
+    gap: 8px;
 
-    margin-left: 12px;
+    margin-left: 8px;
 
     flex-shrink: 0;
 }
@@ -795,7 +822,6 @@
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 7px;
@@ -811,7 +837,6 @@
     border-radius: 7px;
 
     font-size: 10px;
-
     font-weight: 600;
 
     white-space: nowrap;
@@ -825,7 +850,8 @@
 .header-cta:hover {
     background: var(--header-amber);
 
-    transform: translateY(-1px);
+    transform:
+        translateY(-1px);
 
     box-shadow:
         0 6px 18px
@@ -844,8 +870,8 @@
 .menu-button {
     display: none;
 
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
 
     padding: 7px;
 
@@ -853,11 +879,25 @@
         1px solid
         rgba(36, 31, 25, 0.12);
 
-    border-radius: 7px;
+    border-radius: 9px;
 
-    background: transparent;
+    background: rgba(255, 255, 255, 0.65);
 
     cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.menu-button:hover {
+    background: #fffdf9;
+
+    border-color:
+        rgba(200, 121, 31, 0.25);
+
+    transform: translateY(-1px);
 }
 
 
@@ -867,7 +907,6 @@
     display: block;
 
     width: 18px;
-
     height: 1.5px;
 
     margin: 4px auto;
@@ -889,7 +928,6 @@
     position: absolute;
 
     top: 64px;
-
     left: 0;
     right: 0;
 
@@ -897,9 +935,10 @@
 
     overflow: hidden;
 
-    padding: 0 20px;
+    padding: 0 18px;
 
-    background: var(--header-white);
+    background:
+        rgba(255, 253, 249, 0.98);
 
     border-top:
         1px solid transparent;
@@ -918,36 +957,43 @@
 /* Open */
 
 .mobile-menu.show {
-    max-height: 800px;
+    max-height: 850px;
 
-    padding-top: 10px;
-    padding-bottom: 18px;
+    padding-top: 12px;
+    padding-bottom: 20px;
 
     border-top-color:
         var(--header-border);
 }
 
 
-/* Mobile main links */
+/* =========================================================
+   MOBILE MAIN LINKS
+   ========================================================= */
 
 .mobile-menu > a {
     display: block;
 
-    padding: 12px 4px;
+    padding: 13px 6px;
 
     color: var(--header-text);
 
-    font-size: 14px;
-
+    font-size: 15px;
     font-weight: 500;
 
     border-bottom:
         1px solid
         rgba(36, 31, 25, 0.07);
+
+    transition:
+        color 0.2s ease,
+        padding-left 0.2s ease;
 }
 
 .mobile-menu > a:hover {
     color: var(--header-amber);
+
+    padding-left: 10px;
 }
 
 
@@ -968,12 +1014,10 @@
     width: 100%;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    padding: 12px 4px;
+    padding: 13px 6px;
 
     border: 0;
 
@@ -983,13 +1027,15 @@
 
     font-family: inherit;
 
-    font-size: 14px;
-
+    font-size: 15px;
     font-weight: 500;
 
     text-align: left;
 
     cursor: pointer;
+
+    transition:
+        color 0.2s ease;
 }
 
 .mobile-approach-btn:hover {
@@ -1000,21 +1046,33 @@
 /* Plus */
 
 .mobile-plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+    height: 26px;
+
     color: var(--header-amber);
 
-    font-size: 20px;
-
+    font-size: 19px;
     line-height: 1;
 
+    border-radius: 50%;
+
     transition:
-        transform 0.25s ease;
+        transform 0.25s ease,
+        background 0.25s ease;
 }
 
 
-/* Rotate when open */
+/* Rotate */
 
 .mobile-approach.open .mobile-plus {
     transform: rotate(45deg);
+
+    background:
+        rgba(200, 121, 31, 0.08);
 }
 
 
@@ -1031,38 +1089,46 @@
 
     overflow: hidden;
 
-    background: #edf6f5;
+    background:
+        #edf6f5;
 
-    border-radius: 7px;
+    border-radius: 9px;
 
     transition:
-        max-height 0.3s ease;
+        max-height 0.3s ease,
+        margin 0.3s ease;
 }
 
 
 /* Show services */
 
 .mobile-services.show {
-    max-height: 650px;
+    max-height: 700px;
 
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 }
 
 
 /* Service links */
 
 .mobile-services a {
-    display: block;
+    display: flex;
+    align-items: center;
 
-    padding: 9px 14px;
+    padding: 10px 14px;
 
     color: var(--header-teal);
 
-    font-size: 12px;
+    font-size: 14px;
 
     border-bottom:
         1px solid
         rgba(18, 77, 80, 0.07);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        padding-left 0.2s ease;
 }
 
 .mobile-services a:last-child {
@@ -1073,7 +1139,9 @@
     color: var(--header-orange);
 
     background:
-        rgba(255, 255, 255, 0.5);
+        rgba(255, 255, 255, 0.55);
+
+    padding-left: 18px;
 }
 
 
@@ -1083,23 +1151,33 @@
 
 .mobile-menu .mobile-cta {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
     margin-top: 18px;
-    padding: 15px 18px;
 
-    color: #211713;
-    background: linear-gradient(135deg, #e5b65d, #f1c56e);
+    padding: 14px 16px;
 
-    border: 1px solid rgba(229, 182, 93, 0.4);
-    border-radius: 10px;
+    color: #000000;
+
+    background:
+        #fff5f5;
+
+    border:
+        1px solid
+        #f0dada;
+
+    border-radius: 11px;
 
     font-size: 14px;
     font-weight: 700;
+
     letter-spacing: 0.2px;
 
-    box-shadow: 0 8px 20px rgba(229, 182, 93, 0.18);
+    box-shadow:
+        0 8px 20px
+        rgba(120, 40, 40, 0.08);
 
     transition:
         background 0.3s ease,
@@ -1108,25 +1186,39 @@
         box-shadow 0.3s ease;
 }
 
+
+/* CTA Hover */
+
 .mobile-menu .mobile-cta:hover {
-    color: #211713;
-    background: #f7d487;
+    color: #000000;
 
-    transform: translateY(-2px);
+    background:
+        #ffecec;
 
-    box-shadow: 0 12px 28px rgba(229, 182, 93, 0.28);
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(120, 40, 40, 0.15);
 }
+
+
+/* CTA Arrow */
 
 .mobile-cta span {
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     width: 30px;
     height: 30px;
 
-    color: #211713;
-    background: rgba(255, 255, 255, 0.35);
+    color: #000000;
+
+    background:
+        #ffffff;
 
     border-radius: 50%;
 
@@ -1138,10 +1230,17 @@
         background 0.3s ease;
 }
 
+
+/* CTA Arrow Hover */
+
 .mobile-menu .mobile-cta:hover span {
-    transform: translateX(4px);
-    background: rgba(255, 255, 255, 0.55);
+    transform:
+        translateX(4px);
+
+    background:
+        #ffffff;
 }
+
 
 /* =========================================================
    TABLET
@@ -1150,10 +1249,11 @@
 @media (max-width: 1000px) {
 
     .site-header .container {
-        width: min(
-            100% - 30px,
-            1180px
-        );
+        width:
+            min(
+                calc(100% - 30px),
+                1160px
+            );
     }
 
     .desktop-nav {
@@ -1163,34 +1263,35 @@
     .desktop-nav > a,
     .mega-trigger {
         padding: 0 9px;
-
         font-size: 12px;
     }
 
     .header-cta {
         padding: 0 10px;
-
         font-size: 9px;
     }
 
     .mega-menu {
         width:
             min(
-                880px,
+                850px,
                 calc(100vw - 30px)
             );
     }
 
     .mega-container {
         grid-template-columns:
-            270px 1fr;
+            245px 1fr;
     }
 
     .mega-services {
-        gap: 15px;
-
+        gap: 14px;
         padding:
-            28px 22px;
+            26px 20px;
+    }
+
+    .mega-column a {
+        font-size: 13px;
     }
 }
 
@@ -1206,7 +1307,8 @@
     }
 
     .site-header .container {
-        width: calc(100% - 28px);
+        width:
+            calc(100% - 24px);
 
         height: 60px;
     }
@@ -1233,9 +1335,14 @@
     }
 
 
-    /* Mobile menu position */
+    /* IMPORTANT:
+       Mobile menu must be display:block
+       so .show can actually work.
+    */
 
     .mobile-menu {
+        display: block;
+
         top: 60px;
     }
 
@@ -1244,8 +1351,8 @@
 
     .logo-symbol,
     .logo-symbol svg {
-        width: 32px;
-        height: 32px;
+        width: 31px;
+        height: 31px;
     }
 
     .brand-name {
@@ -1254,8 +1361,14 @@
 
     .brand-tagline {
         font-size: 5.5px;
-
         letter-spacing: 1.5px;
+    }
+
+
+    /* Better mobile menu */
+
+    .mobile-menu {
+        border-radius: 0 0 14px 14px;
     }
 }
 
@@ -1267,17 +1380,18 @@
 @media (max-width: 420px) {
 
     .site-header .container {
-        width: calc(100% - 20px);
+        width:
+            calc(100% - 18px);
     }
 
     .brand-logo {
-        gap: 7px;
+        gap: 6px;
     }
 
     .logo-symbol,
     .logo-symbol svg {
-        width: 30px;
-        height: 30px;
+        width: 29px;
+        height: 29px;
     }
 
     .brand-name {
@@ -1286,13 +1400,31 @@
 
     .brand-tagline {
         font-size: 5px;
-
-        letter-spacing: 1.3px;
+        letter-spacing: 1.2px;
     }
 
     .menu-button {
-        width: 34px;
-        height: 34px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .mobile-menu {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .mobile-menu > a,
+    .mobile-approach-btn {
+        font-size: 14px;
+    }
+
+    .mobile-services a {
+        font-size: 13px;
+    }
+
+    .mobile-menu .mobile-cta {
+        padding: 13px 15px;
+        font-size: 13px;
     }
 }
 
