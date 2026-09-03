@@ -1,882 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SEO Content &mdash; Content that makes traffic snowball.">
+<title>SEO Content &mdash; thehopesup</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/Style/ServiceDetails.css">
 
-    <title>SEO Content | Hopes Up</title>
-
-    <link rel="stylesheet" href="/Style/ServiceDetails.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet">
-
-    <style>
-        /* =================================
-           SEO CONTENT SECTION
-        ================================= */
-
-        .seo-content-section {
-            padding: 110px 0;
-            background: #f7f4ee;
-        }
-
-        .seo-content-grid {
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 90px;
-            align-items: start;
-        }
-
-        .seo-content-heading {
-            position: sticky;
-            top: 120px;
-        }
-
-        .seo-content-heading h2 {
-            margin-top: 20px;
-            max-width: 520px;
-            font-family: "Playfair Display", serif;
-            font-size: clamp(46px, 5vw, 72px);
-            line-height: 1.05;
-            letter-spacing: -2px;
-            color: #302a26;
-        }
-
-        .seo-content-heading h2 span {
-            display: block;
-            color: #8a9b63;
-        }
-
-        .seo-content-mark {
-            margin-top: 35px;
-            font-size: 30px;
-            color: #8a9b63;
-        }
-
-        .seo-content-body {
-            max-width: 760px;
-        }
-
-        .seo-content-body p {
-            margin: 0 0 27px;
-            color: #5b544e;
-            font-family: "DM Sans", sans-serif;
-            font-size: 18px;
-            line-height: 1.85;
-        }
-
-        .seo-content-body .seo-intro {
-            color: #302a26;
-            font-size: 24px;
-            line-height: 1.65;
-            font-weight: 500;
-            margin-bottom: 32px;
-        }
-
-        .depth-message {
-            margin: 45px 0;
-            padding: 35px 40px;
-            border-left: 4px solid #8a9b63;
-            background: #ffffff;
-            box-shadow: 0 15px 40px rgba(48, 42, 38, 0.06);
-        }
-
-        .depth-message h3 {
-            margin: 0 0 12px;
-            font-family: "Playfair Display", serif;
-            font-size: 30px;
-            line-height: 1.2;
-            color: #302a26;
-        }
-
-        .depth-message p {
-            margin: 0;
-            font-size: 17px;
-            color: #6b625b;
-        }
-
-        .seo-final-message {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(48, 42, 38, 0.15);
-            color: #302a26 !important;
-            font-size: 20px !important;
-            font-weight: 500;
-        }
-
-
-        /* =================================
-           TABLET
-        ================================= */
-
-        @media (max-width: 900px) {
-
-            .seo-content-section {
-                padding: 80px 0;
-            }
-
-            .seo-content-grid {
-                grid-template-columns: 1fr;
-                gap: 45px;
-            }
-
-            .seo-content-heading {
-                position: static;
-            }
-
-            .seo-content-heading h2 {
-                max-width: 650px;
-            }
-
-        }
-
-
-        /* =================================
-           MOBILE
-        ================================= */
-
-        @media (max-width: 600px) {
-
-            .seo-content-section {
-                padding: 65px 0;
-            }
-
-            .seo-content-grid {
-                gap: 30px;
-            }
-
-            .seo-content-heading h2 {
-                font-size: 44px;
-                letter-spacing: -1px;
-            }
-
-            .seo-content-body p {
-                font-size: 16px;
-                line-height: 1.75;
-            }
-
-            .seo-content-body .seo-intro {
-                font-size: 20px;
-                line-height: 1.65;
-            }
-
-            .depth-message {
-                margin: 35px 0;
-                padding: 28px 25px;
-            }
-
-            .depth-message h3 {
-                font-size: 25px;
-            }
-
-            .depth-message p {
-                font-size: 16px;
-            }
-
-            .seo-final-message {
-                font-size: 18px !important;
-            }
-
-        }
-    </style>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-
 
 <body>
 
-
-<!-- =================================
-     HEADER
-================================= -->
-
 <header class="site-header">
+  <div class="container nav">
 
-    <div class="container nav-inner">
+    <a href="../index.html" class="mark">
+      <svg class="mark-sun" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="26" r="9" stroke="#241f19" stroke-width="1.6"/>
+        <path d="M20 4V10M6 12L10 16M34 12L30 16" stroke="#c8791f" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span class="mark-word">the<em>hopesup</em></span>
+    </a>
 
-        <a href="index.html" class="brand">
+    <nav class="desktop-nav">
+      <a href="../index.html">Home</a>
+      <a href="../Service.html" class="active">Approach</a>
+      <a href="../gallery.html">Work</a>
+      <a href="../blog.html">Journal</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
 
-            <div class="brand-mark">
-                H
-            </div>
-
-            <div>
-
-                <div class="brand-name">
-                    Hopes<span>Up</span>
-                </div>
-
-                <div class="brand-sub">
-                    Growth • Mindset • Life
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <nav class="desktop-nav">
-
-            <a href="/index.html">
-                Home
-            </a>
-
-            <a href="Service.html" class="active">
-                Services
-            </a>
-
-            <a href="/gallery.html">
-                Gallery
-            </a>
-
-            <a href="/Blog.html">
-                Blog
-            </a>
-
-            <a href="/Contact.html">
-                Contact
-            </a>
-
-        </nav>
-
-
-        <a href="/Contact.html" class="nav-button">
-            Start a Project ↗
-        </a>
-
-
-        <button class="mobile-toggle" id="mobileToggle">
-            ☰
-        </button>
-
+    <div class="nav-right">
+      <a href="../contact.html" class="btn btn-ink">Start a conversation</a>
+      <button class="menu-button" id="menuButton" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
 
+  </div>
 
-    <div class="mobile-menu" id="mobileMenu">
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="Service.html">
-            Services
-        </a>
-
-        <a href="gallery.html">
-            Gallery
-        </a>
-
-        <a href="blog.html">
-            Blog
-        </a>
-
-        <a href="contact.html">
-            Contact
-        </a>
-
-    </div>
-
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="../Service.html">Approach</a>
+    <a href="../gallery.html">Work</a>
+    <a href="../blog.html">Journal</a>
+    <a href="../contact.html">Contact</a>
+  </div>
 </header>
 
 
+<main>
 
-<!-- =================================
-     HERO SECTION
-================================= -->
+<div class="container">
+  <a href="../Service.html" class="crumb">
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    All services
+  </a>
+</div>
 
 <section class="detail-hero">
+  <div class="container detail-hero-grid">
 
-    <div class="container">
-
-        <a href="Service.html" class="back-link">
-            ← Back to Services
-        </a>
-
-
-        <div class="hero-layout">
-
-            <div>
-
-                <div class="eyebrow">
-                    SERVICE 04
-                </div>
-
-
-                <h1>
-                    SEO
-                    <span>Content</span>
-                </h1>
-
-
-                <p class="hero-description">
-                    Search-friendly content that improves visibility
-                    while remaining genuinely useful for your audience.
-                </p>
-
-
-                <div class="hero-buttons">
-
-                    <a href="/Contact.html" class="primary-button">
-                        Start a Project ↗
-                    </a>
-
-                    <a href="#what-we-do" class="secondary-button">
-                        Explore Service ↓
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="hero-card">
-
-                <div class="hero-icon">
-                    ◎
-                </div>
-
-                <div class="big-word">
-                    DISCOVER
-                </div>
-
-                <p>
-                    Be visible when
-                    your audience searches.
-                </p>
-
-            </div>
-
-        </div>
-
+    <div>
+      <div class="detail-label">Service 04</div>
+      <h1>SEO Content</h1>
+      <div class="detail-tags">
+        <span>Keywords</span>
+        <span>On-page SEO</span>
+        <span>Organic Growth</span>
+      </div>
     </div>
 
+    <div class="detail-numeral" aria-hidden="true">04</div>
+
+  </div>
 </section>
 
+<section class="section" style="padding-top:0;">
+  <div class="container detail-layout">
 
+    <article>
+      <p class="detail-lead">Content that makes traffic snowball.</p>
 
-<!-- =================================
-     INTRO SECTION
-================================= -->
-
-<section class="intro-section" id="what-we-do">
-
-    <div class="container two-column">
-
-        <div>
-
-            <div class="section-label">
-                WHAT WE DO
-            </div>
-
-
-            <h2>
-                Get found.
-                <span>Get trusted.</span>
-            </h2>
-
+      <div class="detail-body">
+        <p>Great content gives people exactly what they're looking for. We go deep on the questions your audience is actually searching for, creating niche, highly relevant content that answers them better than anyone else.</p>
         </div>
+      <p class="detail-pull">Depth beats volume.</p>
+      <div class="detail-body">
+        <p>We create search-friendly content that offers genuine value. Enhancing the audience's experience is at the heart of what we do.</p>
+        <p>30 deeply researched pages can do more than 300 thin ones. And when you consistently show up with genuinely valuable information, the returns compound over time. The best content doesn't just get found &mdash; it keeps working.</p>
+      </div>
+    </article>
 
+    <aside class="detail-sidebar">
 
-        <div>
-
-            <p>
-                SEO content should satisfy both search engines
-                and real people. We create content around relevant
-                topics and search intent.
-            </p>
-
-
-            <p>
-                The result is useful content that can help your
-                website become more visible organically.
-            </p>
-
+      <div class="side-card">
+        <h4>What this includes</h4>
+        <div class="side-tags">
+          <span>Keywords</span>
+          <span>On-page SEO</span>
+          <span>Organic Growth</span>
         </div>
+      </div>
 
+      <div class="side-card dark">
+        <h4>Ready to start?</h4>
+        <p>Tell us about your business and where SEO content could take it.</p>
+        <a href="../contact.html" class="btn btn-light">Start a conversation</a>
+      </div>
+
+    </aside>
+
+  </div>
+</section>
+
+<section class="related">
+  <div class="container">
+    <div class="related-head">Explore other services</div>
+    <div class="related-grid">
+      <a href="ContentCreation.html" class="related-card"><span>Service 01</span><h4>Content Creation</h4></a>
+      <a href="ContentMarketing.html" class="related-card"><span>Service 02</span><h4>Content Marketing</h4></a>
+      <a href="GraphicDesign.html" class="related-card"><span>Service 03</span><h4>Graphic Design</h4></a>
     </div>
-
+  </div>
 </section>
 
+</main>
 
-
-<!-- =================================
-     NEW SEO CONTENT SECTION
-================================= -->
-
-<section class="seo-content-section">
-
-    <div class="container seo-content-grid">
-
-
-        <div class="seo-content-heading">
-
-            <div class="section-label">
-                SEARCH & VALUE
-            </div>
-
-
-            <h2>
-                Content that
-                <span>makes traffic snowball.</span>
-            </h2>
-
-
-            <div class="seo-content-mark">
-                ✦
-            </div>
-
-        </div>
-
-
-
-        <div class="seo-content-body">
-
-
-            <p class="seo-intro">
-                Great content gives people exactly what
-                they’re looking for.
-            </p>
-
-
-            <p>
-                We go deep on the questions your audience
-                is actually searching for, creating niche,
-                highly relevant content that answers them
-                better than anyone else.
-            </p>
-
-
-            <p>
-                We create search-friendly content that
-                offers genuine value.
-            </p>
-
-
-            <p>
-                Enhancing the audience’s experience is at
-                the heart of what we do.
-            </p>
-
-
-            <div class="depth-message">
-
-                <h3>
-                    Depth beats volume.
-                </h3>
-
-
-                <p>
-                    30 deeply researched pages can do more
-                    than 300 thin ones. And when you
-                    consistently show up with genuinely
-                    valuable information, the returns
-                    compound over time.
-                </p>
-
-            </div>
-
-
-            <p class="seo-final-message">
-                The best content doesn’t just get found.
-                It keeps working.
-            </p>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =================================
-     SEO SERVICES
-================================= -->
-
-<section class="services-detail">
-
-    <div class="container">
-
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                SEO SERVICES
-            </div>
-
-
-            <h2>
-                Content designed for
-                <span>discovery.</span>
-            </h2>
-
-        </div>
-
-
-
-        <div class="feature-grid">
-
-
-            <div class="feature-card">
-
-                <div class="feature-number">
-                    01
-                </div>
-
-                <h3>
-                    Keyword Research
-                </h3>
-
-                <p>
-                    Identify relevant topics and search
-                    terms connected to your audience.
-                </p>
-
-            </div>
-
-
-
-            <div class="feature-card">
-
-                <div class="feature-number">
-                    02
-                </div>
-
-                <h3>
-                    SEO Articles
-                </h3>
-
-                <p>
-                    Useful articles structured around
-                    search intent and readability.
-                </p>
-
-            </div>
-
-
-
-            <div class="feature-card">
-
-                <div class="feature-number">
-                    03
-                </div>
-
-                <h3>
-                    Website Copy
-                </h3>
-
-                <p>
-                    Search-friendly website content
-                    that communicates your value.
-                </p>
-
-            </div>
-
-
-
-            <div class="feature-card">
-
-                <div class="feature-number">
-                    04
-                </div>
-
-                <h3>
-                    Content Optimisation
-                </h3>
-
-                <p>
-                    Improve existing content for
-                    clarity, relevance and discoverability.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =================================
-     PROCESS SECTION
-================================= -->
-
-<section class="process-section">
-
-    <div class="container">
-
-
-        <div class="section-heading center">
-
-            <div class="section-label">
-                OUR PROCESS
-            </div>
-
-
-            <h2>
-                Research.
-                Write.
-                <span>Optimise.</span>
-            </h2>
-
-        </div>
-
-
-
-        <div class="process-grid">
-
-
-            <div class="process-step">
-
-                <span>
-                    01
-                </span>
-
-                <h3>
-                    Research
-                </h3>
-
-                <p>
-                    We understand your market,
-                    audience and search landscape.
-                </p>
-
-            </div>
-
-
-
-            <div class="process-step">
-
-                <span>
-                    02
-                </span>
-
-                <h3>
-                    Plan
-                </h3>
-
-                <p>
-                    Topics and content structure are
-                    planned around search intent.
-                </p>
-
-            </div>
-
-
-
-            <div class="process-step">
-
-                <span>
-                    03
-                </span>
-
-                <h3>
-                    Write
-                </h3>
-
-                <p>
-                    We create useful and engaging
-                    search-friendly content.
-                </p>
-
-            </div>
-
-
-
-            <div class="process-step">
-
-                <span>
-                    04
-                </span>
-
-                <h3>
-                    Optimise
-                </h3>
-
-                <p>
-                    We refine content for relevance,
-                    clarity and usability.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =================================
-     CTA SECTION
-================================= -->
-
-<section class="cta-section">
-
-    <div class="container">
-
-        <div class="cta-box">
-
-
-            <div>
-
-                <div class="section-label light">
-                    READY TO BE FOUND?
-                </div>
-
-
-                <h2>
-                    Turn searches into
-                    <span>connections.</span>
-                </h2>
-
-
-                <p>
-                    Let's create content that helps
-                    your audience find you.
-                </p>
-
-            </div>
-
-
-            <a href="/Contact.html" class="cta-button">
-                Start a Conversation ↗
-            </a>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =================================
-     FOOTER
-================================= -->
 
 <footer class="footer">
+  <div class="container">
 
-    <div class="container footer-content">
+    <div class="footer-grid">
 
-
-        <div>
-
-            <div class="footer-brand">
-
-                <div class="brand-mark">
-                    H
-                </div>
-
-                <div class="brand-name">
-                    Hopes<span>Up</span>
-                </div>
-
-            </div>
-
-
-            <p>
-                Meaningful ideas. Creative content.
-                Better possibilities.
-            </p>
-
+      <div class="footer-about">
+        <a href="../index.html" class="mark">
+          <svg class="mark-sun" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="26" r="9" stroke="#241f19" stroke-width="1.6"/>
+            <path d="M20 4V10M6 12L10 16M34 12L30 16" stroke="#c8791f" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="mark-word">the<em>hopesup</em></span>
+        </a>
+        <p>A content strategy studio helping businesses turn vision into words, ideas and stories worth believing in.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">Fb</a>
+          <a href="#" aria-label="LinkedIn">In</a>
         </div>
+      </div>
 
-
-
-        <div>
-
-            <h4>
-                Services
-            </h4>
-
-            <a href="ContentCreation.html">
-                Content Creation
-            </a>
-
-            <a href="ContentMarketing.html">
-                Content Marketing
-            </a>
-
-            <a href="GraphicDesign.html">
-                Graphic Design
-            </a>
-
-            <a href="SEOContent.html">
-                SEO Content
-            </a>
-
+      <div>
+        <div class="footer-heading">Explore</div>
+        <div class="footer-links">
+          <a href="../index.html">Home</a>
+          <a href="../Service.html">Approach</a>
+          <a href="../gallery.html">Work</a>
+          <a href="../blog.html">Journal</a>
+          <a href="../contact.html">Contact</a>
         </div>
+      </div>
 
-
-
-        <div>
-
-            <h4>
-                More
-            </h4>
-
-            <a href="EbookWhitePaper.html">
-                Ebook & White Paper
-            </a>
-
-            <a href="Blogging.html">
-                Blogging
-            </a>
-
-            <a href="InfographicCopy.html">
-                Infographic Copy
-            </a>
-
-            <a href="Newsletter.html">
-                Newsletter
-            </a>
-
+      <div>
+        <div class="footer-heading">Services</div>
+        <div class="footer-links">
+          <a href="ContentCreation.html">Content Creation</a>
+          <a href="ContentMarketing.html">Content Marketing</a>
+          <a href="GraphicDesign.html">Graphic Design</a>
+          <a href="SEOContent.html">SEO Content</a>
         </div>
-
+      </div>
 
     </div>
 
-
-    <div class="container copyright">
-
-        © 2026 Hopes Up. All rights reserved.
-
+    <div class="footer-bottom">
+      <span>&copy; 2026 thehopesup. All rights reserved.</span>
+      <span>Written with intention.</span>
     </div>
 
+  </div>
 </footer>
 
 
-
-<!-- =================================
-     MOBILE MENU SCRIPT
-================================= -->
-
 <script>
-
-    document
-        .getElementById("mobileToggle")
-        .addEventListener("click", () => {
-
-            document
-                .getElementById("mobileMenu")
-                .classList.toggle("show");
-
-        });
-
+  const menuButton = document.getElementById("menuButton");
+  const mobileMenu = document.getElementById("mobileMenu");
+  menuButton.addEventListener("click", () => mobileMenu.classList.toggle("show"));
+  document.querySelectorAll(".mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => mobileMenu.classList.remove("show"));
+  });
 </script>
 
-
 </body>
-
 </html>

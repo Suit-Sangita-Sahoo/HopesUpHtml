@@ -8,10 +8,410 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
+    <meta name="description"
+          content="The Moment of Change — Sometimes one decision is all it takes to change the direction of your life.">
+
     <title>The Moment of Change | The Hope Sup</title>
 
     <link rel="stylesheet"
           href="/Blogs/Blog.css">
+
+    <style>
+
+        /* =====================================================
+           COMMENTS SECTION
+        ===================================================== */
+
+        .comments-section {
+            background: #f7f3ed;
+            padding: 90px 20px 100px;
+            margin-top: 80px;
+            border-top: 1px solid #e4ddd4;
+        }
+
+        .comments-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .comments-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .comments-label {
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #b47a32;
+            margin-bottom: 12px;
+        }
+
+        .comments-heading h2 {
+            margin: 0 0 12px;
+            font-size: 42px;
+            line-height: 1.2;
+            color: #2b211b;
+        }
+
+        .comments-heading p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #756b63;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           COMMENT FORM
+        ===================================================== */
+
+        .comment-form-card {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(48, 42, 38, 0.08);
+            border: 1px solid #ebe4dc;
+            margin-bottom: 55px;
+        }
+
+        .comment-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .comment-field {
+            margin-bottom: 22px;
+        }
+
+        .comment-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #3b3029;
+        }
+
+        .comment-field label span {
+            font-weight: 400;
+            color: #91877f;
+        }
+
+        .comment-field input,
+        .comment-field textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #dcd3ca;
+            background: #fcfbf9;
+            border-radius: 10px;
+            padding: 13px 15px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            color: #302a26;
+            outline: none;
+            transition: border-color 0.2s ease,
+                        box-shadow 0.2s ease,
+                        background 0.2s ease;
+        }
+
+        .comment-field textarea {
+            min-height: 130px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .comment-field input:focus,
+        .comment-field textarea:focus {
+            border-color: #c8791f;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(200, 121, 31, 0.10);
+        }
+
+        .character-count {
+            text-align: right;
+            margin-top: 6px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #978d84;
+        }
+
+        .comment-submit {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            background: #241f19;
+            color: #ffffff;
+            padding: 15px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s ease,
+                        background 0.2s ease,
+                        opacity 0.2s ease;
+        }
+
+        .comment-submit:hover {
+            background: #c8791f;
+            transform: translateY(-2px);
+        }
+
+        .comment-submit:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+            transform: none;
+        }
+
+        .comment-status {
+            display: none;
+            margin-top: 15px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .comment-status.success {
+            display: block;
+            background: #edf7ee;
+            color: #286334;
+            border: 1px solid #cfe8d1;
+        }
+
+        .comment-status.error {
+            display: block;
+            background: #fff0ed;
+            color: #a13b2d;
+            border: 1px solid #f1c9c2;
+        }
+
+
+        /* =====================================================
+           COMMENTS LIST
+        ===================================================== */
+
+        .comments-list-wrapper {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 35px;
+            border: 1px solid #ebe4dc;
+        }
+
+        .comments-list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid #e8e1d9;
+            padding-bottom: 18px;
+            margin-bottom: 10px;
+        }
+
+        .comments-list-header h3 {
+            margin: 0;
+            font-family: Georgia, serif;
+            font-size: 26px;
+            color: #2b211b;
+        }
+
+        #commentCount {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #8a7f76;
+        }
+
+
+        /* =====================================================
+           INDIVIDUAL COMMENT
+        ===================================================== */
+
+        .comment-item {
+            display: flex;
+            gap: 16px;
+            padding: 25px 0;
+            border-bottom: 1px solid #eee8e1;
+            animation: commentAppear 0.35s ease;
+        }
+
+        .comment-item:last-child {
+            border-bottom: none;
+        }
+
+        .comment-avatar {
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                #d69b4d,
+                #8c5522
+            );
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .comment-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .comment-top {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .comment-author {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #30251f;
+        }
+
+        .comment-date {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #9a9087;
+        }
+
+        .comment-text {
+            margin: 0;
+            color: #5d544d;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =====================================================
+           EMPTY / LOADING
+        ===================================================== */
+
+        .comments-loading,
+        .comments-empty {
+            padding: 35px 15px;
+            text-align: center;
+            color: #8b8179;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .comments-loading::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            display: block;
+            margin: 0 auto 12px;
+            border: 2px solid #ddd4cb;
+            border-top-color: #c8791f;
+            border-radius: 50%;
+            animation: commentSpin 0.8s linear infinite;
+        }
+
+
+        /* =====================================================
+           ANIMATION
+        ===================================================== */
+
+        @keyframes commentAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes commentSpin {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .comments-section {
+                padding: 65px 15px 75px;
+                margin-top: 50px;
+            }
+
+            .comments-heading h2 {
+                font-size: 32px;
+            }
+
+            .comments-heading p {
+                font-size: 15px;
+            }
+
+            .comment-form-card,
+            .comments-list-wrapper {
+                padding: 22px;
+                border-radius: 14px;
+            }
+
+            .comment-form-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .comments-list-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .comment-item {
+                gap: 12px;
+            }
+
+            .comment-avatar {
+                flex-basis: 38px;
+                width: 38px;
+                height: 38px;
+                font-size: 14px;
+            }
+
+            .comment-text {
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -34,7 +434,6 @@
 
         </a>
 
-
         <a href="/index.html"
            class="back-home">
 
@@ -47,41 +446,29 @@
 </header>
 
 
-
 <!-- ==================================================
      ARTICLE
 ================================================== -->
 
 <main class="blog-page">
 
-
     <article class="blog-post">
 
 
-        <!-- ================= ARTICLE HEADER ================= -->
-
         <header class="article-header">
 
-
             <span class="article-category">
-
                 PERSONAL GROWTH
-
             </span>
-
 
             <h1>
                 The Moment of Change
             </h1>
 
-
             <p class="article-subtitle">
-
                 Sometimes one decision is all it takes
                 to change the direction of your life.
-
             </p>
-
 
             <div class="article-meta">
 
@@ -93,12 +480,8 @@
 
             </div>
 
-
         </header>
 
-
-
-        <!-- ================= FEATURED IMAGE ================= -->
 
         <figure class="featured-image">
 
@@ -108,9 +491,6 @@
 
         </figure>
 
-
-
-        <!-- ================= ARTICLE CONTENT ================= -->
 
         <div class="article-content">
 
@@ -125,146 +505,98 @@
             </p>
 
 
-
             <h2>Change Is Scary</h2>
 
-
             <p>
-
                 Change is scary. It is uncertain. You may find it
                 difficult to imagine a life that is different from
                 your current situation.
-
             </p>
 
-
             <p>
-
                 When you are unsure of what you want, you can end up
                 living a life that feels unfulfilling. But sometimes,
                 all it takes is one moment of change to turn your life
                 around.
-
             </p>
 
 
-
-            <!-- QUOTE -->
-
             <blockquote>
-
                 “All it takes is a moment of change
                 to turn your life around.”
-
             </blockquote>
 
 
-
             <p>
-
                 That moment can bring clarity and certainty.
                 It encourages you to reflect on your experiences,
                 choices, values and perspective.
-
             </p>
 
-
             <p>
-
                 You begin to realize that you have the ability
                 to change your life. Your past circumstances do
                 not have to determine your future.
-
             </p>
-
 
 
             <h2>You Have the Power to Change</h2>
 
-
             <p>
-
                 If you believe you can get better, you can begin
                 working toward becoming better. Decide to take
                 control of your life.
-
             </p>
-
 
             <p>
-
                 You cannot change your life until you decide to
                 make a change within yourself.
-
             </p>
-
 
 
             <blockquote class="highlight-quote">
-
                 “You have the power to drive your life
                 in the direction you want.”
-
             </blockquote>
 
 
-
             <p>
-
                 The moment you decide to change is when you begin
                 using that power. You discover motivation, explore
                 your potential and free yourself from the patterns
                 that have kept you stuck.
-
             </p>
-
 
 
             <h2>Take Responsibility for Your Life</h2>
 
-
             <p>
-
                 Instead of complaining or blaming others, choose
                 to take action. Instead of giving up, try to solve
                 the problem in front of you.
-
             </p>
 
-
             <p>
-
                 Your life is your responsibility. You have the
                 ability to choose how you respond to difficult
                 situations.
-
             </p>
-
 
 
             <h2>Don't Let Circumstances Control You</h2>
 
-
             <p>
-
                 We sometimes experience circumstances that are
                 completely outside our control. These situations
                 can test our patience and make us feel helpless.
-
             </p>
 
-
             <p>
-
                 But constantly focusing on what you cannot control
                 can prevent you from seeing the opportunities that
                 are available to you.
-
             </p>
 
-
-
-            <!-- IMPORTANT BOX -->
 
             <div class="important-box">
 
@@ -272,188 +604,125 @@
                     REMEMBER
                 </span>
 
-
                 <p>
-
                     Do not let your circumstances affect your
                     mindset. Focus on what you can control and
                     take action where you can.
-
                 </p>
 
             </div>
 
 
-
             <p>
-
                 When your mind is filled with negative thoughts,
                 it becomes harder to recognize opportunities for
                 change. Difficult circumstances do not have to
                 define your life.
-
             </p>
-
 
 
             <h2>Your Mindset Matters</h2>
 
-
             <p>
-
                 It is not always our circumstances that determine
                 our lives. Our mindset and the way we respond to
                 those circumstances play an important role.
-
             </p>
 
-
             <p>
-
                 We can choose to change our mindset and create a
                 better direction for ourselves.
-
             </p>
 
-
             <p>
-
                 If you want to become happier, improve your
                 relationships and build a better life, you must
                 be willing to take action and recognize
                 opportunities for growth.
-
             </p>
-
 
 
             <h2>Change Is Uncomfortable</h2>
 
-
             <p>
-
                 It is natural to feel overwhelmed by uncertainty,
                 failure and difficult situations. But avoiding
                 change will not make those situations disappear.
-
             </p>
 
-
             <p>
-
                 Change can be uncomfortable, but it is often
                 necessary to create a more meaningful life.
-
             </p>
 
-
             <p>
-
                 When you change the way you manage your life,
                 you become stronger and more prepared to face
                 difficult situations.
-
             </p>
 
 
-
-            <!-- ================= FINAL MESSAGE ================= -->
-
             <div class="final-message">
 
-
                 <span class="final-label">
-
                     YOUR FIRST STEP
-
                 </span>
 
-
                 <h2>
-
                     It All Starts With
                     One Moment
-
                 </h2>
 
-
                 <p>
-
                     Take the first step. Remind yourself that
                     you are strong enough to transform your life
                     and that you will not allow your circumstances
                     to control you.
-
                 </p>
 
-
                 <p>
-
                     It doesn't matter what happened until now.
                     What matters most is the moment when you
                     decide to change.
-
                 </p>
 
-
                 <strong>
-
                     You are ready.
                     You are strong enough to make that change.
-
                 </strong>
 
-
             </div>
-
 
         </div>
 
 
-
-        <!-- ================= AUTHOR ================= -->
-
         <footer class="article-author">
 
-
             <div class="author-avatar">
-
                 HS
-
             </div>
-
 
             <div class="author-details">
 
                 <span class="author-label">
-
                     WRITTEN BY
-
                 </span>
 
-
                 <h3>
-
                     The Hope Sup
-
                 </h3>
 
-
                 <p>
-
                     Inspiration, personal growth and ideas
                     for creating a better life.
-
                 </p>
 
             </div>
-
 
         </footer>
 
 
     </article>
-
 
 
     <!-- ==================================================
@@ -477,8 +746,7 @@
 
         <div class="related-grid">
 
-
-            <a href="#"
+            <a href="/Blogs/PositiveSelfTalk.html"
                class="related-card">
 
                 <span>
@@ -502,8 +770,7 @@
             </a>
 
 
-
-            <a href="#"
+            <a href="/Blogs/OneStepAtTime.html"
                class="related-card">
 
                 <span>
@@ -527,8 +794,7 @@
             </a>
 
 
-
-            <a href="#"
+            <a href="/Blogs/LifeAsItIs.html"
                class="related-card">
 
                 <span>
@@ -551,14 +817,841 @@
 
             </a>
 
-
         </div>
 
     </section>
 
-
 </main>
 
+
+<!-- =====================================================
+     COMMENTS SECTION
+===================================================== -->
+
+<section class="comments-section">
+
+    <div class="comments-container">
+
+
+        <div class="comments-heading">
+
+            <span class="comments-label">
+                JOIN THE CONVERSATION
+            </span>
+
+            <h2>
+                What do you think?
+            </h2>
+
+            <p>
+                Share your thoughts, ideas or experiences
+                with us and other readers.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             COMMENT FORM
+        ================================================== -->
+
+        <div class="comment-form-card">
+
+            <form id="commentForm">
+
+                <div class="comment-form-grid">
+
+
+                    <div class="comment-field">
+
+                        <label for="commentName">
+                            Your name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="commentName"
+                            maxlength="50"
+                            autocomplete="name"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
+
+
+                    <div class="comment-field">
+
+                        <label for="commentEmail">
+
+                            Email
+                            <span>(optional)</span>
+
+                        </label>
+
+                        <input
+                            type="email"
+                            id="commentEmail"
+                            maxlength="100"
+                            autocomplete="email"
+                            placeholder="you@example.com">
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="comment-field">
+
+                    <label for="commentMessage">
+                        Your comment
+                    </label>
+
+                    <textarea
+                        id="commentMessage"
+                        rows="5"
+                        maxlength="500"
+                        placeholder="Write your thoughts..."
+                        required></textarea>
+
+                    <div class="character-count">
+                        Maximum 500 characters
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="comment-submit"
+                    id="commentSubmit">
+
+                    <span>
+                        Post Comment
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+                <div
+                    id="commentStatus"
+                    class="comment-status">
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- =================================================
+             COMMENTS LIST
+        ================================================== -->
+
+        <div class="comments-list-wrapper">
+
+
+            <div class="comments-list-header">
+
+                <h3>
+                    Comments
+                </h3>
+
+                <span id="commentCount">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <div
+                id="commentsList"
+                class="comments-list">
+
+                <div class="comments-loading">
+                    Loading comments...
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FIREBASE COMMENTS
+===================================================== -->
+
+<script type="module">
+
+    /* =====================================================
+       FIREBASE IMPORTS
+    ===================================================== */
+
+    import {
+        initializeApp
+    }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+    import {
+        getFirestore,
+        collection,
+        addDoc,
+        query,
+        where,
+        orderBy,
+        onSnapshot,
+        serverTimestamp
+    }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+    /* =====================================================
+       FIREBASE CONFIGURATION
+
+       IMPORTANT:
+       Replace these values with your Firebase project
+       configuration.
+    ===================================================== */
+
+    const firebaseConfig = {
+
+        apiKey: "YOUR_API_KEY",
+
+        authDomain:
+            "YOUR_PROJECT_ID.firebaseapp.com",
+
+        projectId:
+            "YOUR_PROJECT_ID",
+
+        storageBucket:
+            "YOUR_PROJECT_ID.firebasestorage.app",
+
+        messagingSenderId:
+            "YOUR_MESSAGING_SENDER_ID",
+
+        appId:
+            "YOUR_APP_ID"
+
+    };
+
+
+    /* =====================================================
+       INITIALIZE FIREBASE
+    ===================================================== */
+
+    const app =
+        initializeApp(firebaseConfig);
+
+    const db =
+        getFirestore(app);
+
+
+    /* =====================================================
+       ARTICLE ID
+
+       Each article gets a different pageId.
+       This prevents comments from appearing on
+       every article.
+    ===================================================== */
+
+    const PAGE_ID =
+        "the-moment-of-change";
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const commentForm =
+        document.getElementById(
+            "commentForm"
+        );
+
+    const commentName =
+        document.getElementById(
+            "commentName"
+        );
+
+    const commentEmail =
+        document.getElementById(
+            "commentEmail"
+        );
+
+    const commentMessage =
+        document.getElementById(
+            "commentMessage"
+        );
+
+    const commentSubmit =
+        document.getElementById(
+            "commentSubmit"
+        );
+
+    const commentStatus =
+        document.getElementById(
+            "commentStatus"
+        );
+
+    const commentsList =
+        document.getElementById(
+            "commentsList"
+        );
+
+    const commentCount =
+        document.getElementById(
+            "commentCount"
+        );
+
+
+    /* =====================================================
+       SHOW STATUS
+    ===================================================== */
+
+    function showStatus(
+        message,
+        type
+    ) {
+
+        commentStatus.textContent =
+            message;
+
+        commentStatus.className =
+            "comment-status " + type;
+
+    }
+
+
+    /* =====================================================
+       POST COMMENT
+    ===================================================== */
+
+    commentForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const name =
+                commentName.value.trim();
+
+            const email =
+                commentEmail.value.trim();
+
+            const message =
+                commentMessage.value.trim();
+
+
+            /* ---------------------------------------------
+               VALIDATION
+            --------------------------------------------- */
+
+            if (!name) {
+
+                showStatus(
+                    "Please enter your name.",
+                    "error"
+                );
+
+                commentName.focus();
+
+                return;
+            }
+
+
+            if (!message) {
+
+                showStatus(
+                    "Please write a comment.",
+                    "error"
+                );
+
+                commentMessage.focus();
+
+                return;
+            }
+
+
+            if (name.length > 50) {
+
+                showStatus(
+                    "Your name must be 50 characters or less.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (email.length > 100) {
+
+                showStatus(
+                    "Your email must be 100 characters or less.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (message.length > 500) {
+
+                showStatus(
+                    "Your comment must be 500 characters or less.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /* ---------------------------------------------
+               DISABLE BUTTON
+            --------------------------------------------- */
+
+            commentSubmit.disabled =
+                true;
+
+            commentSubmit.innerHTML =
+                "<span>Posting...</span>";
+
+
+            try {
+
+
+                /* -----------------------------------------
+                   SAVE TO FIRESTORE
+                ----------------------------------------- */
+
+                await addDoc(
+
+                    collection(
+                        db,
+                        "comments"
+                    ),
+
+                    {
+
+                        pageId:
+                            PAGE_ID,
+
+                        pageTitle:
+                            "The Moment of Change",
+
+                        name:
+                            name,
+
+                        email:
+                            email,
+
+                        message:
+                            message,
+
+                        createdAt:
+                            serverTimestamp()
+
+                    }
+
+                );
+
+
+                /* -----------------------------------------
+                   CLEAR FORM
+                ----------------------------------------- */
+
+                commentForm.reset();
+
+
+                /* -----------------------------------------
+                   SUCCESS MESSAGE
+                ----------------------------------------- */
+
+                showStatus(
+                    "Thank you! Your comment has been posted.",
+                    "success"
+                );
+
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Error posting comment:",
+                    error
+                );
+
+
+                showStatus(
+                    "Unable to post your comment. Please try again.",
+                    "error"
+                );
+
+            }
+
+
+            /* ---------------------------------------------
+               ENABLE BUTTON
+            --------------------------------------------- */
+
+            commentSubmit.disabled =
+                false;
+
+            commentSubmit.innerHTML =
+                `
+                    <span>Post Comment</span>
+                    <span>→</span>
+                `;
+
+        }
+    );
+
+
+    /* =====================================================
+       LOAD COMMENTS
+
+       Only comments belonging to this article are loaded.
+    ===================================================== */
+
+    const commentsQuery = query(
+
+        collection(
+            db,
+            "comments"
+        ),
+
+        where(
+            "pageId",
+            "==",
+            PAGE_ID
+        ),
+
+        orderBy(
+            "createdAt",
+            "desc"
+        )
+
+    );
+
+
+    /* =====================================================
+       REAL-TIME COMMENTS
+    ===================================================== */
+
+    onSnapshot(
+
+        commentsQuery,
+
+        function (snapshot) {
+
+
+            commentsList.innerHTML =
+                "";
+
+
+            const total =
+                snapshot.size;
+
+
+            /* ---------------------------------------------
+               COMMENT COUNT
+            --------------------------------------------- */
+
+            if (total === 0) {
+
+                commentCount.textContent =
+                    "0 comments";
+
+            }
+
+            else if (total === 1) {
+
+                commentCount.textContent =
+                    "1 comment";
+
+            }
+
+            else {
+
+                commentCount.textContent =
+                    total + " comments";
+
+            }
+
+
+            /* ---------------------------------------------
+               NO COMMENTS
+            --------------------------------------------- */
+
+            if (total === 0) {
+
+                commentsList.innerHTML = `
+
+                    <div class="comments-empty">
+
+                        No comments yet.
+                        Be the first to share your thoughts.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            /* ---------------------------------------------
+               DISPLAY COMMENTS
+            --------------------------------------------- */
+
+            snapshot.forEach(
+                function (commentDoc) {
+
+
+                    const data =
+                        commentDoc.data();
+
+
+                    /* -------------------------------------
+                       COMMENT ITEM
+                    ------------------------------------- */
+
+                    const comment =
+                        document.createElement(
+                            "div"
+                        );
+
+                    comment.className =
+                        "comment-item";
+
+
+                    /* -------------------------------------
+                       AVATAR
+                    ------------------------------------- */
+
+                    const avatar =
+                        document.createElement(
+                            "div"
+                        );
+
+                    avatar.className =
+                        "comment-avatar";
+
+
+                    const firstLetter =
+                        data.name &&
+                        data.name.length > 0
+
+                            ? data.name
+                                .charAt(0)
+                                .toUpperCase()
+
+                            : "R";
+
+
+                    avatar.textContent =
+                        firstLetter;
+
+
+                    /* -------------------------------------
+                       CONTENT
+                    ------------------------------------- */
+
+                    const content =
+                        document.createElement(
+                            "div"
+                        );
+
+                    content.className =
+                        "comment-content";
+
+
+                    /* -------------------------------------
+                       TOP
+                    ------------------------------------- */
+
+                    const top =
+                        document.createElement(
+                            "div"
+                        );
+
+                    top.className =
+                        "comment-top";
+
+
+                    /* -------------------------------------
+                       AUTHOR
+                    ------------------------------------- */
+
+                    const author =
+                        document.createElement(
+                            "span"
+                        );
+
+                    author.className =
+                        "comment-author";
+
+                    author.textContent =
+                        data.name ||
+                        "Reader";
+
+
+                    /* -------------------------------------
+                       DATE
+                    ------------------------------------- */
+
+                    const date =
+                        document.createElement(
+                            "span"
+                        );
+
+                    date.className =
+                        "comment-date";
+
+
+                    if (
+                        data.createdAt &&
+                        typeof data.createdAt.toDate ===
+                        "function"
+                    ) {
+
+                        const dateValue =
+                            data.createdAt.toDate();
+
+
+                        date.textContent =
+                            dateValue.toLocaleDateString(
+                                "en-IN",
+                                {
+
+                                    day: "numeric",
+
+                                    month: "short",
+
+                                    year: "numeric"
+
+                                }
+                            );
+
+                    }
+
+                    else {
+
+                        date.textContent =
+                            "Just now";
+
+                    }
+
+
+                    /* -------------------------------------
+                       COMMENT TEXT
+                    ------------------------------------- */
+
+                    const text =
+                        document.createElement(
+                            "p"
+                        );
+
+                    text.className =
+                        "comment-text";
+
+
+                    /*
+                       textContent is intentionally used
+                       instead of innerHTML.
+
+                       This prevents a reader from inserting
+                       HTML or JavaScript into the website.
+                    */
+
+                    text.textContent =
+                        data.message ||
+                        "";
+
+
+                    /* -------------------------------------
+                       BUILD COMMENT
+                    ------------------------------------- */
+
+                    top.appendChild(
+                        author
+                    );
+
+                    top.appendChild(
+                        date
+                    );
+
+
+                    content.appendChild(
+                        top
+                    );
+
+                    content.appendChild(
+                        text
+                    );
+
+
+                    comment.appendChild(
+                        avatar
+                    );
+
+                    comment.appendChild(
+                        content
+                    );
+
+
+                    commentsList.appendChild(
+                        comment
+                    );
+
+                }
+            );
+
+        },
+
+
+        /* =================================================
+           FIRESTORE LISTENER ERROR
+        ================================================= */
+
+        function (error) {
+
+            console.error(
+                "Loading comments failed:",
+                error
+            );
+
+
+            commentCount.textContent =
+                "Comments unavailable";
+
+
+            commentsList.innerHTML = `
+
+                <div class="comments-empty">
+
+                    Comments could not be loaded right now.
+                    Please try again later.
+
+                </div>
+
+            `;
+
+        }
+
+    );
+
+</script>
 
 
 <!-- ==================================================
@@ -567,35 +1660,25 @@
 
 <footer class="blog-footer">
 
-
     <div class="footer-inner">
-
 
         <div>
 
             <div class="footer-logo">
-
                 The Hope Sup
-
             </div>
 
-
             <p>
-
                 Ideas for a happier, stronger and
                 more meaningful life.
-
             </p>
 
         </div>
 
 
         <a href="/index.html">
-
             Back to Home →
-
         </a>
-
 
     </div>
 
@@ -606,7 +1689,6 @@
         All rights reserved.
 
     </div>
-
 
 </footer>
 

@@ -8,11 +8,33 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Contact — Hopes Up</title>
+    <title>Contact — The HopeSup</title>
 
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Common CSS -->
     <link rel="stylesheet"
           href="/Style/common.css">
-          <link rel="stylesheet" href="/Style/Contact.css">
+
+
+    <!-- Contact CSS -->
+    <link rel="stylesheet"
+          href="/Style/Contact.css">
+
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
 
@@ -20,253 +42,359 @@
 <body>
 
 
-<header class="site-header">
+<!-- =====================================================
+     SHARED HEADER
+====================================================== -->
 
-    <div class="container">
-
-        <div class="nav-inner">
-
-            <a class="brand"
-               href="index.html">
-
-                <div class="brand-mark">
-                    H
-                </div>
-
-                <div>
-
-                    <div class="brand-name">
-                        Hopes<span>Up</span>
-                    </div>
-
-                    <div class="brand-sub">
-                        Growth • Mindset • Life
-                    </div>
-
-                </div>
-
-            </a>
+<div id="header-placeholder"></div>
 
 
-            <nav class="desktop-nav">
 
-                <a data-nav href="index.html">
-                    Home
-                </a>
-
-                <a data-nav href="Service.html">
-                    Services
-                </a>
-
-                <a data-nav href="gallery.html">
-                    Gallery
-                </a>
-
-                <a data-nav href="blog.html">
-                    Blog
-                </a>
-
-                <a data-nav href="contact.html">
-                    Contact
-                </a>
-
-            </nav>
-
-
-            <a class="btn btn-dark nav-cta"
-               href="contact.html">
-
-                Start a Conversation
-
-                <i data-lucide="arrow-up-right"
-                   width="16"></i>
-
-            </a>
-
-
-            <button class="mobile-toggle">
-
-                <i data-lucide="menu"
-                   data-menu-icon
-                   width="22"></i>
-
-            </button>
-
-        </div>
-
-
-        <div class="mobile-menu">
-
-            <nav>
-
-                <a data-nav href="index.html">
-                    Home
-                </a>
-
-                <a data-nav href="services.html">
-                    Services
-                </a>
-
-                <a data-nav href="gallery.html">
-                    Gallery
-                </a>
-
-                <a data-nav href="blog.html">
-                    Blog
-                </a>
-
-                <a data-nav href="contact.html">
-                    Contact
-                </a>
-
-            </nav>
-
-        </div>
-
-    </div>
-
-</header>
-
+<!-- =====================================================
+     MAIN
+====================================================== -->
 
 <main>
 
 
-<section class="page-hero hero-grid">
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="contact-hero">
 
     <div class="container">
 
-        <p class="small-label">
-            Contact Hopes Up
-        </p>
-
-        <h1>
-            Let's start a<br>
-
-            <span class="gradient-text">
-                meaningful conversation.
-            </span>
-        </h1>
-
-        <p class="lead">
-            Have a question, an idea, a collaboration
-            opportunity or simply want to say hello?
-            We'd love to hear from you.
-        </p>
-
-    </div>
-
-</section>
+        <div class="contact-hero-grid">
 
 
-<section class="section-space">
+            <!-- LEFT HERO CONTENT -->
 
-    <div class="container">
+            <div class="hero-content">
 
-        <div class="contact-grid">
-
-
-            <!-- CONTACT INFORMATION -->
-
-            <div class="contact-info">
-
-                <p class="small-label"
-                   style="color:var(--hope-300)">
-                    Get in touch
-                </p>
-
-                <h2>
-                    We are here<br>
-                    to listen.
-                </h2>
-
-                <p>
-                    Tell us what is on your mind
-                    and we will get back to you
-                    as soon as possible.
+                <p class="small-label">
+                    Contact The HopeSup
                 </p>
 
 
-                <div class="contact-details">
+                <h1>
+
+                    Let's start a
+
+                    <span>
+                        meaningful
+                        conversation.
+                    </span>
+
+                </h1>
 
 
-                    <div class="contact-detail">
+                <p class="hero-description">
 
-                        <div class="contact-icon">
+                    Have a question, an idea,
+                    a collaboration opportunity
+                    or simply want to say hello?
 
-                            <i data-lucide="mail"
-                               width="18"></i>
+                    We'd love to hear from you.
 
-                        </div>
-
-                        <div>
-
-                            <div class="label">
-                                Email
-                            </div>
-
-                            <div class="value">
-                                YOUR-EMAIL@gmail.com
-                            </div>
-
-                        </div>
-
-                    </div>
+                </p>
 
 
-                    <div class="contact-detail">
+                <div class="hero-buttons">
 
-                        <div class="contact-icon">
+                    <a href="#contact-form-section"
+                       class="btn btn-dark">
 
-                            <i data-lucide="phone"
-                               width="18"></i>
+                        Send a message
 
-                        </div>
+                        <i data-lucide="arrow-down"
+                           width="17">
+                        </i>
 
-                        <div>
-
-                            <div class="label">
-                                Phone
-                            </div>
-
-                            <div class="value">
-                                +91 00000 00000
-                            </div>
-
-                        </div>
-
-                    </div>
+                    </a>
 
 
-                    <div class="contact-detail">
+                    <a href="mailto:hello@thehopesup.com"
+                       class="btn btn-outline">
 
-                        <div class="contact-icon">
+                        Email us
 
-                            <i data-lucide="map-pin"
-                               width="18"></i>
+                        <i data-lucide="arrow-up-right"
+                           width="17">
+                        </i>
 
-                        </div>
-
-                        <div>
-
-                            <div class="label">
-                                Location
-                            </div>
-
-                            <div class="value">
-                                India
-                            </div>
-
-                        </div>
-
-                    </div>
-
+                    </a>
 
                 </div>
 
             </div>
 
 
-            <!-- CONTACT FORM -->
+
+            <!-- RIGHT ANIMATED IMAGE -->
+
+            <div class="contact-visual">
+
+
+                <div class="visual-glow"></div>
+
+
+                <div class="orbit orbit-one"></div>
+
+                <div class="orbit orbit-two"></div>
+
+
+                <div class="visual-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85"
+                        alt="Creative workspace">
+
+                </div>
+
+
+                <!-- FLOATING CARD 1 -->
+
+                <div class="floating-card card-top">
+
+                    <div class="floating-icon">
+
+                        <i data-lucide="sparkles"
+                           width="18">
+                        </i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Better ideas
+                        </strong>
+
+                        <span>
+                            Start with a conversation
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FLOATING CARD 2 -->
+
+                <div class="floating-card card-bottom">
+
+                    <div class="status-dot"></div>
+
+                    <div>
+
+                        <strong>
+                            Let's connect
+                        </strong>
+
+                        <span>
+                            One step at a time
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ROTATING BADGE -->
+
+                <div class="visual-badge">
+
+                    <svg viewBox="0 0 160 160">
+
+                        <defs>
+
+                            <path
+                                id="badgeCircle"
+                                d="M80,80
+                                   m-57,0
+                                   a57,57 0 1,1 114,0
+                                   a57,57 0 1,1 -114,0">
+                            </path>
+
+                        </defs>
+
+
+                        <text>
+
+                            <textPath href="#badgeCircle">
+
+                                CONNECT • CREATE • GROW • CONNECT • CREATE • GROW •
+
+                            </textPath>
+
+                        </text>
+
+
+                        <circle
+                            cx="80"
+                            cy="80"
+                            r="8">
+                        </circle>
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT SECTION
+====================================================== -->
+
+<section class="contact-section"
+         id="contact-form-section">
+
+    <div class="container">
+
+        <div class="contact-layout">
+
+
+            <!-- LEFT SIDE -->
+
+            <div class="contact-information">
+
+                <p class="small-label">
+                    Get in touch
+                </p>
+
+
+                <h2>
+
+                    We are here
+
+                    <span>
+                        to listen.
+                    </span>
+
+                </h2>
+
+
+                <p class="information-text">
+
+                    Tell us what is on your mind.
+                    Whether you have an idea,
+                    question or opportunity,
+                    we'd love to hear from you.
+
+                </p>
+
+
+                <!-- EMAIL -->
+
+                <div class="contact-detail">
+
+                    <div class="contact-icon">
+
+                        <i data-lucide="mail"
+                           width="19">
+                        </i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Email
+                        </span>
+
+                        <strong>
+                            hello@thehopesup.com
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="contact-detail">
+
+                    <div class="contact-icon">
+
+                        <i data-lucide="phone"
+                           width="19">
+                        </i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Phone
+                        </span>
+
+                        <strong>
+                            +91 00000 00000
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="contact-detail">
+
+                    <div class="contact-icon">
+
+                        <i data-lucide="map-pin"
+                           width="19">
+                        </i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Location
+                        </span>
+
+                        <strong>
+                            India
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SMALL QUOTE -->
+
+                <div class="contact-note">
+
+                    <span>
+                        ✦
+                    </span>
+
+                    Every meaningful idea
+                    starts with a conversation.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RIGHT FORM -->
 
             <div class="contact-form">
 
@@ -274,8 +402,10 @@
                     Send a message
                 </p>
 
+
                 <h2>
-                    Tell us what's on your mind.
+                    Tell us what's
+                    on your mind.
                 </h2>
 
 
@@ -287,97 +417,114 @@
                 <form id="contact-form">
 
 
+                    <!-- FIRST + LAST NAME -->
+
                     <div class="form-grid">
 
 
                         <div class="form-group">
 
-                            <label>
+                            <label for="firstName">
                                 First name
                             </label>
 
                             <input
+                                id="firstName"
                                 name="firstName"
                                 type="text"
-                                required
-                                placeholder="Your first name">
+                                placeholder="Your first name"
+                                required>
 
                         </div>
 
 
                         <div class="form-group">
 
-                            <label>
+                            <label for="lastName">
                                 Last name
                             </label>
 
                             <input
+                                id="lastName"
                                 name="lastName"
                                 type="text"
-                                required
-                                placeholder="Your last name">
+                                placeholder="Your last name"
+                                required>
 
                         </div>
-
 
                     </div>
 
 
+
+                    <!-- EMAIL -->
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="email">
                             Email
                         </label>
 
                         <input
+                            id="email"
                             name="email"
                             type="email"
-                            required
-                            placeholder="you@example.com">
+                            placeholder="you@example.com"
+                            required>
 
                     </div>
 
 
+
+                    <!-- SUBJECT -->
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="subject">
                             Subject
                         </label>
 
                         <input
+                            id="subject"
                             name="subject"
                             type="text"
-                            required
-                            placeholder="Enter subject">
+                            placeholder="What would you like to discuss?"
+                            required>
 
                     </div>
 
 
+
+                    <!-- MESSAGE -->
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="message">
                             Message
                         </label>
 
                         <textarea
+                            id="message"
                             name="message"
                             rows="6"
-                            required
-                            placeholder="Write your message...">
-                        </textarea>
+                            placeholder="Write your message..."
+                            required></textarea>
 
                     </div>
 
 
+
+                    <!-- SUBMIT -->
+
                     <button
-                        class="btn btn-dark"
-                        style="width:100%;margin-top:20px"
+                        class="btn btn-dark submit-button"
                         type="submit">
 
                         Send message
 
                         <i data-lucide="send"
-                           width="18"></i>
+                           width="18">
+                        </i>
 
                     </button>
 
@@ -386,7 +533,6 @@
 
             </div>
 
-
         </div>
 
     </div>
@@ -394,11 +540,17 @@
 </section>
 
 
+
+<!-- =====================================================
+     BOTTOM CONTACT
+====================================================== -->
+
 <section class="bottom-contact">
 
     <div class="container">
 
         <div class="bottom-contact-inner">
+
 
             <div>
 
@@ -407,19 +559,21 @@
                 </p>
 
                 <h2>
-                    YOUR-EMAIL@gmail.com
+                    hello@thehopesup.com
                 </h2>
 
             </div>
 
 
-            <a class="btn btn-dark"
-               href="mailto:YOUR-EMAIL@gmail.com">
+            <a
+                class="btn btn-dark"
+                href="mailto:hello@thehopesup.com">
 
                 Email us
 
                 <i data-lucide="arrow-up-right"
-                   width="18"></i>
+                   width="18">
+                </i>
 
             </a>
 
@@ -430,11 +584,15 @@
 </section>
 
 
-</main>
 
+<!-- =====================================================
+     FOOTER
+====================================================== -->
 
 <footer class="footer">
 
+
+    <!-- FOOTER CTA -->
 
     <div class="footer-cta">
 
@@ -442,33 +600,38 @@
 
             <div class="footer-cta-inner">
 
+
                 <div>
 
-                    <p class="small-label"
-                       style="color:var(--hope-300)">
+                    <p class="footer-label">
                         Let's move forward
                     </p>
 
+
                     <h2>
+
                         Your next chapter
 
-                        <span style="color:var(--hope-300)">
+                        <span>
                             starts here.
                         </span>
+
                     </h2>
 
                 </div>
 
 
-                <div style="text-align:right">
+                <div>
 
-                    <a class="btn btn-white"
-                       href="contact.html">
+                    <a
+                        class="btn btn-white"
+                        href="contact.html">
 
-                        Talk to Hopes Up
+                        Talk to The HopeSup
 
                         <i data-lucide="arrow-up-right"
-                           width="18"></i>
+                           width="18">
+                        </i>
 
                     </a>
 
@@ -481,10 +644,15 @@
     </div>
 
 
+
+    <!-- FOOTER CONTENT -->
+
     <div class="container footer-content">
 
         <div class="footer-grid">
 
+
+            <!-- BRAND -->
 
             <div class="footer-brand-col">
 
@@ -494,14 +662,14 @@
                         H
                     </div>
 
+
                     <div>
 
-                        <div class="brand-name"
-                             style="color:#fff">
-                            HopesUp
+                        <div class="footer-brand-name">
+                            TheHopeSup
                         </div>
 
-                        <div style="font-size:12px;color:#9ca3af">
+                        <div class="footer-brand-sub">
                             Growth • Mindset • Life
                         </div>
 
@@ -511,30 +679,43 @@
 
 
                 <p>
+
                     A space for better thoughts,
                     meaningful growth, balanced living
                     and the courage to take your next step.
+
                 </p>
 
 
                 <div class="socials">
 
-                    <a class="social"
-                       href="https://instagram.com"
-                       target="_blank">
+                    <a
+                        href="https://instagram.com"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
                         IG
+
                     </a>
 
-                    <a class="social"
-                       href="https://facebook.com"
-                       target="_blank">
+
+                    <a
+                        href="https://facebook.com"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
                         f
+
                     </a>
 
-                    <a class="social"
-                       href="https://linkedin.com"
-                       target="_blank">
+
+                    <a
+                        href="https://linkedin.com"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
                         in
+
                     </a>
 
                 </div>
@@ -542,11 +723,15 @@
             </div>
 
 
+
+            <!-- EXPLORE -->
+
             <div>
 
                 <h4>
                     Explore
                 </h4>
+
 
                 <div class="footer-links">
 
@@ -554,7 +739,7 @@
                         Home
                     </a>
 
-                    <a href="services.html">
+                    <a href="Service.html">
                         Services
                     </a>
 
@@ -575,11 +760,15 @@
             </div>
 
 
+
+            <!-- CONTACT -->
+
             <div>
 
                 <h4>
                     Get in touch
                 </h4>
+
 
                 <div class="footer-links">
 
@@ -587,25 +776,31 @@
                         ✉ hello@thehopesup.com
                     </span>
 
+
                     <p>
+
                         Let's create better possibilities,
                         one step at a time.
+
                     </p>
 
                 </div>
 
             </div>
 
-
         </div>
 
+
+
+        <!-- FOOTER BOTTOM -->
 
         <div class="footer-bottom">
 
             <span>
-                © 2026 Hopes Up.
+                © 2026 The HopeSup.
                 All rights reserved.
             </span>
+
 
             <span>
                 Designed with purpose.
@@ -618,9 +813,150 @@
 </footer>
 
 
-<script src="https://unpkg.com/lucide@latest"></script>
 
-<script src="js/script.js"></script>
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+    /* ==============================================
+       LOAD SHARED HEADER
+    ============================================== */
+
+    fetch("Header.html")
+
+        .then(function (response) {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Could not load Header.html"
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(function (html) {
+
+            const header =
+                document.getElementById(
+                    "header-placeholder"
+                );
+
+            if (header) {
+
+                header.innerHTML = html;
+
+            }
+
+
+            /* LUCIDE ICONS */
+
+            if (typeof lucide !== "undefined") {
+
+                lucide.createIcons();
+
+            }
+
+
+            /* MOBILE MENU */
+
+            const menuButton =
+                document.getElementById(
+                    "menuButton"
+                );
+
+            const mobileMenu =
+                document.getElementById(
+                    "mobileMenu"
+                );
+
+
+            if (menuButton && mobileMenu) {
+
+                menuButton.addEventListener(
+                    "click",
+                    function () {
+
+                        const isOpen =
+                            mobileMenu.classList.toggle(
+                                "show"
+                            );
+
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            isOpen
+                        );
+
+                    }
+                );
+
+            }
+
+        })
+
+        .catch(function (error) {
+
+            console.error(
+                "Header loading error:",
+                error
+            );
+
+        });
+
+
+
+    /* ==============================================
+       CONTACT FORM
+    ============================================== */
+
+    const contactForm =
+        document.getElementById(
+            "contact-form"
+        );
+
+
+    if (contactForm) {
+
+        contactForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const status =
+                    document.getElementById(
+                        "form-status"
+                    );
+
+
+                if (status) {
+
+                    status.textContent =
+                        "Thank you! Your message has been received.";
+
+                    status.classList.add(
+                        "show"
+                    );
+
+                }
+
+
+                contactForm.reset();
+
+            }
+        );
+
+    }
+
+</script>
+
 
 </body>
+
 </html>
