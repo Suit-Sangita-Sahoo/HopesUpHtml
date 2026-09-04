@@ -13,6 +13,9 @@
     <!-- COMMON BLOG CSS -->
     <link rel="stylesheet" href="/Blogs/Blog.css">
 
+    <!-- COMMON FOOTER CSS -->
+    <link rel="stylesheet" href="/Style/Footer.css">
+
 </head>
 
 
@@ -27,12 +30,11 @@
 
     <div class="blog-header-inner">
 
-        <a href="../index.html" class="blog-logo">
+        <a href="/index.html" class="blog-logo">
             The Hope Sup
         </a>
 
-
-        <a href="../index.html" class="back-home">
+        <a href="/Blog.html" class="back-home">
             ← Back to Articles
         </a>
 
@@ -100,7 +102,7 @@
     <figure class="featured-image">
 
         <img
-            src="../Image/Why You Should Appreciate Life As It Is.png"
+            src="/Image/Why You Should Appreciate Life As It Is.png"
             alt="Why You Should Appreciate Life As It Is">
 
     </figure>
@@ -570,7 +572,6 @@
 
         <div class="article-author">
 
-
             <div class="author-avatar">
 
                 HS
@@ -603,7 +604,6 @@
 
             </div>
 
-
         </div>
 
 
@@ -617,24 +617,18 @@
 
     <section class="related-articles">
 
-
         <div class="section-heading">
 
             <span>
-
                 KEEP READING
-
             </span>
 
 
             <h2>
-
                 Related Articles
-
             </h2>
 
         </div>
-
 
 
         <div class="related-grid">
@@ -644,13 +638,11 @@
                  BEING PRESENT
             ================================================== -->
 
-            <a href="BeingPresent.html"
+            <a href="/Blogs/BeingPresent.html"
                class="related-card">
 
                 <span>
-
                     MINDFULNESS
-
                 </span>
 
 
@@ -671,9 +663,7 @@
 
 
                 <strong>
-
                     Read article →
-
                 </strong>
 
             </a>
@@ -684,13 +674,11 @@
                  HATING YOURSELF
             ================================================== -->
 
-            <a href="HatingYourself.html"
+            <a href="/Blogs/HatingYourself.html"
                class="related-card">
 
                 <span>
-
                     MINDSET
-
                 </span>
 
 
@@ -712,9 +700,7 @@
 
 
                 <strong>
-
                     Read article →
-
                 </strong>
 
             </a>
@@ -725,13 +711,11 @@
                  YOURSELF FIRST
             ================================================== -->
 
-            <a href="YourselfFirst.html"
+            <a href="/Blogs/YourselfFirst.html"
                class="related-card">
 
                 <span>
-
                     MINDSET
-
                 </span>
 
 
@@ -753,9 +737,7 @@
 
 
                 <strong>
-
                     Read article →
-
                 </strong>
 
             </a>
@@ -768,18 +750,19 @@
 
 </main>
 
-<!-- =====================================================
-     COMMENTS SECTION
-====================================================== -->
+
 
 <!-- =====================================================
      COMMENTS SECTION
 ===================================================== -->
 
 <section class="comments-section">
+
     <div class="comments-container">
 
+
         <div class="comments-heading">
+
             <span class="comments-label">
                 JOIN THE CONVERSATION
             </span>
@@ -792,7 +775,10 @@
                 Share your thoughts, ideas or experiences
                 with us and other readers.
             </p>
+
         </div>
+
+
 
         <!-- =================================================
              COMMENT FORM
@@ -802,9 +788,12 @@
 
             <form id="commentForm">
 
+
                 <div class="comment-form-grid">
 
+
                     <div class="comment-field">
+
                         <label for="commentName">
                             Your name
                         </label>
@@ -816,12 +805,18 @@
                             autocomplete="name"
                             placeholder="Enter your name"
                             required>
+
                     </div>
 
+
+
                     <div class="comment-field">
+
                         <label for="commentEmail">
+
                             Email
                             <span>(optional)</span>
+
                         </label>
 
                         <input
@@ -830,15 +825,21 @@
                             maxlength="100"
                             autocomplete="email"
                             placeholder="you@example.com">
+
                     </div>
+
 
                 </div>
 
+
+
                 <div class="comment-field">
+
 
                     <label for="commentMessage">
                         Your comment
                     </label>
+
 
                     <textarea
                         id="commentMessage"
@@ -847,11 +848,15 @@
                         placeholder="Write your thoughts..."
                         required></textarea>
 
+
                     <div class="character-count">
                         Maximum 500 characters
                     </div>
 
+
                 </div>
+
+
 
                 <button
                     type="submit"
@@ -868,20 +873,25 @@
 
                 </button>
 
+
                 <div
                     id="commentStatus"
                     class="comment-status">
                 </div>
 
+
             </form>
 
         </div>
+
+
 
         <!-- =================================================
              COMMENTS LIST
         ================================================== -->
 
         <div class="comments-list-wrapper">
+
 
             <div class="comments-list-header">
 
@@ -895,6 +905,7 @@
 
             </div>
 
+
             <div
                 id="commentsList"
                 class="comments-list">
@@ -905,10 +916,15 @@
 
             </div>
 
+
         </div>
 
+
     </div>
+
 </section>
+
+
 
 <!-- =====================================================
      FIREBASE COMMENTS
@@ -921,7 +937,7 @@
     ===================================================== */
 
     import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+        from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
     import {
         getFirestore,
@@ -929,11 +945,11 @@
         addDoc,
         query,
         where,
-        orderBy,
         onSnapshot,
         serverTimestamp
     }
-    from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+        from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
 
 
     /* =====================================================
@@ -942,7 +958,8 @@
 
     const firebaseConfig = {
 
-        apiKey: "AIzaSyBxAvmT6UbWpKtLxllJPn-Vimr7BFXJC4",
+        apiKey:
+            "AIzaSyBxAvmT6UbWpKtLxllJP-nVimr7BFXJC4",
 
         authDomain:
             "the-hope-sup.firebaseapp.com",
@@ -964,6 +981,7 @@
     };
 
 
+
     /* =====================================================
        INITIALIZE FIREBASE
     ===================================================== */
@@ -973,14 +991,17 @@
     const db = getFirestore(app);
 
 
+
     /* =====================================================
-       IMPORTANT
-       CHANGE THESE TWO VALUES FOR EVERY BLOG PAGE
+       PAGE INFORMATION
     ===================================================== */
 
-    const PAGE_ID = "CHANGE-THIS-PAGE-ID";
+    const PAGE_ID =
+        "why-you-should-appreciate-life-as-it-is";
 
-    const PAGE_TITLE = "CHANGE THIS PAGE TITLE";
+    const PAGE_TITLE =
+        "Why You Should Appreciate Life As It Is";
+
 
 
     /* =====================================================
@@ -1012,6 +1033,7 @@
         document.getElementById("commentCount");
 
 
+
     /* =====================================================
        SHOW STATUS
     ===================================================== */
@@ -1022,7 +1044,9 @@
 
         commentStatus.className =
             "comment-status " + type;
+
     }
+
 
 
     /* =====================================================
@@ -1035,31 +1059,34 @@
             !timestamp ||
             typeof timestamp.toDate !== "function"
         ) {
+
             return "Just now";
+
         }
 
-        const date = timestamp.toDate();
 
-        return date.toLocaleString("en-IN", {
+        const date =
+            timestamp.toDate();
 
-            day: "numeric",
 
-            month: "short",
+        return date.toLocaleString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true
+            }
+        );
 
-            year: "numeric",
-
-            hour: "numeric",
-
-            minute: "2-digit",
-
-            hour12: true
-
-        });
     }
 
 
+
     /* =====================================================
-       CREATE COMMENT HTML
+       CREATE COMMENT ELEMENT
     ===================================================== */
 
     function createCommentElement(data) {
@@ -1069,6 +1096,7 @@
 
         comment.className =
             "comment-item";
+
 
 
         /* Avatar */
@@ -1088,6 +1116,7 @@
             name.charAt(0).toUpperCase();
 
 
+
         /* Content */
 
         const content =
@@ -1097,6 +1126,7 @@
             "comment-content";
 
 
+
         /* Top row */
 
         const top =
@@ -1104,6 +1134,7 @@
 
         top.className =
             "comment-top";
+
 
 
         /* Author */
@@ -1118,6 +1149,7 @@
             name;
 
 
+
         /* Date */
 
         const date =
@@ -1127,7 +1159,10 @@
             "comment-date";
 
         date.textContent =
-            formatCommentDate(data.createdAt);
+            formatCommentDate(
+                data.createdAt
+            );
+
 
 
         /* Message */
@@ -1140,6 +1175,7 @@
 
         text.textContent =
             data.message || "";
+
 
 
         /* Build */
@@ -1158,7 +1194,9 @@
 
 
         return comment;
+
     }
+
 
 
     /* =====================================================
@@ -1172,8 +1210,6 @@
             event.preventDefault();
 
 
-            /* Get values */
-
             const name =
                 commentName.value.trim();
 
@@ -1182,6 +1218,7 @@
 
             const message =
                 commentMessage.value.trim();
+
 
 
             /* Validation */
@@ -1245,6 +1282,7 @@
             }
 
 
+
             /* Disable button */
 
             commentSubmit.disabled = true;
@@ -1253,36 +1291,30 @@
                 "<span>Posting...</span>";
 
 
+
             try {
 
                 /* Save to Firestore */
 
                 await addDoc(
-
                     collection(db, "comments"),
-
                     {
-
                         pageId: PAGE_ID,
-
                         pageTitle: PAGE_TITLE,
-
                         name: name,
-
                         email: email,
-
                         message: message,
-
                         createdAt:
                             serverTimestamp()
-
                     }
                 );
+
 
 
                 /* Clear form */
 
                 commentForm.reset();
+
 
 
                 /* Success */
@@ -1293,6 +1325,7 @@
                 );
 
             }
+
 
             catch (error) {
 
@@ -1305,7 +1338,9 @@
                     "Unable to post your comment. Please try again.",
                     "error"
                 );
+
             }
+
 
 
             /* Enable button */
@@ -1321,25 +1356,24 @@
     );
 
 
+
     /* =====================================================
        FIRESTORE QUERY
+       
+       No orderBy() is used here.
+       This avoids the composite index requirement.
     ===================================================== */
 
-    const commentsQuery = query(
+    const commentsQuery =
+        query(
+            collection(db, "comments"),
+            where(
+                "pageId",
+                "==",
+                PAGE_ID
+            )
+        );
 
-        collection(db, "comments"),
-
-        where(
-            "pageId",
-            "==",
-            PAGE_ID
-        ),
-
-        orderBy(
-            "createdAt",
-            "desc"
-        )
-    );
 
 
     /* =====================================================
@@ -1355,10 +1389,37 @@
             commentsList.innerHTML = "";
 
 
+
+            /* Convert documents to array */
+
+            const comments =
+                snapshot.docs
+                    .map(function (commentDoc) {
+
+                        return {
+                            id: commentDoc.id,
+                            ...commentDoc.data()
+                        };
+
+                    })
+                    .sort(function (a, b) {
+
+                        const aTime =
+                            a.createdAt?.toMillis?.() || 0;
+
+                        const bTime =
+                            b.createdAt?.toMillis?.() || 0;
+
+                        return bTime - aTime;
+
+                    });
+
+
+
             /* Comment count */
 
             const total =
-                snapshot.size;
+                comments.length;
 
 
             if (total === 0) {
@@ -1379,7 +1440,9 @@
 
                 commentCount.textContent =
                     total + " comments";
+
             }
+
 
 
             /* No comments */
@@ -1398,28 +1461,30 @@
                 commentsList.appendChild(empty);
 
                 return;
+
             }
+
 
 
             /* Display comments */
 
-            snapshot.forEach(
-
-                function (commentDoc) {
-
-                    const data =
-                        commentDoc.data();
+            comments.forEach(
+                function (data) {
 
                     const comment =
                         createCommentElement(data);
 
                     commentsList.appendChild(comment);
+
                 }
             );
+
         },
 
 
-        /* Firestore error */
+        /* =================================================
+           FIRESTORE ERROR
+        ================================================== */
 
         function (error) {
 
@@ -1428,76 +1493,86 @@
                 error
             );
 
+
             commentCount.textContent =
                 "Comments unavailable";
 
+
             commentsList.innerHTML = "";
+
 
             const errorMessage =
                 document.createElement("div");
 
+
             errorMessage.className =
                 "comments-empty";
+
 
             errorMessage.textContent =
                 "Comments could not be loaded right now. Please try again later.";
 
+
             commentsList.appendChild(
                 errorMessage
             );
+
         }
+
     );
 
 </script>
 
+
+
 <!-- =====================================================
-     FOOTER
+     REUSABLE FOOTER
 ===================================================== -->
 
-<footer class="blog-footer">
+<div id="footer-placeholder"></div>
 
 
-    <div class="footer-inner">
 
+<!-- =====================================================
+     FOOTER LOADER
+===================================================== -->
 
-        <div>
+<script>
 
-            <div class="footer-logo">
+    fetch("/Footer.html")
 
-                The Hope Sup
+        .then(function (response) {
 
-            </div>
+            if (!response.ok) {
 
+                throw new Error(
+                    "Footer.html could not be loaded."
+                );
 
-            <p>
+            }
 
-                Ideas for a happier, stronger and
-                more meaningful life.
+            return response.text();
 
-            </p>
+        })
 
-        </div>
+        .then(function (data) {
 
+            document.getElementById(
+                "footer-placeholder"
+            ).innerHTML = data;
 
-        <a href="../index.html">
+        })
 
-            ← Back to Home
+        .catch(function (error) {
 
-        </a>
+            console.error(
+                "Footer loading error:",
+                error
+            );
 
+        });
 
-    </div>
-
-
-    <div class="footer-bottom">
-
-        © 2026 The Hope Sup.
-        All rights reserved.
-
-    </div>
-
-
-</footer>
+</script>
 
 
 </body>

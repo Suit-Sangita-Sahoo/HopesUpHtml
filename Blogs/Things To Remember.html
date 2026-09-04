@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +14,11 @@
 
     <!-- COMMON BLOG CSS -->
     <link rel="stylesheet"
-          href="Blog.css">
+          href="/Blogs/Blog.css">
+
+    <!-- COMMON FOOTER CSS -->
+    <link rel="stylesheet"
+          href="/Style/Footer.css">
 
 </head>
 
@@ -31,7 +34,7 @@
 
     <div class="blog-header-inner">
 
-        <a href="../index.html"
+        <a href="/index.html"
            class="blog-logo">
 
             The Hope Sup
@@ -39,7 +42,7 @@
         </a>
 
 
-        <a href="../index.html"
+        <a href="/Blog.html"
            class="back-home">
 
             ← Back to Articles
@@ -574,7 +577,7 @@
                  POSITIVE SELF-TALK
             ================================================== -->
 
-            <a href="PositiveSelfTalk.html"
+            <a href="/Blogs/PositiveSelfTalk.html"
                class="related-card">
 
                 <span>
@@ -614,7 +617,7 @@
                  ARGUMENT ARTICLE
             ================================================== -->
 
-            <a href="ThingsYouShould.html"
+            <a href="/Blogs/ThingsYouShould.html"
                class="related-card">
 
                 <span>
@@ -654,7 +657,7 @@
                  CHANGE GOALS
             ================================================== -->
 
-            <a href="Changegoals.html"
+            <a href="/Blogs/Changegoals.html"
                class="related-card">
 
                 <span>
@@ -699,56 +702,888 @@
 
 
 <!-- =====================================================
-     FOOTER
+     COMMENTS SECTION
 ===================================================== -->
 
-<footer class="blog-footer">
+<section class="comments-section">
+
+    <div class="comments-container">
 
 
-    <div class="footer-inner">
+        <div class="comments-heading">
+
+            <span class="comments-label">
+
+                JOIN THE CONVERSATION
+
+            </span>
 
 
-        <div>
+            <h2>
 
-            <div class="footer-logo">
+                What do you think?
 
-                The Hope Sup
-
-            </div>
+            </h2>
 
 
             <p>
 
-                Ideas for a happier, stronger and
-                more meaningful life.
+                Share your thoughts, ideas or experiences
+                with us and other readers.
 
             </p>
 
         </div>
 
 
-        <a href="../index.html">
 
-            ← Back to Home
+        <!-- =================================================
+             COMMENT FORM
+        ================================================== -->
 
-        </a>
+        <div class="comment-form-card">
+
+            <form id="commentForm">
+
+
+                <div class="comment-form-grid">
+
+
+                    <div class="comment-field">
+
+                        <label for="commentName">
+
+                            Your name
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="commentName"
+                            maxlength="50"
+                            autocomplete="name"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
+
+
+
+                    <div class="comment-field">
+
+                        <label for="commentEmail">
+
+                            Email
+                            <span>(optional)</span>
+
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="commentEmail"
+                            maxlength="100"
+                            autocomplete="email"
+                            placeholder="you@example.com">
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="comment-field">
+
+
+                    <label for="commentMessage">
+
+                        Your comment
+
+                    </label>
+
+
+                    <textarea
+                        id="commentMessage"
+                        rows="5"
+                        maxlength="500"
+                        placeholder="Write your thoughts..."
+                        required></textarea>
+
+
+                    <div class="character-count">
+
+                        Maximum 500 characters
+
+                    </div>
+
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="comment-submit"
+                    id="commentSubmit">
+
+                    <span>
+
+                        Post Comment
+
+                    </span>
+
+
+                    <span>
+
+                        →
+
+                    </span>
+
+                </button>
+
+
+                <div
+                    id="commentStatus"
+                    class="comment-status">
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- =================================================
+             COMMENTS LIST
+        ================================================== -->
+
+        <div class="comments-list-wrapper">
+
+
+            <div class="comments-list-header">
+
+                <h3>
+
+                    Comments
+
+                </h3>
+
+
+                <span id="commentCount">
+
+                    Loading...
+
+                </span>
+
+            </div>
+
+
+            <div
+                id="commentsList"
+                class="comments-list">
+
+                <div class="comments-loading">
+
+                    Loading comments...
+
+                </div>
+
+            </div>
+
+
+        </div>
 
 
     </div>
 
-
-    <div class="footer-bottom">
-
-        © 2026 The Hope Sup.
-        All rights reserved.
-
-    </div>
+</section>
 
 
-</footer>
+
+<!-- =====================================================
+     FIREBASE COMMENTS
+===================================================== -->
+
+<script type="module">
+
+    /* =====================================================
+       FIREBASE IMPORTS
+    ===================================================== */
+
+    import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+    import {
+        getFirestore,
+        collection,
+        addDoc,
+        query,
+        where,
+        onSnapshot,
+        serverTimestamp
+    }
+        from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+
+    /* =====================================================
+       FIREBASE CONFIGURATION
+    ===================================================== */
+
+    const firebaseConfig = {
+
+        apiKey:
+            "AIzaSyBxAvmT6UbWpKtLxllJP-nVimr7BFXJC4",
+
+        authDomain:
+            "the-hope-sup.firebaseapp.com",
+
+        projectId:
+            "the-hope-sup",
+
+        storageBucket:
+            "the-hope-sup.firebasestorage.app",
+
+        messagingSenderId:
+            "153836503835",
+
+        appId:
+            "1:153836503835:web:07e99ddbe455805c9c89be",
+
+        measurementId:
+            "G-7844C245GL"
+
+    };
+
+
+
+    /* =====================================================
+       INITIALIZE FIREBASE
+    ===================================================== */
+
+    const app =
+        initializeApp(firebaseConfig);
+
+    const db =
+        getFirestore(app);
+
+
+
+    /* =====================================================
+       PAGE INFORMATION
+    ===================================================== */
+
+    const PAGE_ID =
+        "3-things-to-remember-when-you-want-to-change-people";
+
+    const PAGE_TITLE =
+        "3 Things To Remember When You Want To Change People";
+
+
+
+    /* =====================================================
+       GET HTML ELEMENTS
+    ===================================================== */
+
+    const commentForm =
+        document.getElementById("commentForm");
+
+    const commentName =
+        document.getElementById("commentName");
+
+    const commentEmail =
+        document.getElementById("commentEmail");
+
+    const commentMessage =
+        document.getElementById("commentMessage");
+
+    const commentSubmit =
+        document.getElementById("commentSubmit");
+
+    const commentStatus =
+        document.getElementById("commentStatus");
+
+    const commentsList =
+        document.getElementById("commentsList");
+
+    const commentCount =
+        document.getElementById("commentCount");
+
+
+
+    /* =====================================================
+       SHOW STATUS
+    ===================================================== */
+
+    function showStatus(message, type) {
+
+        commentStatus.textContent =
+            message;
+
+        commentStatus.className =
+            "comment-status " + type;
+
+    }
+
+
+
+    /* =====================================================
+       FORMAT DATE
+    ===================================================== */
+
+    function formatCommentDate(timestamp) {
+
+        if (
+            !timestamp ||
+            typeof timestamp.toDate !== "function"
+        ) {
+
+            return "Just now";
+
+        }
+
+
+        const date =
+            timestamp.toDate();
+
+
+        return date.toLocaleString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       CREATE COMMENT ELEMENT
+    ===================================================== */
+
+    function createCommentElement(data) {
+
+        const comment =
+            document.createElement("div");
+
+        comment.className =
+            "comment-item";
+
+
+
+        /* Avatar */
+
+        const avatar =
+            document.createElement("div");
+
+        avatar.className =
+            "comment-avatar";
+
+
+        const name =
+            data.name || "Reader";
+
+
+        avatar.textContent =
+            name.charAt(0).toUpperCase();
+
+
+
+        /* Content */
+
+        const content =
+            document.createElement("div");
+
+        content.className =
+            "comment-content";
+
+
+
+        /* Top row */
+
+        const top =
+            document.createElement("div");
+
+        top.className =
+            "comment-top";
+
+
+
+        /* Author */
+
+        const author =
+            document.createElement("span");
+
+        author.className =
+            "comment-author";
+
+        author.textContent =
+            name;
+
+
+
+        /* Date */
+
+        const date =
+            document.createElement("span");
+
+        date.className =
+            "comment-date";
+
+        date.textContent =
+            formatCommentDate(
+                data.createdAt
+            );
+
+
+
+        /* Message */
+
+        const text =
+            document.createElement("p");
+
+        text.className =
+            "comment-text";
+
+        text.textContent =
+            data.message || "";
+
+
+
+        /* Build */
+
+        top.appendChild(author);
+
+        top.appendChild(date);
+
+        content.appendChild(top);
+
+        content.appendChild(text);
+
+        comment.appendChild(avatar);
+
+        comment.appendChild(content);
+
+
+        return comment;
+
+    }
+
+
+
+    /* =====================================================
+       POST COMMENT
+    ===================================================== */
+
+    commentForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const name =
+                commentName.value.trim();
+
+            const email =
+                commentEmail.value.trim();
+
+            const message =
+                commentMessage.value.trim();
+
+
+
+            /* Validation */
+
+            if (!name) {
+
+                showStatus(
+                    "Please enter your name.",
+                    "error"
+                );
+
+                commentName.focus();
+
+                return;
+
+            }
+
+
+            if (!message) {
+
+                showStatus(
+                    "Please write a comment.",
+                    "error"
+                );
+
+                commentMessage.focus();
+
+                return;
+
+            }
+
+
+            if (name.length > 50) {
+
+                showStatus(
+                    "Your name must be 50 characters or less.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (email.length > 100) {
+
+                showStatus(
+                    "Your email must be 100 characters or less.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (message.length > 500) {
+
+                showStatus(
+                    "Your comment must be 500 characters or less.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+
+            /* Disable button */
+
+            commentSubmit.disabled =
+                true;
+
+            commentSubmit.innerHTML =
+                "<span>Posting...</span>";
+
+
+
+            try {
+
+                await addDoc(
+                    collection(db, "comments"),
+                    {
+                        pageId:
+                            PAGE_ID,
+
+                        pageTitle:
+                            PAGE_TITLE,
+
+                        name:
+                            name,
+
+                        email:
+                            email,
+
+                        message:
+                            message,
+
+                        createdAt:
+                            serverTimestamp()
+                    }
+                );
+
+
+
+                /* Clear form */
+
+                commentForm.reset();
+
+
+
+                /* Success */
+
+                showStatus(
+                    "Thank you! Your comment has been posted.",
+                    "success"
+                );
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Error posting comment:",
+                    error
+                );
+
+
+                showStatus(
+                    "Unable to post your comment. Please try again.",
+                    "error"
+                );
+
+            }
+
+
+
+            /* Enable button */
+
+            commentSubmit.disabled =
+                false;
+
+
+            commentSubmit.innerHTML = `
+                <span>Post Comment</span>
+                <span>→</span>
+            `;
+
+        }
+    );
+
+
+
+    /* =====================================================
+       FIRESTORE QUERY
+
+       No orderBy() is used.
+       This avoids the composite index requirement.
+    ===================================================== */
+
+    const commentsQuery =
+        query(
+            collection(db, "comments"),
+            where(
+                "pageId",
+                "==",
+                PAGE_ID
+            )
+        );
+
+
+
+    /* =====================================================
+       LOAD COMMENTS
+    ===================================================== */
+
+    onSnapshot(
+
+        commentsQuery,
+
+        function (snapshot) {
+
+            commentsList.innerHTML =
+                "";
+
+
+
+            /* Convert documents to array */
+
+            const comments =
+                snapshot.docs
+                    .map(function (commentDoc) {
+
+                        return {
+                            id:
+                                commentDoc.id,
+
+                            ...commentDoc.data()
+                        };
+
+                    })
+                    .sort(function (a, b) {
+
+                        const aTime =
+                            a.createdAt?.toMillis?.() || 0;
+
+                        const bTime =
+                            b.createdAt?.toMillis?.() || 0;
+
+                        return bTime - aTime;
+
+                    });
+
+
+
+            /* Comment count */
+
+            const total =
+                comments.length;
+
+
+            if (total === 0) {
+
+                commentCount.textContent =
+                    "0 comments";
+
+            }
+
+            else if (total === 1) {
+
+                commentCount.textContent =
+                    "1 comment";
+
+            }
+
+            else {
+
+                commentCount.textContent =
+                    total + " comments";
+
+            }
+
+
+
+            /* No comments */
+
+            if (total === 0) {
+
+                const empty =
+                    document.createElement("div");
+
+                empty.className =
+                    "comments-empty";
+
+                empty.textContent =
+                    "No comments yet. Be the first to share your thoughts.";
+
+                commentsList.appendChild(
+                    empty
+                );
+
+                return;
+
+            }
+
+
+
+            /* Display comments */
+
+            comments.forEach(
+                function (data) {
+
+                    const comment =
+                        createCommentElement(
+                            data
+                        );
+
+                    commentsList.appendChild(
+                        comment
+                    );
+
+                }
+            );
+
+        },
+
+
+        /* =================================================
+           FIRESTORE ERROR
+        ================================================== */
+
+        function (error) {
+
+            console.error(
+                "Loading comments failed:",
+                error
+            );
+
+
+            commentCount.textContent =
+                "Comments unavailable";
+
+
+            commentsList.innerHTML =
+                "";
+
+
+            const errorMessage =
+                document.createElement("div");
+
+
+            errorMessage.className =
+                "comments-empty";
+
+
+            errorMessage.textContent =
+                "Comments could not be loaded right now. Please try again later.";
+
+
+            commentsList.appendChild(
+                errorMessage
+            );
+
+        }
+
+    );
+
+</script>
+
+
+
+<!-- =====================================================
+     REUSABLE FOOTER
+===================================================== -->
+
+<div id="footer-placeholder"></div>
+
+
+
+<!-- =====================================================
+     FOOTER LOADER
+===================================================== -->
+
+<script>
+
+    fetch("/Footer.html")
+
+        .then(function (response) {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Footer.html could not be loaded."
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(function (data) {
+
+            document.getElementById(
+                "footer-placeholder"
+            ).innerHTML = data;
+
+        })
+
+        .catch(function (error) {
+
+            console.error(
+                "Footer loading error:",
+                error
+            );
+
+        });
+
+</script>
 
 
 </body>
 
 </html>
-```

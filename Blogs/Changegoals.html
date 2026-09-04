@@ -12,9 +12,11 @@
         Why It's Okay to Change Goals | The Hope Sup
     </title>
 
-    <!-- COMMON BLOG CSS -->
     <link rel="stylesheet"
           href="/Blogs/Blog.css">
+
+    <link rel="stylesheet"
+          href="/Style/Footer.css">
 
 </head>
 
@@ -38,7 +40,7 @@
         </a>
 
 
-        <a href="/index.html"
+        <a href="/Blog.html"
            class="back-home">
 
             ← Back to Articles
@@ -65,17 +67,13 @@
     <header class="article-header">
 
         <span class="article-category">
-
             PERSONAL GROWTH
-
         </span>
 
 
         <h1>
-
             Why It's Okay<br>
             to Change Goals
-
         </h1>
 
 
@@ -110,13 +108,13 @@
          FEATURED IMAGE
     ================================================== -->
 
-    <div class="featured-image">
+    <figure class="featured-image">
 
         <img
             src="/Image/Why It's Okay To Change Goals (1).png"
-            alt="Why It's Okay To Change Goals">
+            alt="Why It's Okay to Change Goals">
 
-    </div>
+    </figure>
 
 
 
@@ -127,7 +125,9 @@
     <article class="article-content">
 
 
-        <!-- OPENING -->
+        <!-- =================================================
+             INTRODUCTION
+        ================================================== -->
 
         <p class="opening">
 
@@ -180,11 +180,15 @@
 
         <blockquote class="highlight-quote">
 
-            "Maybe I'm being lazy.<br><br>
+            "Maybe I'm being lazy."
 
-            Maybe I don't have a good plan in place.<br><br>
+            <br><br>
 
-            Maybe I should change the way I'm pursuing the goal."
+            "Maybe I don't have a good plan in place."
+
+            <br><br>
+
+            "Maybe I should change the way I'm pursuing the goal."
 
         </blockquote>
 
@@ -271,7 +275,9 @@
 
 
 
-        <!-- IMPORTANT BOX -->
+        <!-- =================================================
+             IMPORTANT BOX
+        ================================================== -->
 
         <div class="important-box">
 
@@ -426,11 +432,6 @@
         </p>
 
 
-
-        <!-- =================================================
-             FINAL THOUGHT
-        ================================================== -->
-
         <blockquote class="highlight-quote">
 
             "You are allowed to change direction when
@@ -512,24 +513,10 @@
 
 
         <!-- =================================================
-             LAST IMAGE
-        ================================================== -->
-
-        <div class="featured-image">
-
-            <img
-                src="/Image/Why It's Okay To Change Goals (1).png"
-                alt="Why It's Okay To Change Goals">
-
-        </div>
-
-
-
-        <!-- =================================================
              AUTHOR
         ================================================== -->
 
-        <div class="article-author">
+        <section class="article-author">
 
 
             <div class="author-avatar">
@@ -564,16 +551,17 @@
 
             </div>
 
-        </div>
+
+        </section>
 
 
     </article>
 
 
 
-    <!-- =====================================================
+    <!-- =================================================
          RELATED ARTICLES
-    ===================================================== -->
+    ================================================== -->
 
     <section class="related-articles">
 
@@ -596,18 +584,19 @@
         </div>
 
 
+
         <div class="related-grid">
 
 
-            <!-- RELATED ARTICLE 1 -->
+            <!-- =================================================
+                 ARTICLE 1
+            ================================================== -->
 
             <a href="/Blogs/Welcometothechange.html"
                class="related-card">
 
                 <span>
-
                     PERSONAL GROWTH
-
                 </span>
 
 
@@ -638,15 +627,15 @@
 
 
 
-            <!-- RELATED ARTICLE 2 -->
+            <!-- =================================================
+                 ARTICLE 2
+            ================================================== -->
 
             <a href="/Blogs/PositiveSelfTalk.html"
                class="related-card">
 
                 <span>
-
                     MINDFULNESS
-
                 </span>
 
 
@@ -676,15 +665,15 @@
 
 
 
-            <!-- RELATED ARTICLE 3 -->
+            <!-- =================================================
+                 ARTICLE 3
+            ================================================== -->
 
             <a href="/Blogs/ReminderChaos.html"
                class="related-card">
 
                 <span>
-
                     WELL-BEING
-
                 </span>
 
 
@@ -715,36 +704,53 @@
 
         </div>
 
+
     </section>
 
 
 </main>
 
-<!-- =====================================================
-     COMMENTS SECTION
-====================================================== -->
+
 
 <!-- =====================================================
      COMMENTS SECTION
 ===================================================== -->
 
 <section class="comments-section">
+
     <div class="comments-container">
 
+
+        <!-- =================================================
+             COMMENTS HEADING
+        ================================================== -->
+
         <div class="comments-heading">
+
             <span class="comments-label">
+
                 JOIN THE CONVERSATION
+
             </span>
 
+
             <h2>
+
                 What do you think?
+
             </h2>
 
+
             <p>
+
                 Share your thoughts, ideas or experiences
                 with us and other readers.
+
             </p>
+
         </div>
+
+
 
         <!-- =================================================
              COMMENT FORM
@@ -754,12 +760,20 @@
 
             <form id="commentForm">
 
+
                 <div class="comment-form-grid">
 
+
+                    <!-- NAME -->
+
                     <div class="comment-field">
+
                         <label for="commentName">
+
                             Your name
+
                         </label>
+
 
                         <input
                             type="text"
@@ -768,13 +782,25 @@
                             autocomplete="name"
                             placeholder="Enter your name"
                             required>
+
                     </div>
 
+
+
+                    <!-- EMAIL -->
+
                     <div class="comment-field">
+
                         <label for="commentEmail">
+
                             Email
-                            <span>(optional)</span>
+
+                            <span>
+                                (optional)
+                            </span>
+
                         </label>
+
 
                         <input
                             type="email"
@@ -782,15 +808,24 @@
                             maxlength="100"
                             autocomplete="email"
                             placeholder="you@example.com">
+
                     </div>
 
+
                 </div>
+
+
+
+                <!-- COMMENT -->
 
                 <div class="comment-field">
 
                     <label for="commentMessage">
+
                         Your comment
+
                     </label>
+
 
                     <textarea
                         id="commentMessage"
@@ -799,11 +834,18 @@
                         placeholder="Write your thoughts..."
                         required></textarea>
 
+
                     <div class="character-count">
+
                         Maximum 500 characters
+
                     </div>
 
                 </div>
+
+
+
+                <!-- SUBMIT -->
 
                 <button
                     type="submit"
@@ -820,14 +862,21 @@
 
                 </button>
 
+
+
+                <!-- STATUS -->
+
                 <div
                     id="commentStatus"
                     class="comment-status">
                 </div>
 
+
             </form>
 
         </div>
+
+
 
         <!-- =================================================
              COMMENTS LIST
@@ -835,32 +884,47 @@
 
         <div class="comments-list-wrapper">
 
+
             <div class="comments-list-header">
 
                 <h3>
+
                     Comments
+
                 </h3>
 
+
                 <span id="commentCount">
+
                     Loading...
+
                 </span>
 
             </div>
+
+
 
             <div
                 id="commentsList"
                 class="comments-list">
 
                 <div class="comments-loading">
+
                     Loading comments...
+
                 </div>
 
             </div>
 
+
         </div>
 
+
     </div>
+
 </section>
+
+
 
 <!-- =====================================================
      FIREBASE COMMENTS
@@ -873,7 +937,7 @@
     ===================================================== */
 
     import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+        from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
     import {
         getFirestore,
@@ -881,11 +945,11 @@
         addDoc,
         query,
         where,
-        orderBy,
         onSnapshot,
         serverTimestamp
     }
-    from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+        from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
 
 
     /* =====================================================
@@ -894,7 +958,8 @@
 
     const firebaseConfig = {
 
-        apiKey: "AIzaSyBxAvmT6UbWpKtLxllJPn-Vimr7BFXJC4",
+        apiKey:
+            "AIzaSyBxAvmT6UbWpKtLxllJPn-Vimr7BFXJC4",
 
         authDomain:
             "the-hope-sup.firebaseapp.com",
@@ -913,26 +978,33 @@
 
         measurementId:
             "G-7844C245GL"
+
     };
+
 
 
     /* =====================================================
        INITIALIZE FIREBASE
     ===================================================== */
 
-    const app = initializeApp(firebaseConfig);
+    const app =
+        initializeApp(firebaseConfig);
 
-    const db = getFirestore(app);
+    const db =
+        getFirestore(app);
+
 
 
     /* =====================================================
-       IMPORTANT
-       CHANGE THESE TWO VALUES FOR EVERY BLOG PAGE
+       THIS BLOG PAGE
     ===================================================== */
 
-    const PAGE_ID = "CHANGE-THIS-PAGE-ID";
+    const PAGE_ID =
+        "why-its-okay-to-change-goals";
 
-    const PAGE_TITLE = "CHANGE THIS PAGE TITLE";
+    const PAGE_TITLE =
+        "Why It's Okay to Change Goals";
+
 
 
     /* =====================================================
@@ -964,21 +1036,25 @@
         document.getElementById("commentCount");
 
 
+
     /* =====================================================
        SHOW STATUS
     ===================================================== */
 
     function showStatus(message, type) {
 
-        commentStatus.textContent = message;
+        commentStatus.textContent =
+            message;
 
         commentStatus.className =
             "comment-status " + type;
+
     }
 
 
+
     /* =====================================================
-       FORMAT DATE
+       FORMAT COMMENT DATE
     ===================================================== */
 
     function formatCommentDate(timestamp) {
@@ -987,31 +1063,41 @@
             !timestamp ||
             typeof timestamp.toDate !== "function"
         ) {
+
             return "Just now";
+
         }
 
-        const date = timestamp.toDate();
 
-        return date.toLocaleString("en-IN", {
+        const date =
+            timestamp.toDate();
 
-            day: "numeric",
 
-            month: "short",
+        return date.toLocaleString(
+            "en-IN",
+            {
 
-            year: "numeric",
+                day: "numeric",
 
-            hour: "numeric",
+                month: "short",
 
-            minute: "2-digit",
+                year: "numeric",
 
-            hour12: true
+                hour: "numeric",
 
-        });
+                minute: "2-digit",
+
+                hour12: true
+
+            }
+        );
+
     }
 
 
+
     /* =====================================================
-       CREATE COMMENT HTML
+       CREATE COMMENT ELEMENT
     ===================================================== */
 
     function createCommentElement(data) {
@@ -1023,7 +1109,7 @@
             "comment-item";
 
 
-        /* Avatar */
+        /* AVATAR */
 
         const avatar =
             document.createElement("div");
@@ -1040,7 +1126,8 @@
             name.charAt(0).toUpperCase();
 
 
-        /* Content */
+
+        /* CONTENT */
 
         const content =
             document.createElement("div");
@@ -1049,7 +1136,8 @@
             "comment-content";
 
 
-        /* Top row */
+
+        /* TOP */
 
         const top =
             document.createElement("div");
@@ -1058,7 +1146,8 @@
             "comment-top";
 
 
-        /* Author */
+
+        /* AUTHOR */
 
         const author =
             document.createElement("span");
@@ -1070,7 +1159,8 @@
             name;
 
 
-        /* Date */
+
+        /* DATE */
 
         const date =
             document.createElement("span");
@@ -1079,10 +1169,13 @@
             "comment-date";
 
         date.textContent =
-            formatCommentDate(data.createdAt);
+            formatCommentDate(
+                data.createdAt
+            );
 
 
-        /* Message */
+
+        /* MESSAGE */
 
         const text =
             document.createElement("p");
@@ -1094,7 +1187,8 @@
             data.message || "";
 
 
-        /* Build */
+
+        /* BUILD */
 
         top.appendChild(author);
 
@@ -1110,7 +1204,9 @@
 
 
         return comment;
+
     }
+
 
 
     /* =====================================================
@@ -1124,8 +1220,6 @@
             event.preventDefault();
 
 
-            /* Get values */
-
             const name =
                 commentName.value.trim();
 
@@ -1136,7 +1230,8 @@
                 commentMessage.value.trim();
 
 
-            /* Validation */
+
+            /* VALIDATION */
 
             if (!name) {
 
@@ -1148,6 +1243,7 @@
                 commentName.focus();
 
                 return;
+
             }
 
 
@@ -1161,6 +1257,7 @@
                 commentMessage.focus();
 
                 return;
+
             }
 
 
@@ -1172,6 +1269,7 @@
                 );
 
                 return;
+
             }
 
 
@@ -1183,6 +1281,7 @@
                 );
 
                 return;
+
             }
 
 
@@ -1194,36 +1293,44 @@
                 );
 
                 return;
+
             }
 
 
-            /* Disable button */
 
-            commentSubmit.disabled = true;
+            /* DISABLE BUTTON */
+
+            commentSubmit.disabled =
+                true;
 
             commentSubmit.innerHTML =
                 "<span>Posting...</span>";
 
 
+
             try {
 
-                /* Save to Firestore */
-
                 await addDoc(
-
-                    collection(db, "comments"),
-
+                    collection(
+                        db,
+                        "comments"
+                    ),
                     {
 
-                        pageId: PAGE_ID,
+                        pageId:
+                            PAGE_ID,
 
-                        pageTitle: PAGE_TITLE,
+                        pageTitle:
+                            PAGE_TITLE,
 
-                        name: name,
+                        name:
+                            name,
 
-                        email: email,
+                        email:
+                            email,
 
-                        message: message,
+                        message:
+                            message,
 
                         createdAt:
                             serverTimestamp()
@@ -1232,17 +1339,20 @@
                 );
 
 
-                /* Clear form */
+
+                /* CLEAR FORM */
 
                 commentForm.reset();
 
 
-                /* Success */
+
+                /* SUCCESS */
 
                 showStatus(
                     "Thank you! Your comment has been posted.",
                     "success"
                 );
+
 
             }
 
@@ -1253,16 +1363,20 @@
                     error
                 );
 
+
                 showStatus(
                     "Unable to post your comment. Please try again.",
                     "error"
                 );
+
             }
 
 
-            /* Enable button */
 
-            commentSubmit.disabled = false;
+            /* ENABLE BUTTON */
+
+            commentSubmit.disabled =
+                false;
 
             commentSubmit.innerHTML = `
                 <span>Post Comment</span>
@@ -1273,25 +1387,30 @@
     );
 
 
+
     /* =====================================================
        FIRESTORE QUERY
+
+       No orderBy() is used.
+       Comments are sorted in JavaScript.
     ===================================================== */
 
-    const commentsQuery = query(
+    const commentsQuery =
+        query(
 
-        collection(db, "comments"),
+            collection(
+                db,
+                "comments"
+            ),
 
-        where(
-            "pageId",
-            "==",
-            PAGE_ID
-        ),
+            where(
+                "pageId",
+                "==",
+                PAGE_ID
+            )
 
-        orderBy(
-            "createdAt",
-            "desc"
-        )
-    );
+        );
+
 
 
     /* =====================================================
@@ -1302,15 +1421,62 @@
 
         commentsQuery,
 
+
         function (snapshot) {
 
-            commentsList.innerHTML = "";
+            commentsList.innerHTML =
+                "";
 
 
-            /* Comment count */
+
+            /* CONVERT DOCUMENTS */
+
+            const comments =
+                snapshot.docs
+
+                    .map(function (doc) {
+
+                        return {
+
+                            id:
+                                doc.id,
+
+                            ...doc.data()
+
+                        };
+
+                    })
+
+                    .sort(function (a, b) {
+
+                        const aTime =
+                            a.createdAt &&
+                            typeof a.createdAt.toMillis === "function"
+
+                                ? a.createdAt.toMillis()
+
+                                : 0;
+
+
+                        const bTime =
+                            b.createdAt &&
+                            typeof b.createdAt.toMillis === "function"
+
+                                ? b.createdAt.toMillis()
+
+                                : 0;
+
+
+                        return bTime - aTime;
+
+                    });
+
+
+
+            /* COUNT */
 
             const total =
-                snapshot.size;
+                comments.length;
 
 
             if (total === 0) {
@@ -1331,10 +1497,12 @@
 
                 commentCount.textContent =
                     total + " comments";
+
             }
 
 
-            /* No comments */
+
+            /* NO COMMENTS */
 
             if (total === 0) {
 
@@ -1347,31 +1515,39 @@
                 empty.textContent =
                     "No comments yet. Be the first to share your thoughts.";
 
-                commentsList.appendChild(empty);
+                commentsList.appendChild(
+                    empty
+                );
 
                 return;
+
             }
 
 
-            /* Display comments */
 
-            snapshot.forEach(
+            /* DISPLAY COMMENTS */
 
-                function (commentDoc) {
-
-                    const data =
-                        commentDoc.data();
+            comments.forEach(
+                function (data) {
 
                     const comment =
-                        createCommentElement(data);
+                        createCommentElement(
+                            data
+                        );
 
-                    commentsList.appendChild(comment);
+                    commentsList.appendChild(
+                        comment
+                    );
+
                 }
             );
+
         },
 
 
-        /* Firestore error */
+        /* =================================================
+           FIRESTORE ERROR
+        ================================================== */
 
         function (error) {
 
@@ -1380,75 +1556,82 @@
                 error
             );
 
+
             commentCount.textContent =
                 "Comments unavailable";
 
-            commentsList.innerHTML = "";
+
+            commentsList.innerHTML =
+                "";
+
 
             const errorMessage =
                 document.createElement("div");
 
+
             errorMessage.className =
                 "comments-empty";
+
 
             errorMessage.textContent =
                 "Comments could not be loaded right now. Please try again later.";
 
+
             commentsList.appendChild(
                 errorMessage
             );
+
         }
+
     );
 
 </script>
+
+
+
 <!-- =====================================================
-     FOOTER
+     REUSABLE FOOTER
 ===================================================== -->
 
-<footer class="blog-footer">
+<div id="footer-placeholder"></div>
 
 
-    <div class="footer-inner">
+<script>
 
+    fetch("/Footer.html")
 
-        <div>
+        .then(function (response) {
 
-            <div class="footer-logo">
+            if (!response.ok) {
 
-                The Hope Sup
+                throw new Error(
+                    "Footer.html could not be loaded."
+                );
 
-            </div>
+            }
 
+            return response.text();
 
-            <p>
+        })
 
-                Ideas for a happier, stronger and
-                more meaningful life.
+        .then(function (data) {
 
-            </p>
+            document.getElementById(
+                "footer-placeholder"
+            ).innerHTML = data;
 
-        </div>
+        })
 
+        .catch(function (error) {
 
-        <a href="/index.html">
+            console.error(
+                "Footer loading error:",
+                error
+            );
 
-            ← Back to Home
+        });
 
-        </a>
-
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        © 2026 The Hope Sup.
-        All rights reserved.
-
-    </div>
-
-
-</footer>
+</script>
 
 
 </body>

@@ -14,7 +14,11 @@
 
     <!-- COMMON BLOG CSS -->
     <link rel="stylesheet"
-          href="Blog.css">
+          href="/Blogs/Blog.css">
+
+    <!-- FOOTER CSS -->
+    <link rel="stylesheet"
+          href="/Style/Footer.css">
 
 </head>
 
@@ -30,13 +34,13 @@
 
     <div class="blog-header-inner">
 
-        <a href="../index.html"
+        <a href="/index.html"
            class="blog-logo">
             The Hope Sup
         </a>
 
 
-        <a href="../blog.html"
+        <a href="/Blog.html"
            class="back-home">
             ← Back to Articles
         </a>
@@ -121,9 +125,7 @@
         ================================================== -->
 
         <p class="opening">
-
             “I’m sorry I can’t come. My mom said no.”
-
         </p>
 
 
@@ -185,9 +187,7 @@
 
 
         <blockquote class="highlight-quote">
-
             “NO.”
-
         </blockquote>
 
 
@@ -209,9 +209,7 @@
 
 
         <blockquote>
-
             No. Nah. Nope. Never. No way.
-
         </blockquote>
 
 
@@ -526,10 +524,8 @@
 
 
         <blockquote class="highlight-quote">
-
             Sometimes, meeting halfway is better
             than constantly fighting.
-
         </blockquote>
 
 
@@ -725,6 +721,117 @@
 
 
     <!-- =====================================================
+         COMMENTS
+    ===================================================== -->
+
+    <section class="comments-section" id="comments">
+
+        <div class="section-heading">
+
+            <span>
+                JOIN THE CONVERSATION
+            </span>
+
+            <h2>
+                Comments
+                (<span id="commentCount">0</span>)
+            </h2>
+
+        </div>
+
+
+        <!-- COMMENT FORM -->
+
+        <form id="commentForm"
+              class="comment-form">
+
+            <div class="comment-form-row">
+
+                <div class="comment-field">
+
+                    <label for="commentName">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="commentName"
+                        name="name"
+                        placeholder="Your name"
+                        required>
+
+                </div>
+
+
+                <div class="comment-field">
+
+                    <label for="commentEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="commentEmail"
+                        name="email"
+                        placeholder="Your email"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <div class="comment-field">
+
+                <label for="commentMessage">
+                    Your Comment
+                </label>
+
+                <textarea
+                    id="commentMessage"
+                    name="message"
+                    rows="6"
+                    placeholder="Write your thoughts..."
+                    required></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="commentSubmit"
+                class="comment-submit">
+
+                Post Comment →
+
+            </button>
+
+
+            <p
+                id="commentStatus"
+                class="comment-status">
+            </p>
+
+        </form>
+
+
+        <!-- COMMENTS LIST -->
+
+        <div
+            id="commentsList"
+            class="comments-list">
+
+            <p class="comments-loading">
+                Loading comments...
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
          RELATED ARTICLES
     ===================================================== -->
 
@@ -752,7 +859,7 @@
                  POSITIVE SELF-TALK
             ================================================== -->
 
-            <a href="PositiveSelfTalk.html"
+            <a href="/Blogs/PositiveSelfTalk.html"
                class="related-card">
 
                 <span>
@@ -784,7 +891,7 @@
                  ARGUMENT ARTICLE
             ================================================== -->
 
-            <a href="ThingsYouShould.html"
+            <a href="/Blogs/ThingsYouShould.html"
                class="related-card">
 
                 <span>
@@ -817,7 +924,7 @@
                  CHANGE GOALS
             ================================================== -->
 
-            <a href="Changegoals.html"
+            <a href="/Blogs/Changegoals.html"
                class="related-card">
 
                 <span>
@@ -854,48 +961,505 @@
 
 
 <!-- =====================================================
-     FOOTER
+     REUSABLE FOOTER
 ===================================================== -->
 
-<footer class="blog-footer">
+<div id="footer-placeholder"></div>
 
 
-    <div class="footer-inner">
+
+<!-- =====================================================
+     FOOTER LOADER
+===================================================== -->
+
+<script>
+
+fetch("/Footer.html")
+
+    .then(function(response) {
+
+        if (!response.ok) {
+            throw new Error("Footer.html could not be loaded.");
+        }
+
+        return response.text();
+
+    })
+
+    .then(function(data) {
+
+        document.getElementById("footer-placeholder").innerHTML = data;
+
+    })
+
+    .catch(function(error) {
+
+        console.error("Footer loading error:", error);
+
+    });
+
+</script>
 
 
-        <div>
 
-            <div class="footer-logo">
-                The Hope Sup
-            </div>
+<!-- =====================================================
+     FIREBASE COMMENTS
+===================================================== -->
 
+<script type="module">
 
-            <p>
-                Ideas for a happier, stronger and
-                more meaningful life.
-            </p>
-
-        </div>
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
 
-        <a href="../index.html">
-            ← Back to Home
-        </a>
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    query,
+    where,
+    onSnapshot,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-    </div>
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyBxAvmT6UbWpKtLxllJP-nVimr7BFXJC4",
+
+    authDomain:
+        "the-hope-sup.firebaseapp.com",
+
+    projectId:
+        "the-hope-sup",
+
+    storageBucket:
+        "the-hope-sup.firebasestorage.app",
+
+    messagingSenderId:
+        "153836503835",
+
+    appId:
+        "1:153836503835:web:07e99ddbe455805c9c89be",
+
+    measurementId:
+        "G-7844C245GL"
+
+};
 
 
-    <div class="footer-bottom">
 
-        © 2026 The Hope Sup.
-        All rights reserved.
+/* =====================================================
+   INITIALIZE FIREBASE
+===================================================== */
 
-    </div>
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
 
 
-</footer>
 
+/* =====================================================
+   PAGE INFORMATION
+===================================================== */
+
+const PAGE_ID =
+    "when-your-parents-say-no-to-everything";
+
+
+const PAGE_TITLE =
+    "When Your Parents Say No To Everything";
+
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const commentForm =
+    document.getElementById("commentForm");
+
+const commentName =
+    document.getElementById("commentName");
+
+const commentEmail =
+    document.getElementById("commentEmail");
+
+const commentMessage =
+    document.getElementById("commentMessage");
+
+const commentSubmit =
+    document.getElementById("commentSubmit");
+
+const commentStatus =
+    document.getElementById("commentStatus");
+
+const commentsList =
+    document.getElementById("commentsList");
+
+const commentCount =
+    document.getElementById("commentCount");
+
+
+
+/* =====================================================
+   SUBMIT COMMENT
+===================================================== */
+
+commentForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+
+    const name =
+        commentName.value.trim();
+
+    const email =
+        commentEmail.value.trim();
+
+    const message =
+        commentMessage.value.trim();
+
+
+    if (!name || !email || !message) {
+
+        commentStatus.textContent =
+            "Please fill in all fields.";
+
+        return;
+
+    }
+
+
+    commentSubmit.disabled = true;
+
+    commentSubmit.textContent =
+        "Posting...";
+
+    commentStatus.textContent = "";
+
+
+    try {
+
+        await addDoc(
+            collection(db, "comments"),
+            {
+
+                pageId:
+                    PAGE_ID,
+
+                pageTitle:
+                    PAGE_TITLE,
+
+                name:
+                    name,
+
+                email:
+                    email,
+
+                message:
+                    message,
+
+                createdAt:
+                    serverTimestamp()
+
+            }
+        );
+
+
+        commentForm.reset();
+
+
+        commentStatus.textContent =
+            "Your comment has been posted successfully.";
+
+
+    } catch (error) {
+
+        console.error(
+            "Comment error:",
+            error
+        );
+
+
+        commentStatus.textContent =
+            "Unable to post your comment. Please try again.";
+
+    }
+
+
+    commentSubmit.disabled = false;
+
+    commentSubmit.textContent =
+        "Post Comment →";
+
+});
+
+
+
+/* =====================================================
+   DISPLAY COMMENTS
+===================================================== */
+
+const commentsQuery = query(
+
+    collection(db, "comments"),
+
+    where(
+        "pageId",
+        "==",
+        PAGE_ID
+    )
+
+);
+
+
+
+onSnapshot(
+
+    commentsQuery,
+
+    function(snapshot) {
+
+
+        const comments = snapshot.docs
+
+            .map(function(doc) {
+
+                return {
+
+                    id:
+                        doc.id,
+
+                    ...doc.data()
+
+                };
+
+            })
+
+
+            .sort(function(a, b) {
+
+                const aTime =
+                    a.createdAt?.toMillis?.() || 0;
+
+                const bTime =
+                    b.createdAt?.toMillis?.() || 0;
+
+                return bTime - aTime;
+
+            });
+
+
+
+        commentsList.innerHTML = "";
+
+
+        commentCount.textContent =
+            comments.length;
+
+
+
+        if (comments.length === 0) {
+
+            const emptyMessage =
+                document.createElement("p");
+
+            emptyMessage.className =
+                "comments-empty";
+
+            emptyMessage.textContent =
+                "Be the first to share your thoughts.";
+
+            commentsList.appendChild(
+                emptyMessage
+            );
+
+            return;
+
+        }
+
+
+
+        comments.forEach(function(comment) {
+
+
+            const commentCard =
+                document.createElement("article");
+
+            commentCard.className =
+                "comment-card";
+
+
+
+            /* COMMENT HEADER */
+
+            const commentHeader =
+                document.createElement("div");
+
+            commentHeader.className =
+                "comment-header";
+
+
+
+            const commentAuthor =
+                document.createElement("div");
+
+            commentAuthor.className =
+                "comment-author";
+
+
+
+            const avatar =
+                document.createElement("div");
+
+            avatar.className =
+                "comment-avatar";
+
+
+            avatar.textContent =
+                (comment.name || "A")
+                    .charAt(0)
+                    .toUpperCase();
+
+
+
+            const authorInfo =
+                document.createElement("div");
+
+            authorInfo.className =
+                "comment-author-info";
+
+
+
+            const authorName =
+                document.createElement("strong");
+
+            authorName.textContent =
+                comment.name || "Anonymous";
+
+
+
+            const commentDate =
+                document.createElement("span");
+
+
+            let dateText =
+                "Just now";
+
+
+            if (comment.createdAt?.toDate) {
+
+                dateText =
+                    comment.createdAt
+                        .toDate()
+                        .toLocaleDateString(
+                            "en-IN",
+                            {
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric"
+                            }
+                        );
+
+            }
+
+
+            commentDate.textContent =
+                dateText;
+
+
+
+            authorInfo.appendChild(
+                authorName
+            );
+
+            authorInfo.appendChild(
+                commentDate
+            );
+
+
+            commentAuthor.appendChild(
+                avatar
+            );
+
+            commentAuthor.appendChild(
+                authorInfo
+            );
+
+
+            commentHeader.appendChild(
+                commentAuthor
+            );
+
+
+
+            /* COMMENT MESSAGE */
+
+            const commentText =
+                document.createElement("p");
+
+            commentText.className =
+                "comment-text";
+
+            commentText.textContent =
+                comment.message || "";
+
+
+
+            commentCard.appendChild(
+                commentHeader
+            );
+
+            commentCard.appendChild(
+                commentText
+            );
+
+
+            commentsList.appendChild(
+                commentCard
+            );
+
+        });
+
+    },
+
+    function(error) {
+
+        console.error(
+            "Error loading comments:",
+            error
+        );
+
+
+        commentsList.innerHTML = "";
+
+
+        const errorMessage =
+            document.createElement("p");
+
+        errorMessage.className =
+            "comments-error";
+
+        errorMessage.textContent =
+            "Comments could not be loaded right now.";
+
+        commentsList.appendChild(
+            errorMessage
+        );
+
+    }
+
+);
+
+</script>
 
 
 </body>
