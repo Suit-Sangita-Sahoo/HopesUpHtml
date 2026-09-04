@@ -31,6 +31,7 @@
     <!-- Contact CSS -->
     <link rel="stylesheet"
           href="/Style/Contact.css">
+          <link rel="stylesheet" href="/Style/Footer.css">
 
 
     <!-- Lucide Icons -->
@@ -589,228 +590,6 @@
      FOOTER
 ====================================================== -->
 
-<footer class="footer">
-
-
-    <!-- FOOTER CTA -->
-
-    <div class="footer-cta">
-
-        <div class="container">
-
-            <div class="footer-cta-inner">
-
-
-                <div>
-
-                    <p class="footer-label">
-                        Let's move forward
-                    </p>
-
-
-                    <h2>
-
-                        Your next chapter
-
-                        <span>
-                            starts here.
-                        </span>
-
-                    </h2>
-
-                </div>
-
-
-                <div>
-
-                    <a
-                        class="btn btn-white"
-                        href="contact.html">
-
-                        Talk to The HopeSup
-
-                        <i data-lucide="arrow-up-right"
-                           width="18">
-                        </i>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- FOOTER CONTENT -->
-
-    <div class="container footer-content">
-
-        <div class="footer-grid">
-
-
-            <!-- BRAND -->
-
-            <div class="footer-brand-col">
-
-                <div class="footer-brand">
-
-                    <div class="footer-mark">
-                        H
-                    </div>
-
-
-                    <div>
-
-                        <div class="footer-brand-name">
-                            TheHopeSup
-                        </div>
-
-                        <div class="footer-brand-sub">
-                            Growth • Mindset • Life
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <p>
-
-                    A space for better thoughts,
-                    meaningful growth, balanced living
-                    and the courage to take your next step.
-
-                </p>
-
-
-                <div class="socials">
-
-                    <a
-                        href="https://instagram.com"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        IG
-
-                    </a>
-
-
-                    <a
-                        href="https://facebook.com"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        f
-
-                    </a>
-
-
-                    <a
-                        href="https://linkedin.com"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        in
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- EXPLORE -->
-
-            <div>
-
-                <h4>
-                    Explore
-                </h4>
-
-
-                <div class="footer-links">
-
-                    <a href="index.html">
-                        Home
-                    </a>
-
-                    <a href="Service.html">
-                        Services
-                    </a>
-
-                    <a href="gallery.html">
-                        Gallery
-                    </a>
-
-                    <a href="blog.html">
-                        Blog
-                    </a>
-
-                    <a href="contact.html">
-                        Contact
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- CONTACT -->
-
-            <div>
-
-                <h4>
-                    Get in touch
-                </h4>
-
-
-                <div class="footer-links">
-
-                    <span>
-                        ✉ hello@thehopesup.com
-                    </span>
-
-
-                    <p>
-
-                        Let's create better possibilities,
-                        one step at a time.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- FOOTER BOTTOM -->
-
-        <div class="footer-bottom">
-
-            <span>
-                © 2026 The HopeSup.
-                All rights reserved.
-            </span>
-
-
-            <span>
-                Designed with purpose.
-            </span>
-
-        </div>
-
-    </div>
-
-</footer>
 
 
 
@@ -957,6 +736,38 @@
 </script>
 
 
-</body>
+        </section>
 
+    </main>
+
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+
+    <!-- FOOTER LOADER -->
+    <script>
+        fetch("/Footer.html")
+            .then(function(response) {
+
+                if (!response.ok) {
+                    throw new Error("Footer.html could not be loaded.");
+                }
+
+                return response.text();
+
+            })
+            .then(function(data) {
+
+                document.getElementById("footer-placeholder").innerHTML = data;
+
+            })
+            .catch(function(error) {
+
+                console.error("Footer loading error:", error);
+
+            });
+    </script>
+
+</body>
 </html>

@@ -47,74 +47,188 @@
     position: relative;
 }
 
+/* =========================================================
+   HERO STAMP — TOP RIGHT CORNER OF IMAGE
+========================================================= */
+
 .hero-stamp {
     position: absolute;
-    top: 170px;
-    left: -55px;
-    width: 150px;
-    height: 150px;
+
+    /* Top-right of the image */
+    top: -32px;
+    right: -32px;
+
+    width: 135px;
+    height: 135px;
+
     z-index: 10;
+
     pointer-events: none;
+
+    opacity: 0;
+
+    animation: stampFadeUp 0.8s var(--ease) 0.6s both;
+
+    /* Premium soft shadow */
+    filter:
+        drop-shadow(
+            0 12px 20px rgba(36, 31, 25, 0.12)
+        );
 }
+
+
+/* =========================================================
+   SVG
+========================================================= */
 
 .hero-stamp svg {
     width: 100%;
     height: 100%;
+
     display: block;
+
+    overflow: visible;
+
+    /* Slow continuous rotation */
+    animation: stampRotate 28s linear infinite;
 }
 
+
 /* =========================================================
-   MOBILE HERO STAMP — FULLY VISIBLE
-   ========================================================= */
+   TEXT
+========================================================= */
 
-@media (max-width: 760px) {
+.hero-stamp text {
+    transform-origin: 64px 64px;
+}
 
-    .hero-figure {
-        position: relative;
-        overflow: visible;
+
+/* =========================================================
+   CENTER ORANGE CIRCLE
+========================================================= */
+
+.hero-stamp circle:last-child {
+    transform-origin: 64px 64px;
+
+    animation: stampPulse 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   STAMP APPEAR
+========================================================= */
+
+@keyframes stampFadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.82);
     }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   ROTATION
+========================================================= */
+
+@keyframes stampRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   CENTER PULSE
+========================================================= */
+
+@keyframes stampPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.10);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
 
     .hero-stamp {
-        position: absolute;
+        top: -28px;
+        right: -28px;
 
-        /* Keep the complete circle inside the screen */
-        left: 8px;
-        right: auto;
-
-        /* Adjust vertical position */
-        top: 155px;
-
-        /* Smaller and cleaner on phone */
-        width: 95px;
-        height: 95px;
-
-        z-index: 10;
-
-        pointer-events: none;
+        width: 128px;
+        height: 128px;
     }
 
-    .hero-stamp svg {
-        width: 100%;
-        height: 100%;
-        display: block;
-        overflow: visible;
-    }
 }
 
 
 /* =========================================================
-   SMALL MOBILE
-   ========================================================= */
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .hero-stamp {
+        /* Top-right corner */
+        top: -25px;
+        right: -20px;
+
+        /* Larger and more visible on phone */
+        width: 145px;
+        height: 145px;
+
+        filter:
+            drop-shadow(
+                0 14px 24px rgba(36, 31, 25, 0.16)
+            );
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
 
 @media (max-width: 420px) {
 
     .hero-stamp {
-        left: 5px;
-        top: 145px;
+        top: -20px;
+        right: -14px;
 
-        width: 82px;
-        height: 82px;
+        width: 135px;
+        height: 135px;
     }
+
 }
 
 /* =========================================================

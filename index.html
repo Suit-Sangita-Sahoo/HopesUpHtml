@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/Style/index.css">
 
     <link rel="stylesheet" href="/Style/common.css">
+    <link rel="stylesheet" href="/Style/Footer.css">
 
 
     <!-- =========================================================
@@ -840,251 +841,7 @@
      FOOTER
 ========================================================= -->
 
-<footer class="footer">
 
-    <div class="container">
-
-        <div class="footer-grid">
-
-
-            <!-- =================================================
-                 FOOTER ABOUT
-            ================================================== -->
-
-            <div class="footer-about">
-
-
-                <a href="index.html" class="mark">
-
-
-                    <svg
-                        class="mark-sun"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true">
-
-
-                        <circle
-                            cx="20"
-                            cy="26"
-                            r="9"
-                            stroke="#241f19"
-                            stroke-width="1.6" />
-
-
-                        <path
-                            d="M20 4V10M6 12L10 16M34 12L30 16"
-                            stroke="#c8791f"
-                            stroke-width="1.6"
-                            stroke-linecap="round" />
-
-
-                    </svg>
-
-
-                    <span class="mark-word">
-                        the<em>hopesup</em>
-                    </span>
-
-
-                </a>
-
-
-
-                <p>
-                    A content strategy studio helping businesses
-                    turn vision into words, ideas and stories
-                    worth believing in.
-                </p>
-
-
-
-                <div class="footer-socials">
-
-
-                    <a
-                        href="#"
-                        aria-label="Instagram">
-
-                        IG
-
-                    </a>
-
-
-                    <a
-                        href="#"
-                        aria-label="Facebook">
-
-                        Fb
-
-                    </a>
-
-
-                    <a
-                        href="#"
-                        aria-label="LinkedIn">
-
-                        In
-
-                    </a>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =================================================
-                 EXPLORE
-            ================================================== -->
-
-            <div>
-
-
-                <div class="footer-heading">
-                    Explore
-                </div>
-
-
-                <div class="footer-links">
-
-
-                    <a href="index.html">
-                        Home
-                    </a>
-
-
-                    <a href="Service.html">
-                        Approach
-                    </a>
-
-
-                    <a href="blog.html">
-                        Journal
-                    </a>
-
-
-                    <a href="contact.html">
-                        Contact
-                    </a>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =================================================
-                 SERVICES
-            ================================================== -->
-
-            <div>
-
-
-                <div class="footer-heading">
-                    Services
-                </div>
-
-
-                <div class="footer-links">
-
-
-                    <a href="Services/ContentCreation.html">
-                        Content Creation
-                    </a>
-
-
-                    <a href="Services/ContentMarketing.html">
-                        Content Marketing
-                    </a>
-
-
-                    <a href="Services/GraphicDesign.html">
-                        Graphic Design
-                    </a>
-
-
-                    <a href="Services/SEOContent.html">
-                        SEO Content
-                    </a>
-
-
-                    <a href="Services/Blogging.html">
-                        Blogging
-                    </a>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =================================================
-                 CONTACT
-            ================================================== -->
-
-            <div>
-
-
-                <div class="footer-heading">
-                    Get in touch
-                </div>
-
-
-                <div class="footer-links">
-
-
-                    <a href="mailto:hello@thehopesup.com">
-                        hello@thehopesup.com
-                    </a>
-
-
-                </div>
-
-
-                <p class="footer-note">
-                    Let's build something meaningful,
-                    starting with a conversation.
-                </p>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- =================================================
-             FOOTER BOTTOM
-        ================================================== -->
-
-        <div class="footer-bottom">
-
-
-            <span>
-                © 2026 thehopesup. All rights reserved.
-            </span>
-
-
-            <span>
-                Written with intention.
-            </span>
-
-
-        </div>
-
-
-    </div>
-
-</footer>
 
 
 
@@ -1222,7 +979,38 @@
 
 </script>
 
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+
+    <!-- FOOTER LOADER -->
+    <script>
+        fetch("/Footer.html")
+            .then(function(response) {
+
+                if (!response.ok) {
+                    throw new Error("Footer.html could not be loaded.");
+                }
+
+                return response.text();
+
+            })
+            .then(function(data) {
+
+                document.getElementById("footer-placeholder").innerHTML = data;
+
+            })
+            .catch(function(error) {
+
+                console.error("Footer loading error:", error);
+
+            });
+    </script>
 
 </body>
-
 </html>

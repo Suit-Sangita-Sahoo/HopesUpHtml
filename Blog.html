@@ -28,6 +28,7 @@
     <!-- Common Header / Navbar CSS -->
     <link rel="stylesheet"
           href="/Style/common.css">
+          <link rel="stylesheet" href="/Style/Footer.css">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -1264,172 +1265,6 @@
      FOOTER
 ====================================================== -->
 
-<footer class="footer">
-
-    <div class="container">
-
-        <div class="footer-grid">
-
-
-            <!-- BRAND -->
-
-            <div class="footer-about">
-
-                <a href="index.html"
-                   class="mark">
-
-                    <svg class="mark-sun"
-                         viewBox="0 0 100 100"
-                         fill="none">
-
-                        <circle cx="50"
-                                cy="50"
-                                r="20"
-                                fill="#c8791f"/>
-
-                        <circle cx="50"
-                                cy="50"
-                                r="32"
-                                stroke="#c8791f"
-                                stroke-width="2"
-                                stroke-dasharray="4 7"/>
-
-                    </svg>
-
-                    <span class="mark-word">
-
-                        the<em>hopesup</em>
-
-                    </span>
-
-                </a>
-
-
-                <p>
-
-                    A space for better thoughts,
-                    meaningful growth, balanced living
-                    and the courage to take your next step.
-
-                </p>
-
-
-                <div class="footer-socials">
-
-                    <a href="https://instagram.com"
-                       target="_blank"
-                       rel="noopener noreferrer">
-
-                        IG
-
-                    </a>
-
-                    <a href="https://facebook.com"
-                       target="_blank"
-                       rel="noopener noreferrer">
-
-                        f
-
-                    </a>
-
-                    <a href="https://linkedin.com"
-                       target="_blank"
-                       rel="noopener noreferrer">
-
-                        in
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- EXPLORE -->
-
-            <div>
-
-                <h4 class="footer-heading">
-                    Explore
-                </h4>
-
-                <div class="footer-links">
-
-                    <a href="index.html">
-                        Home
-                    </a>
-
-                    <a href="Service.html">
-                        Services
-                    </a>
-
-                    <a href="gallery.html">
-                        Gallery
-                    </a>
-
-                    <a href="blog.html">
-                        Blog
-                    </a>
-
-                    <a href="contact.html">
-                        Contact
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- CONTACT -->
-
-            <div>
-
-                <h4 class="footer-heading">
-                    Get in touch
-                </h4>
-
-                <div class="footer-links">
-
-                    <span>
-                        ✉ hello@thehopesup.com
-                    </span>
-
-                    <span>
-
-                        Let's create better possibilities,
-                        one step at a time.
-
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <span>
-
-                © 2026 The HopeSup.
-                All rights reserved.
-
-            </span>
-
-            <span>
-
-                Designed with purpose.
-
-            </span>
-
-        </div>
-
-    </div>
-
-</footer>
 
 
 
@@ -1545,6 +1380,38 @@
 </script>
 
 
-</body>
+        </section>
 
+    </main>
+
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+
+    <!-- FOOTER LOADER -->
+    <script>
+        fetch("/Footer.html")
+            .then(function(response) {
+
+                if (!response.ok) {
+                    throw new Error("Footer.html could not be loaded.");
+                }
+
+                return response.text();
+
+            })
+            .then(function(data) {
+
+                document.getElementById("footer-placeholder").innerHTML = data;
+
+            })
+            .catch(function(error) {
+
+                console.error("Footer loading error:", error);
+
+            });
+    </script>
+
+</body>
 </html>

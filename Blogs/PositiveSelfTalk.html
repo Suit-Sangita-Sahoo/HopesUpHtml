@@ -649,18 +649,23 @@
 
 </main>
 
-<!-- =====================================================
-     COMMENTS SECTION
-====================================================== -->
+
 
 <!-- =====================================================
      COMMENTS SECTION
 ===================================================== -->
 
 <section class="comments-section">
+
     <div class="comments-container">
 
+
+        <!-- =================================================
+             COMMENTS HEADING
+        ================================================== -->
+
         <div class="comments-heading">
+
             <span class="comments-label">
                 JOIN THE CONVERSATION
             </span>
@@ -673,7 +678,10 @@
                 Share your thoughts, ideas or experiences
                 with us and other readers.
             </p>
+
         </div>
+
+
 
         <!-- =================================================
              COMMENT FORM
@@ -683,9 +691,14 @@
 
             <form id="commentForm">
 
+
                 <div class="comment-form-grid">
 
+
+                    <!-- NAME -->
+
                     <div class="comment-field">
+
                         <label for="commentName">
                             Your name
                         </label>
@@ -697,12 +710,23 @@
                             autocomplete="name"
                             placeholder="Enter your name"
                             required>
+
                     </div>
 
+
+
+                    <!-- EMAIL -->
+
                     <div class="comment-field">
+
                         <label for="commentEmail">
+
                             Email
-                            <span>(optional)</span>
+
+                            <span>
+                                (optional)
+                            </span>
+
                         </label>
 
                         <input
@@ -711,9 +735,15 @@
                             maxlength="100"
                             autocomplete="email"
                             placeholder="you@example.com">
+
                     </div>
 
+
                 </div>
+
+
+
+                <!-- COMMENT -->
 
                 <div class="comment-field">
 
@@ -734,6 +764,10 @@
 
                 </div>
 
+
+
+                <!-- SUBMIT -->
+
                 <button
                     type="submit"
                     class="comment-submit"
@@ -749,20 +783,28 @@
 
                 </button>
 
+
+
+                <!-- STATUS -->
+
                 <div
                     id="commentStatus"
                     class="comment-status">
                 </div>
 
+
             </form>
 
         </div>
+
+
 
         <!-- =================================================
              COMMENTS LIST
         ================================================== -->
 
         <div class="comments-list-wrapper">
+
 
             <div class="comments-list-header">
 
@@ -776,6 +818,8 @@
 
             </div>
 
+
+
             <div
                 id="commentsList"
                 class="comments-list">
@@ -786,10 +830,15 @@
 
             </div>
 
+
         </div>
 
+
     </div>
+
 </section>
+
+
 
 <!-- =====================================================
      FIREBASE COMMENTS
@@ -810,11 +859,11 @@
         addDoc,
         query,
         where,
-        orderBy,
         onSnapshot,
         serverTimestamp
     }
     from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
 
 
     /* =====================================================
@@ -823,7 +872,8 @@
 
     const firebaseConfig = {
 
-        apiKey: "AIzaSyBxAvmT6UbWpKtLxllJPn-Vimr7BFXJC4",
+        apiKey:
+            "AIzaSyBxAvmT6UbWpKtLxllJPn-Vimr7BFXJC4",
 
         authDomain:
             "the-hope-sup.firebaseapp.com",
@@ -842,26 +892,33 @@
 
         measurementId:
             "G-7844C245GL"
+
     };
+
 
 
     /* =====================================================
        INITIALIZE FIREBASE
     ===================================================== */
 
-    const app = initializeApp(firebaseConfig);
+    const app =
+        initializeApp(firebaseConfig);
 
-    const db = getFirestore(app);
+    const db =
+        getFirestore(app);
+
 
 
     /* =====================================================
-       IMPORTANT
-       CHANGE THESE TWO VALUES FOR EVERY BLOG PAGE
+       THIS BLOG PAGE
     ===================================================== */
 
-    const PAGE_ID = "CHANGE-THIS-PAGE-ID";
+    const PAGE_ID =
+        "why-its-okay-to-change-goals";
 
-    const PAGE_TITLE = "CHANGE THIS PAGE TITLE";
+    const PAGE_TITLE =
+        "Why It's Okay to Change Goals";
+
 
 
     /* =====================================================
@@ -893,21 +950,25 @@
         document.getElementById("commentCount");
 
 
+
     /* =====================================================
-       SHOW STATUS
+       SHOW STATUS MESSAGE
     ===================================================== */
 
     function showStatus(message, type) {
 
-        commentStatus.textContent = message;
+        commentStatus.textContent =
+            message;
 
         commentStatus.className =
             "comment-status " + type;
+
     }
 
 
+
     /* =====================================================
-       FORMAT DATE
+       FORMAT COMMENT DATE
     ===================================================== */
 
     function formatCommentDate(timestamp) {
@@ -916,34 +977,45 @@
             !timestamp ||
             typeof timestamp.toDate !== "function"
         ) {
+
             return "Just now";
+
         }
 
-        const date = timestamp.toDate();
 
-        return date.toLocaleString("en-IN", {
+        const date =
+            timestamp.toDate();
 
-            day: "numeric",
 
-            month: "short",
+        return date.toLocaleString(
+            "en-IN",
+            {
 
-            year: "numeric",
+                day: "numeric",
 
-            hour: "numeric",
+                month: "short",
 
-            minute: "2-digit",
+                year: "numeric",
 
-            hour12: true
+                hour: "numeric",
 
-        });
+                minute: "2-digit",
+
+                hour12: true
+
+            }
+        );
+
     }
 
 
+
     /* =====================================================
-       CREATE COMMENT HTML
+       CREATE COMMENT ELEMENT
     ===================================================== */
 
     function createCommentElement(data) {
+
 
         const comment =
             document.createElement("div");
@@ -952,7 +1024,10 @@
             "comment-item";
 
 
-        /* Avatar */
+
+        /* =================================================
+           AVATAR
+        ================================================== */
 
         const avatar =
             document.createElement("div");
@@ -969,7 +1044,10 @@
             name.charAt(0).toUpperCase();
 
 
-        /* Content */
+
+        /* =================================================
+           COMMENT CONTENT
+        ================================================== */
 
         const content =
             document.createElement("div");
@@ -978,7 +1056,10 @@
             "comment-content";
 
 
-        /* Top row */
+
+        /* =================================================
+           TOP ROW
+        ================================================== */
 
         const top =
             document.createElement("div");
@@ -987,7 +1068,10 @@
             "comment-top";
 
 
-        /* Author */
+
+        /* =================================================
+           NAME
+        ================================================== */
 
         const author =
             document.createElement("span");
@@ -999,7 +1083,10 @@
             name;
 
 
-        /* Date */
+
+        /* =================================================
+           DATE
+        ================================================== */
 
         const date =
             document.createElement("span");
@@ -1008,10 +1095,15 @@
             "comment-date";
 
         date.textContent =
-            formatCommentDate(data.createdAt);
+            formatCommentDate(
+                data.createdAt
+            );
 
 
-        /* Message */
+
+        /* =================================================
+           MESSAGE
+        ================================================== */
 
         const text =
             document.createElement("p");
@@ -1023,7 +1115,10 @@
             data.message || "";
 
 
-        /* Build */
+
+        /* =================================================
+           BUILD COMMENT
+        ================================================== */
 
         top.appendChild(author);
 
@@ -1039,7 +1134,9 @@
 
 
         return comment;
+
     }
+
 
 
     /* =====================================================
@@ -1053,7 +1150,9 @@
             event.preventDefault();
 
 
-            /* Get values */
+            /* =================================================
+               GET FORM VALUES
+            ================================================== */
 
             const name =
                 commentName.value.trim();
@@ -1065,7 +1164,10 @@
                 commentMessage.value.trim();
 
 
-            /* Validation */
+
+            /* =================================================
+               VALIDATION
+            ================================================== */
 
             if (!name) {
 
@@ -1077,6 +1179,7 @@
                 commentName.focus();
 
                 return;
+
             }
 
 
@@ -1090,6 +1193,7 @@
                 commentMessage.focus();
 
                 return;
+
             }
 
 
@@ -1101,6 +1205,7 @@
                 );
 
                 return;
+
             }
 
 
@@ -1112,6 +1217,7 @@
                 );
 
                 return;
+
             }
 
 
@@ -1123,36 +1229,50 @@
                 );
 
                 return;
+
             }
 
 
-            /* Disable button */
 
-            commentSubmit.disabled = true;
+            /* =================================================
+               DISABLE BUTTON
+            ================================================== */
+
+            commentSubmit.disabled =
+                true;
 
             commentSubmit.innerHTML =
                 "<span>Posting...</span>";
 
 
+
+            /* =================================================
+               SAVE COMMENT
+            ================================================== */
+
             try {
 
-                /* Save to Firestore */
-
                 await addDoc(
-
-                    collection(db, "comments"),
-
+                    collection(
+                        db,
+                        "comments"
+                    ),
                     {
 
-                        pageId: PAGE_ID,
+                        pageId:
+                            PAGE_ID,
 
-                        pageTitle: PAGE_TITLE,
+                        pageTitle:
+                            PAGE_TITLE,
 
-                        name: name,
+                        name:
+                            name,
 
-                        email: email,
+                        email:
+                            email,
 
-                        message: message,
+                        message:
+                            message,
 
                         createdAt:
                             serverTimestamp()
@@ -1161,12 +1281,18 @@
                 );
 
 
-                /* Clear form */
+
+                /* =================================================
+                   CLEAR FORM
+                ================================================== */
 
                 commentForm.reset();
 
 
-                /* Success */
+
+                /* =================================================
+                   SUCCESS MESSAGE
+                ================================================== */
 
                 showStatus(
                     "Thank you! Your comment has been posted.",
@@ -1175,6 +1301,7 @@
 
             }
 
+
             catch (error) {
 
                 console.error(
@@ -1182,16 +1309,22 @@
                     error
                 );
 
+
                 showStatus(
                     "Unable to post your comment. Please try again.",
                     "error"
                 );
+
             }
 
 
-            /* Enable button */
 
-            commentSubmit.disabled = false;
+            /* =================================================
+               ENABLE BUTTON
+            ================================================== */
+
+            commentSubmit.disabled =
+                false;
 
             commentSubmit.innerHTML = `
                 <span>Post Comment</span>
@@ -1202,25 +1335,29 @@
     );
 
 
+
     /* =====================================================
        FIRESTORE QUERY
+       
+       IMPORTANT:
+       Only WHERE is used here.
+       No ORDER BY means no composite index is required.
     ===================================================== */
 
-    const commentsQuery = query(
+    const commentsQuery =
+        query(
+            collection(
+                db,
+                "comments"
+            ),
 
-        collection(db, "comments"),
+            where(
+                "pageId",
+                "==",
+                PAGE_ID
+            )
+        );
 
-        where(
-            "pageId",
-            "==",
-            PAGE_ID
-        ),
-
-        orderBy(
-            "createdAt",
-            "desc"
-        )
-    );
 
 
     /* =====================================================
@@ -1233,13 +1370,66 @@
 
         function (snapshot) {
 
-            commentsList.innerHTML = "";
+
+            /* =================================================
+               GET COMMENTS
+            ================================================== */
+
+            const comments =
+                snapshot.docs
+                    .map(
+                        function (commentDoc) {
+
+                            return {
+
+                                id:
+                                    commentDoc.id,
+
+                                ...commentDoc.data()
+
+                            };
+
+                        }
+                    )
+                    .sort(
+                        function (a, b) {
+
+                            const aTime =
+                                a.createdAt &&
+                                typeof a.createdAt.toMillis === "function"
+                                    ? a.createdAt.toMillis()
+                                    : 0;
 
 
-            /* Comment count */
+                            const bTime =
+                                b.createdAt &&
+                                typeof b.createdAt.toMillis === "function"
+                                    ? b.createdAt.toMillis()
+                                    : 0;
+
+
+                            return bTime - aTime;
+
+                        }
+                    );
+
+
+
+            /* =================================================
+               CLEAR COMMENTS
+            ================================================== */
+
+            commentsList.innerHTML =
+                "";
+
+
+
+            /* =================================================
+               COMMENT COUNT
+            ================================================== */
 
             const total =
-                snapshot.size;
+                comments.length;
 
 
             if (total === 0) {
@@ -1260,10 +1450,14 @@
 
                 commentCount.textContent =
                     total + " comments";
+
             }
 
 
-            /* No comments */
+
+            /* =================================================
+               NO COMMENTS
+            ================================================== */
 
             if (total === 0) {
 
@@ -1276,31 +1470,41 @@
                 empty.textContent =
                     "No comments yet. Be the first to share your thoughts.";
 
-                commentsList.appendChild(empty);
+                commentsList.appendChild(
+                    empty
+                );
 
                 return;
+
             }
 
 
-            /* Display comments */
 
-            snapshot.forEach(
+            /* =================================================
+               DISPLAY COMMENTS
+            ================================================== */
 
-                function (commentDoc) {
-
-                    const data =
-                        commentDoc.data();
+            comments.forEach(
+                function (data) {
 
                     const comment =
-                        createCommentElement(data);
+                        createCommentElement(
+                            data
+                        );
 
-                    commentsList.appendChild(comment);
+                    commentsList.appendChild(
+                        comment
+                    );
+
                 }
             );
+
         },
 
 
-        /* Firestore error */
+        /* =================================================
+           FIRESTORE ERROR
+        ================================================== */
 
         function (error) {
 
@@ -1309,27 +1513,37 @@
                 error
             );
 
+
             commentCount.textContent =
                 "Comments unavailable";
 
-            commentsList.innerHTML = "";
+
+            commentsList.innerHTML =
+                "";
+
 
             const errorMessage =
                 document.createElement("div");
 
+
             errorMessage.className =
                 "comments-empty";
+
 
             errorMessage.textContent =
                 "Comments could not be loaded right now. Please try again later.";
 
+
             commentsList.appendChild(
                 errorMessage
             );
+
         }
+
     );
 
 </script>
+
 
 
 <!-- =====================================================

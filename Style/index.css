@@ -264,15 +264,31 @@ a {
     box-shadow: 0 34px 70px rgba(36, 31, 25, 0.2);
 }
 
+/* =========================
+   HERO IMAGE - BRIGHT & CLEAR
+   ========================= */
+
 .hero-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s ease;
+
+    /* Brighten the image */
+    filter: brightness(1.18) contrast(0.96) saturate(1.08);
+
+    transition: transform 0.6s ease, filter 0.6s ease;
 }
 
+/* Remove any dark overlay */
+.hero-photo::before,
+.hero-photo::after {
+    opacity: 0 !important;
+    background: transparent !important;
+}
+
+/* Keep image bright on hover */
 .hero-photo:hover img {
-    transform: scale(1.05);
+    filter: brightness(1.22) contrast(0.96) saturate(1.1);
 }
 
 @keyframes heroReveal {
@@ -288,17 +304,29 @@ a {
 
 /* Round stamp — locked to the top-right corner of the photo */
 
+/* =========================================================
+   HERO STAMP — TOP LEFT OF IMAGE
+========================================================= */
+
+/* =========================================================
+   HERO STAMP — TOP RIGHT CORNER OF IMAGE
+========================================================= */
+
+/* =========================
+   HERO STAMP — WHITE
+   ========================= */
+
 .hero-stamp {
     position: absolute;
-    top: -18px;
-    right: -18px;
-    width: 112px;
-    height: 112px;
+    top: -32px;
+    right: -32px;
+    width: 135px;
+    height: 135px;
     z-index: 10;
     pointer-events: none;
-
     opacity: 0;
-    animation: fadeUp 0.7s var(--ease) 0.6s both;
+    animation: stampFadeUp 0.8s var(--ease) 0.6s both;
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.12));
 }
 
 .hero-stamp svg {
@@ -306,23 +334,142 @@ a {
     height: 100%;
     display: block;
     overflow: visible;
-    animation: stampRotate 24s linear infinite;
 }
 
-.hero-stamp text {
-    transform-origin: 64px 64px;
+/* Make stamp lines white */
+.hero-stamp svg circle {
+    stroke: #ffffff !important;
 }
 
-.hero-stamp circle:last-child {
-    transform-origin: 64px 64px;
+/* Make stamp text white */
+.hero-stamp svg text {
+    fill: #ffffff !important;
+}
+
+/* Keep the center dot orange */
+.hero-stamp svg circle:last-child {
+    fill: #c8791f !important;
+    stroke: none !important;
+}
+
+/* Rotate only the outer stamp */
+.hero-stamp svg {
+    animation: stampRotate 28s linear infinite;
+}
+
+@keyframes stampFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.82);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 @keyframes stampRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-stamp {
+        top: -25px;
+        right: -20px;
+        width: 145px;
+        height: 145px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-stamp {
+        top: -20px;
+        right: -14px;
+        width: 135px;
+        height: 135px;
+    }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero-stamp {
+        top: -28px;
+        right: -28px;
+
+        width: 128px;
+        height: 128px;
+    }
+
 }
 
 
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .hero-stamp {
+        /* Top-right corner */
+        top: -25px;
+        right: -20px;
+
+        /* Larger and more visible on phone */
+        width: 145px;
+        height: 145px;
+
+        filter:
+            drop-shadow(
+                0 14px 24px rgba(36, 31, 25, 0.16)
+            );
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .hero-stamp {
+        top: -20px;
+        right: -14px;
+
+        width: 135px;
+        height: 135px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .hero-stamp {
+        top: -18px;
+        left: -12px;
+
+        width: 135px;
+        height: 135px;
+    }
+
+}
 /* Caption card — bottom-right corner */
 
 .hero-caption {
@@ -1446,4 +1593,140 @@ a {
 .footer a:focus-visible {
     outline: 2px solid #e5b65d;
     outline-offset: 4px;
+}
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 24px;
+    margin-top: 45px;
+    border-top: 1px solid rgba(36, 31, 25, 0.14);
+    font-family: "Work Sans", sans-serif;
+    font-size: 13px;
+    color: #6f665d;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM RIGHT
+========================================================= */
+
+.footer-bottom-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+
+/* =========================================================
+   PRIVACY POLICY LINK
+========================================================= */
+
+.privacy-link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 13px;
+
+    color: #241f19;
+    background: #f4eadb;
+
+    border: 1px solid rgba(200, 121, 31, 0.28);
+    border-radius: 4px;
+
+    font-family: "Work Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 0.04em;
+    text-decoration: none;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Small arrow */
+
+.privacy-link::after {
+    content: "↗";
+
+    margin-left: 7px;
+
+    font-size: 12px;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Hover */
+
+.privacy-link:hover {
+
+    color: #ffffff;
+    background: #241f19;
+
+    border-color: #241f19;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 7px 18px rgba(36, 31, 25, 0.14);
+}
+
+
+.privacy-link:hover::after {
+    transform: translate(2px, -2px);
+}
+
+
+/* =========================================================
+   MOBILE FOOTER
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+
+        gap: 15px;
+
+        margin-top: 35px;
+
+    }
+
+
+    .footer-bottom-right {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+    }
+
+
+    .privacy-link {
+
+        padding: 8px 14px;
+
+    }
+
 }
