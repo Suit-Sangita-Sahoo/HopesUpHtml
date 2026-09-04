@@ -1,7 +1,7 @@
 /* =====================================================
    THE HOPESUP — BLOG PAGE
    Editorial Journal Design
-   Fully Responsive
+   Fully Responsive — Desktop / Tablet / Mobile
 ===================================================== */
 
 :root {
@@ -19,16 +19,8 @@
     --radius-img: 8px;
     --max: 1180px;
 
-    --serif: "Fraunces",
-        "Iowan Old Style",
-        Georgia,
-        serif;
-
-    --sans: "Work Sans",
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --sans: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 
@@ -36,16 +28,22 @@
    RESET
 ===================================================== */
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
     margin: 0;
+    width: 100%;
+    min-width: 0;
     background: var(--paper);
     color: var(--ink);
     font-family: var(--sans);
@@ -56,8 +54,8 @@ body {
 }
 
 img {
-    max-width: 100%;
     display: block;
+    max-width: 100%;
 }
 
 a {
@@ -66,7 +64,8 @@ a {
 }
 
 button,
-input {
+input,
+textarea {
     font: inherit;
 }
 
@@ -83,10 +82,10 @@ h2,
 h3,
 h4,
 blockquote {
-    font-family: var(--serif);
-    font-weight: 600;
     margin: 0;
     color: var(--ink);
+    font-family: var(--serif);
+    font-weight: 600;
     letter-spacing: -0.01em;
 }
 
@@ -104,7 +103,8 @@ blockquote {
     width: 100%;
     max-width: var(--max);
     margin: 0 auto;
-    padding: 0 32px;
+    padding-left: 32px;
+    padding-right: 32px;
 }
 
 
@@ -118,14 +118,15 @@ blockquote {
     justify-content: center;
     gap: 10px;
 
+    min-height: 48px;
+    padding: 14px 26px;
+
+    border: 1px solid transparent;
+    border-radius: 999px;
+
     font-family: var(--sans);
     font-size: 15px;
     font-weight: 600;
-
-    padding: 14px 26px;
-
-    border-radius: 999px;
-    border: 1px solid transparent;
 
     cursor: pointer;
 
@@ -180,14 +181,15 @@ blockquote {
 .site-header {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 
-    background: rgba(250, 245, 238, 0.95);
+    width: 100%;
+
+    background: rgba(250, 245, 238, 0.96);
+    border-bottom: 1px solid var(--rule);
 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid var(--rule);
 }
 
 .nav {
@@ -196,6 +198,8 @@ blockquote {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    gap: 20px;
 }
 
 
@@ -205,6 +209,7 @@ blockquote {
     display: flex;
     align-items: center;
     gap: 12px;
+    min-width: 0;
 }
 
 .mark-sun {
@@ -217,12 +222,12 @@ blockquote {
     font-family: var(--serif);
     font-size: 21px;
     font-weight: 600;
-    color: var(--ink);
+    white-space: nowrap;
 }
 
 .mark-word em {
-    font-style: italic;
     color: var(--amber-deep);
+    font-style: italic;
 }
 
 
@@ -236,10 +241,11 @@ blockquote {
 
 .desktop-nav a {
     position: relative;
+
     padding-bottom: 5px;
 
-    font-size: 15px;
     color: var(--ink-soft);
+    font-size: 15px;
 
     transition: color 0.2s ease;
 }
@@ -274,11 +280,25 @@ blockquote {
 .menu-button {
     display: none;
 
-    border: none;
-    background: transparent;
-    color: var(--ink);
+    width: 42px;
+    height: 42px;
+
+    align-items: center;
+    justify-content: center;
 
     padding: 7px;
+
+    color: var(--ink);
+    background: transparent;
+
+    border: none;
+    border-radius: 10px;
+
+    transition: background 0.2s ease;
+}
+
+.menu-button:hover {
+    background: var(--paper-dim);
 }
 
 
@@ -286,7 +306,6 @@ blockquote {
 
 .mobile-menu {
     display: none;
-
     flex-direction: column;
 
     padding: 8px 0 25px;
@@ -297,6 +316,7 @@ blockquote {
 .mobile-menu a {
     padding: 13px 0;
 
+    color: var(--ink);
     font-size: 17px;
 
     border-bottom: 1px solid var(--rule);
@@ -318,7 +338,6 @@ blockquote {
 
 .hero-grid {
     display: grid;
-
     grid-template-columns: 1.1fr 0.9fr;
 
     gap: 64px;
@@ -327,22 +346,20 @@ blockquote {
 }
 
 .hero-eyebrow {
-    font-family: var(--serif);
-    font-style: italic;
-
-    font-size: 19px;
+    margin-bottom: 18px;
 
     color: var(--amber-deep);
 
-    margin-bottom: 18px;
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
 }
 
 .hero h1 {
-    font-size: clamp(42px, 5vw, 68px);
-
-    line-height: 1.05;
-
     max-width: 15ch;
+
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.05;
 }
 
 .gradient-text {
@@ -350,25 +367,22 @@ blockquote {
 }
 
 .hero-lede {
-    margin-top: 28px;
-
     max-width: 48ch;
 
-    font-size: 18px;
+    margin-top: 28px;
 
     color: var(--ink-soft);
 
+    font-size: 18px;
     line-height: 1.7;
 }
 
 .hero-actions {
-    margin-top: 38px;
-
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 15px;
+
+    margin-top: 38px;
 }
 
 
@@ -386,18 +400,17 @@ blockquote {
 }
 
 .hero-photo {
-    width: 100%;
+    position: relative;
 
+    width: 100%;
     aspect-ratio: 4 / 5;
 
     overflow: hidden;
 
+    background: var(--paper-dim);
     border-radius: var(--radius-img);
 
-    background: var(--paper-dim);
-
-    box-shadow:
-        0 20px 50px rgba(36, 31, 25, 0.12);
+    box-shadow: 0 20px 50px rgba(36, 31, 25, 0.12);
 
     transition:
         transform 0.5s ease,
@@ -416,8 +429,7 @@ blockquote {
 .hero-photo:hover {
     transform: translateY(-5px);
 
-    box-shadow:
-        0 28px 60px rgba(36, 31, 25, 0.17);
+    box-shadow: 0 28px 60px rgba(36, 31, 25, 0.17);
 }
 
 .hero-photo:hover img {
@@ -435,6 +447,8 @@ blockquote {
     top: -28px;
     right: -20px;
 
+    z-index: 2;
+
     width: 125px;
     height: 125px;
 
@@ -443,21 +457,16 @@ blockquote {
     justify-content: center;
 
     background: var(--paper);
-
     border-radius: 50%;
 
-    box-shadow:
-        0 12px 30px rgba(36, 31, 25, 0.15);
-
-    z-index: 2;
+    box-shadow: 0 12px 30px rgba(36, 31, 25, 0.15);
 }
 
 .hero-stamp svg {
     width: 100%;
     height: 100%;
 
-    animation:
-        spin 22s linear infinite;
+    animation: spin 22s linear infinite;
 }
 
 @keyframes spin {
@@ -477,24 +486,22 @@ blockquote {
     left: -25px;
     bottom: 22px;
 
+    z-index: 3;
+
     max-width: 235px;
 
     padding: 18px 22px;
 
-    background: var(--plum);
     color: var(--paper);
+    background: var(--plum);
 
     border-radius: var(--radius-img);
 
     font-family: var(--serif);
     font-size: 16px;
-
     line-height: 1.45;
 
-    box-shadow:
-        0 15px 35px rgba(51, 21, 38, 0.28);
-
-    z-index: 3;
+    box-shadow: 0 15px 35px rgba(51, 21, 38, 0.28);
 }
 
 .hero-caption span {
@@ -502,11 +509,10 @@ blockquote {
 
     margin-top: 9px;
 
-    font-family: var(--sans);
-
-    font-size: 12px;
-
     color: #d9b7c6;
+
+    font-family: var(--sans);
+    font-size: 12px;
 }
 
 
@@ -536,18 +542,16 @@ blockquote {
 
 .stat-row > div:first-child {
     padding-left: 0;
-
     border-left: none;
 }
 
 .stat-row strong {
     display: block;
 
-    font-family: var(--serif);
-
-    font-size: 26px;
-
     color: var(--ink);
+
+    font-family: var(--serif);
+    font-size: 26px;
 }
 
 .stat-row small {
@@ -556,7 +560,6 @@ blockquote {
     margin-top: 3px;
 
     color: var(--ink-soft);
-
     font-size: 13.5px;
 }
 
@@ -570,10 +573,9 @@ blockquote {
 }
 
 .field-note {
-    font-size: 13px;
-
     color: var(--ink-soft);
 
+    font-size: 13px;
     letter-spacing: 0.04em;
 }
 
@@ -584,9 +586,7 @@ blockquote {
 
 .journal-head {
     display: flex;
-
     justify-content: space-between;
-
     align-items: flex-end;
 
     gap: 30px;
@@ -595,12 +595,11 @@ blockquote {
 }
 
 .journal-head h2 {
+    max-width: 18ch;
+
     margin-top: 8px;
 
     font-size: clamp(30px, 3vw, 40px);
-
-    max-width: 18ch;
-
     line-height: 1.15;
 }
 
@@ -641,14 +640,12 @@ blockquote {
     display: block;
 
     width: 100%;
-
     aspect-ratio: 5 / 4;
 
     overflow: hidden;
 
-    border-radius: var(--radius-img);
-
     background: var(--paper-dim);
+    border-radius: var(--radius-img);
 }
 
 .entry-photo img {
@@ -674,12 +671,10 @@ blockquote {
 }
 
 .entry-date {
-    font-size: 13px;
-
     color: var(--sage);
 
+    font-size: 13px;
     font-weight: 600;
-
     letter-spacing: 0.02em;
 }
 
@@ -687,19 +682,17 @@ blockquote {
     margin-top: 12px;
 
     font-size: clamp(23px, 2.4vw, 31px);
-
     line-height: 1.2;
 }
 
 .entry p {
-    margin-top: 15px;
-
     max-width: 50ch;
+
+    margin-top: 15px;
 
     color: var(--ink-soft);
 
     font-size: 16px;
-
     line-height: 1.7;
 }
 
@@ -707,11 +700,9 @@ blockquote {
     display: inline-block;
 
     margin-top: 20px;
-
     padding-bottom: 3px;
 
     font-size: 14.5px;
-
     font-weight: 600;
 
     border-bottom: 1px solid var(--ink);
@@ -723,7 +714,6 @@ blockquote {
 
 .entry-link:hover {
     color: var(--amber-deep);
-
     border-color: var(--amber-deep);
 }
 
@@ -734,7 +724,6 @@ blockquote {
 
 .pull {
     text-align: center;
-
     background: var(--paper-dim);
 }
 
@@ -744,9 +733,7 @@ blockquote {
     margin: 0 auto;
 
     font-size: clamp(27px, 4vw, 43px);
-
     line-height: 1.35;
-
     font-style: italic;
 }
 
@@ -755,13 +742,11 @@ blockquote {
 
     margin-top: 26px;
 
-    font-family: var(--sans);
-
-    font-size: 14px;
-
-    font-style: normal;
-
     color: var(--ink-soft);
+
+    font-family: var(--sans);
+    font-size: 14px;
+    font-style: normal;
 }
 
 
@@ -783,25 +768,22 @@ blockquote {
     background: #fffaf4;
 
     border: 1px solid var(--rule);
-
     border-radius: 10px;
 
-    box-shadow:
-        0 12px 35px rgba(36, 31, 25, 0.04);
+    box-shadow: 0 12px 35px rgba(36, 31, 25, 0.04);
 }
 
 .newsletter-box h2 {
     margin-top: 8px;
 
     font-size: clamp(30px, 4vw, 45px);
-
     line-height: 1.15;
 }
 
 .newsletter-text {
-    margin-top: 18px;
-
     max-width: 45ch;
+
+    margin-top: 18px;
 
     color: var(--ink-soft);
 
@@ -815,25 +797,22 @@ blockquote {
 
 .subscribe {
     display: flex;
+    align-items: center;
 
     gap: 10px;
-
-    align-items: center;
 }
 
 .subscribe input {
     flex: 1;
-
     min-width: 0;
+    min-height: 50px;
 
     padding: 15px 18px;
 
+    color: var(--ink);
     background: var(--paper);
 
-    color: var(--ink);
-
     border: 1px solid var(--rule);
-
     border-radius: 999px;
 
     outline: none;
@@ -846,8 +825,7 @@ blockquote {
 .subscribe input:focus {
     border-color: var(--amber-deep);
 
-    box-shadow:
-        0 0 0 3px rgba(200, 121, 31, 0.12);
+    box-shadow: 0 0 0 3px rgba(200, 121, 31, 0.12);
 }
 
 
@@ -889,25 +867,22 @@ blockquote {
     color: var(--paper);
 
     font-size: clamp(34px, 4.5vw, 54px);
-
     line-height: 1.12;
 }
 
 .finale p {
-    margin-top: 20px;
-
     max-width: 45ch;
+
+    margin-top: 20px;
 
     color: #e6d3dc;
 
     font-size: 17px;
-
     line-height: 1.7;
 }
 
 .finale-actions {
     display: flex;
-
     flex-wrap: wrap;
 
     gap: 15px;
@@ -919,20 +894,16 @@ blockquote {
     max-width: 30ch;
 
     margin-left: auto;
-
-    font-family: var(--serif);
-
-    font-size: 20px;
-
-    font-style: italic;
-
-    line-height: 1.5;
+    padding-left: 22px;
 
     color: #f3d9a8;
 
     border-left: 2px solid var(--amber);
 
-    padding-left: 22px;
+    font-family: var(--serif);
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.5;
 }
 
 .finale-glow {
@@ -980,14 +951,13 @@ blockquote {
 }
 
 .footer-about p {
-    margin-top: 18px;
-
     max-width: 38ch;
+
+    margin-top: 18px;
 
     color: var(--ink-soft);
 
     font-size: 15px;
-
     line-height: 1.7;
 }
 
@@ -1004,16 +974,13 @@ blockquote {
     height: 38px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border: 1px solid var(--rule);
-
     border-radius: 50%;
 
     font-size: 13px;
-
     font-weight: 600;
 
     transition:
@@ -1024,7 +991,6 @@ blockquote {
 
 .footer-socials a:hover {
     background: var(--ink);
-
     color: var(--paper);
 
     transform: translateY(-2px);
@@ -1034,17 +1000,13 @@ blockquote {
     margin-bottom: 18px;
 
     font-family: var(--sans);
-
     font-size: 14px;
-
     font-weight: 600;
 }
 
 .footer-links {
     display: flex;
-
     flex-direction: column;
-
     gap: 12px;
 }
 
@@ -1053,7 +1015,6 @@ blockquote {
     color: var(--ink-soft);
 
     font-size: 15px;
-
     line-height: 1.5;
 }
 
@@ -1063,9 +1024,7 @@ blockquote {
 
 .footer-bottom {
     display: flex;
-
     justify-content: space-between;
-
     flex-wrap: wrap;
 
     gap: 10px;
@@ -1084,21 +1043,35 @@ blockquote {
 
 @media (max-width: 980px) {
 
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .desktop-nav {
+        gap: 24px;
+    }
+
+    .hero {
+        padding: 65px 0 80px;
+    }
+
     .hero-grid {
         grid-template-columns: 1fr;
-
         gap: 55px;
+    }
+
+    .hero h1 {
+        max-width: 16ch;
     }
 
     .hero-figure {
         margin-left: 0;
-
         max-width: 470px;
     }
 
     .entry {
         grid-template-columns: 1fr;
-
         gap: 28px;
     }
 
@@ -1108,13 +1081,11 @@ blockquote {
 
     .newsletter-box {
         grid-template-columns: 1fr;
-
         padding: 50px;
     }
 
     .finale-inner {
         grid-template-columns: 1fr;
-
         padding: 95px 0;
     }
 
@@ -1138,30 +1109,58 @@ blockquote {
 
 @media (max-width: 720px) {
 
-    /* -------------------------------
-       GLOBAL
-    -------------------------------- */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
 
     body {
         font-size: 15px;
     }
 
+
+    /* CONTAINER */
+
     .container {
         width: 100%;
+        max-width: 100%;
+
+        margin-left: auto;
+        margin-right: auto;
 
         padding-left: 18px;
         padding-right: 18px;
     }
 
 
-    /* -------------------------------
-       HEADER
-    -------------------------------- */
+    /* HEADER */
+
+    .site-header {
+        width: 100%;
+    }
 
     .nav {
+        width: 100%;
         min-height: 68px;
-
         padding: 0;
+
+        gap: 12px;
+    }
+
+    .mark {
+        min-width: 0;
+        gap: 9px;
+    }
+
+    .mark-sun {
+        width: 30px;
+        height: 30px;
+    }
+
+    .mark-word {
+        font-size: 19px;
     }
 
     .desktop-nav,
@@ -1169,26 +1168,20 @@ blockquote {
         display: none;
     }
 
+    .nav-right {
+        margin-left: auto;
+    }
+
     .menu-button {
         display: flex;
 
-        align-items: center;
-        justify-content: center;
-
         width: 42px;
         height: 42px;
-
-        border-radius: 10px;
-
-        transition:
-            background 0.2s ease;
-    }
-
-    .menu-button:hover {
-        background: var(--paper-dim);
     }
 
     .mobile-menu {
+        width: 100%;
+
         padding-left: 18px;
         padding-right: 18px;
         padding-bottom: 22px;
@@ -1201,45 +1194,47 @@ blockquote {
     }
 
 
-    /* -------------------------------
-       HERO
-    -------------------------------- */
+    /* HERO */
 
     .hero {
+        width: 100%;
+
         padding: 48px 0 58px;
     }
 
     .hero-grid {
-        display: flex;
+        width: 100%;
 
+        display: flex;
         flex-direction: column;
 
         gap: 46px;
     }
 
     .hero-eyebrow {
-        font-size: 17px;
-
         margin-bottom: 14px;
+
+        font-size: 17px;
     }
 
     .hero h1 {
+        width: 100%;
         max-width: 100%;
 
-        font-size: clamp(38px, 11vw, 50px);
-
+        font-size: clamp(37px, 10.5vw, 50px);
         line-height: 1.02;
-
         letter-spacing: -0.025em;
+
+        overflow-wrap: break-word;
     }
 
     .hero-lede {
-        margin-top: 20px;
-
+        width: 100%;
         max-width: 100%;
 
-        font-size: 16px;
+        margin-top: 20px;
 
+        font-size: 16px;
         line-height: 1.65;
     }
 
@@ -1249,7 +1244,6 @@ blockquote {
         margin-top: 28px;
 
         display: flex;
-
         flex-direction: column;
 
         gap: 11px;
@@ -1257,22 +1251,17 @@ blockquote {
 
     .hero-actions .btn {
         width: 100%;
-
         min-height: 50px;
     }
 
 
-    /* -------------------------------
-       HERO IMAGE
-    -------------------------------- */
+    /* HERO IMAGE */
 
     .hero-figure {
-        width: calc(100% - 8px);
+        width: 100%;
+        max-width: 100%;
 
-        max-width: none;
-
-        margin: 0 auto;
-
+        margin: 0;
         padding-top: 10px;
     }
 
@@ -1283,8 +1272,7 @@ blockquote {
 
         border-radius: 10px;
 
-        box-shadow:
-            0 16px 35px rgba(36, 31, 25, 0.13);
+        box-shadow: 0 16px 35px rgba(36, 31, 25, 0.13);
     }
 
     .hero-photo img {
@@ -1295,19 +1283,16 @@ blockquote {
     }
 
 
-    /* -------------------------------
-       STAMP
-    -------------------------------- */
+    /* STAMP */
 
     .hero-stamp {
         width: 82px;
         height: 82px;
 
         top: -8px;
-        right: -5px;
+        right: -2px;
 
-        box-shadow:
-            0 8px 22px rgba(36, 31, 25, 0.15);
+        box-shadow: 0 8px 22px rgba(36, 31, 25, 0.15);
     }
 
     .hero-stamp text {
@@ -1315,13 +1300,10 @@ blockquote {
     }
 
 
-    /* -------------------------------
-       HERO CAPTION
-    -------------------------------- */
+    /* HERO CAPTION */
 
     .hero-caption {
         left: 10px;
-
         bottom: 14px;
 
         max-width: 205px;
@@ -1329,7 +1311,6 @@ blockquote {
         padding: 14px 16px;
 
         font-size: 14px;
-
         line-height: 1.4;
 
         border-radius: 8px;
@@ -1337,18 +1318,14 @@ blockquote {
 
     .hero-caption span {
         margin-top: 7px;
-
         font-size: 10px;
     }
 
 
-    /* -------------------------------
-       STAT STRIP
-    -------------------------------- */
+    /* STAT STRIP */
 
     .stat-row {
         display: flex;
-
         flex-direction: column;
 
         padding: 4px 0;
@@ -1360,7 +1337,6 @@ blockquote {
         padding: 17px 0;
 
         border-left: none;
-
         border-top: 1px solid var(--rule);
     }
 
@@ -1374,27 +1350,23 @@ blockquote {
 
     .stat-row small {
         font-size: 13px;
-
         line-height: 1.5;
     }
 
 
-    /* -------------------------------
-       SECTIONS
-    -------------------------------- */
+    /* SECTIONS */
 
     .section {
+        width: 100%;
+
         padding: 64px 0;
     }
 
 
-    /* -------------------------------
-       JOURNAL HEADER
-    -------------------------------- */
+    /* JOURNAL HEADER */
 
     .journal-head {
         display: flex;
-
         flex-direction: column;
 
         align-items: flex-start;
@@ -1405,33 +1377,32 @@ blockquote {
     }
 
     .journal-head h2 {
+        width: 100%;
         max-width: 100%;
 
         font-size: 34px;
-
         line-height: 1.1;
     }
 
     .journal-head > .field-note {
+        width: 100%;
         max-width: 100%;
 
         font-size: 13px;
-
         line-height: 1.65;
     }
 
 
-    /* -------------------------------
-       JOURNAL ENTRIES
-    -------------------------------- */
+    /* JOURNAL ENTRIES */
 
     .journal-list {
         width: 100%;
     }
 
     .entry {
-        display: flex;
+        width: 100%;
 
+        display: flex;
         flex-direction: column;
 
         gap: 20px;
@@ -1453,33 +1424,33 @@ blockquote {
 
     .entry-content {
         width: 100%;
-
         padding: 0;
     }
 
     .entry-date {
         font-size: 12px;
-
         letter-spacing: 0.03em;
     }
 
     .entry h3 {
+        width: 100%;
+
         margin-top: 9px;
 
         font-size: 24px;
-
         line-height: 1.2;
-
         letter-spacing: -0.02em;
+
+        overflow-wrap: break-word;
     }
 
     .entry p {
-        margin-top: 12px;
-
+        width: 100%;
         max-width: 100%;
 
-        font-size: 15px;
+        margin-top: 12px;
 
+        font-size: 15px;
         line-height: 1.65;
     }
 
@@ -1490,36 +1461,32 @@ blockquote {
     }
 
 
-    /* -------------------------------
-       PULL QUOTE
-    -------------------------------- */
+    /* PULL QUOTE */
 
     .pull {
         padding: 70px 0;
     }
 
     .pull blockquote {
+        width: 100%;
         max-width: 17ch;
 
         font-size: 29px;
-
         line-height: 1.3;
     }
 
     .pull cite {
         margin-top: 20px;
-
         font-size: 13px;
     }
 
 
-    /* -------------------------------
-       NEWSLETTER
-    -------------------------------- */
+    /* NEWSLETTER */
 
     .newsletter-box {
-        display: flex;
+        width: 100%;
 
+        display: flex;
         flex-direction: column;
 
         gap: 30px;
@@ -1531,15 +1498,16 @@ blockquote {
 
     .newsletter-box h2 {
         font-size: 32px;
-
         line-height: 1.1;
     }
 
     .newsletter-text {
+        width: 100%;
+        max-width: 100%;
+
         margin-top: 15px;
 
         font-size: 15px;
-
         line-height: 1.65;
     }
 
@@ -1547,7 +1515,6 @@ blockquote {
         width: 100%;
 
         display: flex;
-
         flex-direction: column;
 
         gap: 10px;
@@ -1557,7 +1524,6 @@ blockquote {
 
     .subscribe input {
         width: 100%;
-
         min-height: 50px;
 
         padding: 14px 17px;
@@ -1567,18 +1533,20 @@ blockquote {
 
     .subscribe .btn {
         width: 100%;
-
         min-height: 50px;
     }
 
 
-    /* -------------------------------
-       FINAL CTA
-    -------------------------------- */
+    /* FINAL CTA */
+
+    .finale {
+        width: 100%;
+    }
 
     .finale-inner {
-        display: flex;
+        width: 100%;
 
+        display: flex;
         flex-direction: column;
 
         align-items: flex-start;
@@ -1589,20 +1557,20 @@ blockquote {
     }
 
     .finale h2 {
+        width: 100%;
         max-width: 10ch;
 
         font-size: 40px;
-
         line-height: 1.05;
     }
 
     .finale p {
-        margin-top: 17px;
-
+        width: 100%;
         max-width: 100%;
 
-        font-size: 15.5px;
+        margin-top: 17px;
 
+        font-size: 15.5px;
         line-height: 1.65;
     }
 
@@ -1610,23 +1578,25 @@ blockquote {
         width: 100%;
 
         margin-top: 27px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
     }
 
     .finale-actions .btn {
         width: 100%;
-
         min-height: 50px;
     }
 
     .finale-note {
+        width: 100%;
         max-width: 100%;
 
         margin: 0;
-
         padding-left: 17px;
 
         font-size: 18px;
-
         line-height: 1.45;
     }
 
@@ -1639,17 +1609,18 @@ blockquote {
     }
 
 
-    /* -------------------------------
-       FOOTER
-    -------------------------------- */
+    /* FOOTER */
 
     .footer {
+        width: 100%;
+
         padding: 55px 0 28px;
     }
 
     .footer-grid {
-        display: flex;
+        width: 100%;
 
+        display: flex;
         flex-direction: column;
 
         gap: 38px;
@@ -1662,10 +1633,10 @@ blockquote {
     }
 
     .footer-about p {
+        width: 100%;
         max-width: 100%;
 
         font-size: 14px;
-
         line-height: 1.65;
     }
 
@@ -1680,7 +1651,6 @@ blockquote {
 
     .footer-heading {
         margin-bottom: 14px;
-
         font-size: 13px;
     }
 
@@ -1695,7 +1665,6 @@ blockquote {
 
     .footer-bottom {
         display: flex;
-
         flex-direction: column;
 
         align-items: flex-start;
@@ -1720,6 +1689,14 @@ blockquote {
         padding-right: 16px;
     }
 
+    .nav {
+        min-height: 64px;
+    }
+
+    .mark-word {
+        font-size: 18px;
+    }
+
     .hero {
         padding-top: 42px;
     }
@@ -1740,7 +1717,8 @@ blockquote {
         width: 72px;
         height: 72px;
 
-        right: -2px;
+        top: -5px;
+        right: -1px;
     }
 
     .hero-caption {
@@ -1789,6 +1767,54 @@ blockquote {
 
 
 /* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 340px) {
+
+    .container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-stamp {
+        width: 64px;
+        height: 64px;
+    }
+
+    .hero-caption {
+        max-width: 165px;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .journal-head h2 {
+        font-size: 28px;
+    }
+
+    .entry h3 {
+        font-size: 21px;
+    }
+
+    .newsletter-box {
+        padding: 26px 16px;
+    }
+
+    .newsletter-box h2 {
+        font-size: 27px;
+    }
+
+    .finale h2 {
+        font-size: 33px;
+    }
+}
+
+
+/* =====================================================
    REDUCED MOTION
 ===================================================== */
 
@@ -1802,9 +1828,7 @@ blockquote {
     *::before,
     *::after {
         animation-duration: 0.001ms !important;
-
         animation-iteration-count: 1 !important;
-
         transition-duration: 0.001ms !important;
     }
 }
