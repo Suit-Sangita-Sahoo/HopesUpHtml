@@ -1,8 +1,138 @@
+
+
+
 <header class="site-header">
 
     <div class="container nav">
 
         <link rel="stylesheet" href="/Style/header.css">
+        <style>
+    /* =====================================================
+       START A CONVERSATION — INTERNAL HEADER BUTTON
+       ===================================================== */
+
+    .site-header .header-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        min-width: 172px;
+        height: 40px;
+
+        padding: 0 16px;
+
+        color: #000000;
+        background: #fff5f5;
+
+        border: 1px solid #ead4d4;
+        border-radius: 9px;
+
+        font-family: "Work Sans", Arial, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1px;
+
+        text-decoration: none;
+        white-space: nowrap;
+
+        box-shadow:
+            0 5px 16px rgba(90, 40, 40, 0.08);
+
+        transition:
+            color 0.3s ease,
+            background 0.3s ease,
+            border-color 0.3s ease,
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+
+    /* =====================================================
+       HOVER
+       ===================================================== */
+
+    .site-header .header-cta:hover {
+        color: #000000;
+
+        background: #ffe8e8;
+
+        border-color: #dfbcbc;
+
+        transform: translateY(-2px);
+
+        box-shadow:
+            0 9px 24px rgba(90, 40, 40, 0.14);
+    }
+
+
+    /* =====================================================
+       ICON
+       ===================================================== */
+
+    .site-header .header-cta svg {
+        width: 16px;
+        height: 16px;
+
+        color: #000000;
+
+        transition:
+            transform 0.3s ease;
+    }
+
+
+    /* Arrow movement */
+
+    .site-header .header-cta:hover svg {
+        transform: translate(3px, -3px);
+    }
+
+
+    /* =====================================================
+       CLICK / ACTIVE
+       ===================================================== */
+
+    .site-header .header-cta:active {
+        transform: translateY(0);
+
+        box-shadow:
+            0 4px 10px rgba(90, 40, 40, 0.10);
+    }
+
+
+    /* =====================================================
+       TABLET
+       ===================================================== */
+
+    @media (max-width: 1000px) {
+
+        .site-header .header-cta {
+            min-width: 155px;
+            height: 38px;
+
+            padding: 0 13px;
+
+            font-size: 11px;
+        }
+
+        .site-header .header-cta svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 760px) {
+
+        .site-header .header-cta {
+            display: none;
+        }
+    }
+</style>
 
         <!-- LOGO -->
         <a href="/index.html" class="brand-logo">

@@ -1,6 +1,25 @@
 /* =========================================================
    THEHOPESUP — HOME PAGE
+   Rebuilt: one clean hero definition (no more conflicting
+   duplicate blocks), scroll-reveal + hover animation, and
+   a design pass across every section.
 ========================================================= */
+
+:root {
+    --bg: #faf6ef;
+    --paper-dim: #f5efe6;
+    --ink: #241f19;
+    --ink-soft: #625b53;
+    --ink-soft-2: #6c635a;
+    --amber: #c8791f;
+    --rule: #ddd4c8;
+    --rule-2: #d4cabd;
+    --rule-3: #d8cec1;
+    --radius: 6px;
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
 
 * {
     box-sizing: border-box;
@@ -13,9 +32,9 @@ html {
 }
 
 body {
-    background: #faf6ef;
-    color: #241f19;
-    font-family: "Work Sans", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
     line-height: 1.6;
 }
 
@@ -34,30 +53,69 @@ a {
     margin: 0 auto;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* =========================================================
+   SCROLL-REVEAL UTILITY
+   (toggled by the IntersectionObserver script at the
+   bottom of index.html)
+========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal-stagger.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.15s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.25s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.35s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.45s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.55s; }
+.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.65s; }
+.reveal-stagger.is-visible > *:nth-child(8) { transition-delay: 0.75s; }
+
 
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero {
-    min-height: 720px;
     padding: 55px 0 80px;
     overflow: hidden;
 }
 
 .hero-grid {
-    min-height: 620px;
-
     display: grid;
-    grid-template-columns: 0.98fr 1.02fr;
+    grid-template-columns: 1.05fr 0.95fr;
     align-items: center;
     gap: 55px;
 }
-
-
-/* =========================================================
-   HERO COPY
-========================================================= */
 
 .hero-copy {
     position: relative;
@@ -67,73 +125,76 @@ a {
 
 .hero-eyebrow {
     margin-bottom: 20px;
-
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 2.5px;
     text-transform: uppercase;
+    color: var(--amber);
 
-    color: #c8791f;
+    opacity: 0;
+    animation: fadeUp 0.7s var(--ease) 0.05s both;
 }
 
 .hero h1 {
     max-width: 680px;
-
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: clamp(52px, 5.5vw, 82px);
     font-weight: 500;
     line-height: 0.98;
     letter-spacing: -3.5px;
+    color: var(--ink);
 
-    color: #241f19;
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 0.15s both;
 }
 
 .hero h1 span {
     display: inline;
-    color: #c8791f;
+    color: var(--amber);
 }
 
 .hero-lede {
     max-width: 670px;
     margin-top: 38px;
-
     font-size: 18px;
     line-height: 1.75;
     letter-spacing: 0.2px;
+    color: var(--ink-soft);
 
-    color: #625b53;
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 0.3s both;
 }
-
-
-/* =========================================================
-   HERO BUTTONS
-========================================================= */
 
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
     margin-top: 36px;
+
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 0.42s both;
 }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .btn {
     min-height: 58px;
     padding: 0 28px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     border-radius: 999px;
-
     font-size: 14px;
     font-weight: 600;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease;
+    transition: transform 0.3s var(--ease), background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
@@ -141,187 +202,156 @@ a {
 }
 
 .btn-ink {
-    background: #241f19;
+    background: var(--ink);
     color: #fff;
 }
 
 .btn-ink:hover {
-    background: #c8791f;
+    background: var(--amber);
+    box-shadow: 0 10px 24px rgba(200, 121, 31, 0.28);
 }
 
 .btn-outline {
     border: 1px solid #cfc6ba;
     background: transparent;
-    color: #241f19;
+    color: var(--ink);
 }
 
 .btn-outline:hover {
-    border-color: #241f19;
-    background: #241f19;
+    border-color: var(--ink);
+    background: var(--ink);
     color: #fff;
 }
 
 .btn-light {
     background: #fff;
-    color: #241f19;
+    color: var(--ink);
+}
+
+.btn-light:hover {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 
 /* =========================================================
-   HERO IMAGE AREA
+   HERO IMAGE — single clean definition
 ========================================================= */
 
 .hero-figure {
     position: relative;
-
-    min-height: 610px;
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    max-width: 480px;
+    margin-left: auto;
 }
-
-
-/* Main image */
 
 .hero-photo {
     position: relative;
-
     width: 100%;
-    max-width: 730px;
-    height: 590px;
-
+    aspect-ratio: 4 / 5;
     overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: 0 30px 70px rgba(36, 31, 25, 0.14);
 
-    border-radius: 0 0 0 4px;
+    opacity: 0;
+    animation:
+        heroReveal 0.9s var(--ease) 0.2s both,
+        heroFloat 6s ease-in-out 1.4s infinite;
 
-    box-shadow: 0 30px 70px rgba(36, 31, 25, 0.12);
+    transition: transform 0.5s var(--ease), box-shadow 0.5s ease;
+}
+
+.hero-photo:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 34px 70px rgba(36, 31, 25, 0.2);
 }
 
 .hero-photo img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.hero-photo:hover img {
+    transform: scale(1.05);
+}
+
+@keyframes heroReveal {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
 }
 
 
-/* =========================================================
-   ROUND STAMP / CIRCLE
-========================================================= */
-
-/*
-   IMPORTANT:
-   This is the circle visible between the text
-   and the hero image.
-*/
+/* Round stamp — locked to the top-right corner of the photo */
 
 .hero-stamp {
     position: absolute;
-
-    /*
-       Places the center of the circle on the
-       left edge of the photograph.
-    */
-    left: 7%;
-    top: 57%;
-
-    width: 160px;
-    height: 160px;
-
-    transform: translate(-50%, -50%);
-
+    top: -18px;
+    right: -18px;
+    width: 112px;
+    height: 112px;
     z-index: 10;
-
     pointer-events: none;
+
+    opacity: 0;
+    animation: fadeUp 0.7s var(--ease) 0.6s both;
 }
 
 .hero-stamp svg {
     width: 100%;
     height: 100%;
-
     display: block;
-
     overflow: visible;
+    animation: stampRotate 24s linear infinite;
 }
-
-
-/* =========================================================
-   STAMP ANIMATION
-========================================================= */
 
 .hero-stamp text {
     transform-origin: 64px 64px;
 }
 
-
-/*
-   Optional subtle rotation.
-   Remove animation if you want it completely static.
-*/
-
-.hero-stamp svg {
-    animation: stampRotate 24s linear infinite;
-}
-
-@keyframes stampRotate {
-
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-
-}
-
-
-/* Keep orange center visually stable */
-
 .hero-stamp circle:last-child {
     transform-origin: 64px 64px;
 }
 
+@keyframes stampRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 
-/* =========================================================
-   HERO CAPTION
-========================================================= */
+
+/* Caption card — bottom-right corner */
 
 .hero-caption {
     position: absolute;
-
-    right: -5px;
-    bottom: -5px;
-
-    width: 310px;
-    min-height: 112px;
-
-    padding: 22px 25px;
-
+    right: -16px;
+    bottom: -16px;
+    width: 250px;
+    min-height: 106px;
+    padding: 20px 22px;
     background: #fff;
-
-    box-shadow: 0 18px 45px rgba(36, 31, 25, 0.12);
-
-    font-family: "Fraunces", Georgia, serif;
-    font-size: 20px;
+    box-shadow: 0 18px 45px rgba(36, 31, 25, 0.14);
+    border-radius: 3px;
+    font-family: var(--serif);
+    font-size: 19px;
     line-height: 1.3;
-
-    color: #241f19;
-
+    color: var(--ink);
     z-index: 8;
+
+    opacity: 0;
+    animation: fadeUp 0.7s var(--ease) 0.72s both;
 }
 
 .hero-caption span {
     display: block;
-
     margin-top: 12px;
-
-    font-family: "Work Sans", sans-serif;
+    font-family: var(--sans);
     font-size: 11px;
     line-height: 1.4;
     letter-spacing: 0.5px;
-
     color: #746b61;
 }
 
@@ -331,51 +361,52 @@ a {
 ========================================================= */
 
 .stat-strip {
-    border-top: 1px solid #ddd4c8;
-    border-bottom: 1px solid #ddd4c8;
-
-    background: #f5efe6;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper-dim);
 }
 
 .stat-row {
-    min-height: 125px;
-
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
 
 .stat-row > div {
-    min-height: 125px;
-
     padding: 25px 30px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-right: 1px solid var(--rule);
+    transition: background 0.3s ease;
+}
 
-    border-right: 1px solid #ddd4c8;
+.stat-row > div:hover {
+    background: rgba(200, 121, 31, 0.05);
 }
 
 .stat-row > div:first-child {
-    border-left: 1px solid #ddd4c8;
+    border-left: 1px solid var(--rule);
 }
 
 .stat-row strong {
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: 34px;
     font-weight: 500;
     line-height: 1;
+    color: var(--amber);
+    display: inline-block;
+    transition: transform 0.3s var(--ease);
+}
 
-    color: #c8791f;
+.stat-row > div:hover strong {
+    transform: scale(1.08);
 }
 
 .stat-row small {
     max-width: 190px;
     margin-top: 9px;
-
     font-size: 12px;
     line-height: 1.5;
-
     color: #6d655d;
 }
 
@@ -401,13 +432,11 @@ a {
 
 .manifesto-label {
     padding-top: 8px;
-
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-
-    color: #c8791f;
+    color: var(--amber);
 }
 
 .manifesto-body {
@@ -416,8 +445,7 @@ a {
 
 .manifesto-body h2 {
     margin-bottom: 35px;
-
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: clamp(42px, 5vw, 68px);
     font-weight: 500;
     line-height: 1;
@@ -427,44 +455,41 @@ a {
 .manifesto-body p {
     max-width: 720px;
     margin-bottom: 23px;
-
     font-size: 17px;
     line-height: 1.8;
-
-    color: #625b53;
+    color: var(--ink-soft);
 }
 
 .manifesto-body .drop:first-letter {
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: 70px;
     float: left;
-
     margin: 8px 9px 0 0;
-
     line-height: 0.7;
-
-    color: #c8791f;
+    color: var(--amber);
 }
 
 .manifesto-signoff {
     margin-top: 20px;
-
     display: inline-flex;
     align-items: center;
     gap: 10px;
-
     font-size: 14px;
     font-weight: 600;
-
-    border-bottom: 1px solid #241f19;
+    border-bottom: 1px solid var(--ink);
     padding-bottom: 5px;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.manifesto-signoff:hover {
+    color: var(--amber);
+    border-color: var(--amber);
 }
 
 .manifesto-signoff svg {
     width: 20px;
     height: 20px;
-
-    transition: transform 0.25s ease;
+    transition: transform 0.25s var(--ease);
 }
 
 .manifesto-signoff:hover svg {
@@ -484,18 +509,15 @@ a {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-
     gap: 40px;
-
     margin-bottom: 65px;
 }
 
 .focus-head h2 {
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: clamp(42px, 5vw, 65px);
     font-weight: 500;
     line-height: 1;
-
     letter-spacing: -2px;
 }
 
@@ -504,45 +526,67 @@ a {
     font-weight: 600;
     letter-spacing: 1.8px;
     text-transform: uppercase;
-
-    color: #c8791f;
+    color: var(--amber);
 }
 
 .focus-head .field-note {
     max-width: 320px;
-
     font-size: 13px;
     line-height: 1.6;
-
     letter-spacing: 0;
-
     text-transform: none;
-
-    color: #6c635a;
+    color: var(--ink-soft-2);
 }
 
 .focus-list {
-    border-top: 1px solid #d4cabd;
+    border-top: 1px solid var(--rule-2);
+    counter-reset: focus-counter;
 }
 
 .focus-row {
+    counter-increment: focus-counter;
+    position: relative;
+
     display: grid;
     grid-template-columns: 65px 1fr 1.2fr 150px;
     align-items: center;
     gap: 30px;
 
     min-height: 155px;
+    padding-left: 44px;
 
-    border-bottom: 1px solid #d4cabd;
+    border-bottom: 1px solid var(--rule-2);
+    transition: background 0.3s ease;
+}
+
+.focus-row::before {
+    content: counter(focus-counter, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--amber);
+    opacity: 0.75;
+}
+
+.focus-row:hover {
+    background: rgba(200, 121, 31, 0.05);
 }
 
 .focus-mark {
     width: 44px;
     height: 44px;
+    transition: transform 0.35s var(--ease);
+}
+
+.focus-row:hover .focus-mark {
+    transform: rotate(-6deg) scale(1.06);
 }
 
 .focus-row h3 {
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: 27px;
     font-weight: 500;
 }
@@ -550,24 +594,22 @@ a {
 .focus-row p {
     font-size: 14px;
     line-height: 1.7;
-
     color: #665e55;
 }
 
 .focus-row > a {
     justify-self: end;
-
     font-size: 12px;
     font-weight: 600;
-
-    border-bottom: 1px solid #241f19;
-
+    border-bottom: 1px solid var(--ink);
     padding-bottom: 4px;
+    transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s var(--ease);
 }
 
 .focus-row > a:hover {
-    color: #c8791f;
-    border-color: #c8791f;
+    color: var(--amber);
+    border-color: var(--amber);
+    transform: translateX(3px);
 }
 
 
@@ -577,74 +619,59 @@ a {
 
 .reminder {
     position: relative;
-
     min-height: 620px;
-
     display: flex;
     align-items: center;
-
     overflow: hidden;
-
     color: #fff;
 }
 
 .reminder-bg {
     position: absolute;
     inset: 0;
-
     z-index: 0;
 }
 
 .reminder-bg::after {
     content: "";
-
     position: absolute;
     inset: 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(36, 31, 25, 0.9),
-            rgba(36, 31, 25, 0.55),
-            rgba(36, 31, 25, 0.2)
-        );
+    background: linear-gradient(90deg, rgba(36, 31, 25, 0.9), rgba(36, 31, 25, 0.55), rgba(36, 31, 25, 0.2));
 }
 
 .reminder-bg img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
+    transform: scale(1.06);
+    transition: transform 8s ease;
+}
+
+.reminder:hover .reminder-bg img {
+    transform: scale(1.14);
 }
 
 .reminder-inner {
     position: relative;
     z-index: 2;
-
     max-width: 1180px;
 }
 
 .reminder-inner h2 {
     max-width: 780px;
-
     margin-top: 20px;
-
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: clamp(46px, 6vw, 78px);
     font-weight: 500;
     line-height: 1;
-
     letter-spacing: -3px;
 }
 
 .reminder-inner p {
     max-width: 610px;
-
     margin-top: 30px;
-
     font-size: 17px;
     line-height: 1.8;
-
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -661,103 +688,97 @@ a {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-
     gap: 30px;
-
     margin-bottom: 55px;
 }
 
 .journal-head h2 {
     max-width: 650px;
-
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: clamp(42px, 5vw, 64px);
     font-weight: 500;
     line-height: 1;
-
     letter-spacing: -2px;
 }
 
 .entries {
-    border-top: 1px solid #d8cec1;
+    border-top: 1px solid var(--rule-3);
 }
 
 .entry {
     display: grid;
     grid-template-columns: 0.85fr 1fr;
     gap: 60px;
-
     padding: 35px 0;
+    border-bottom: 1px solid var(--rule-3);
+    transition: transform 0.4s var(--ease);
+}
 
-    border-bottom: 1px solid #d8cec1;
+.entry:hover {
+    transform: translateX(4px);
 }
 
 .entry-photo {
     height: 310px;
-
     overflow: hidden;
+    border-radius: 3px;
 }
 
 .entry-photo img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
 .entry:hover .entry-photo img {
-    transform: scale(1.04);
+    transform: scale(1.06);
 }
 
 .entry-copy {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     max-width: 540px;
 }
 
 .entry-date {
     margin-bottom: 18px;
-
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-
-    color: #c8791f;
+    color: var(--amber);
 }
 
 .entry-copy h3 {
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: 35px;
     font-weight: 500;
     line-height: 1.1;
-
     letter-spacing: -1px;
 }
 
 .entry-copy p {
     margin-top: 20px;
-
     font-size: 16px;
     line-height: 1.7;
-
     color: #665e55;
 }
 
 .entry-link {
     width: fit-content;
-
     margin-top: 25px;
-
     font-size: 13px;
     font-weight: 600;
-
-    border-bottom: 1px solid #241f19;
+    border-bottom: 1px solid var(--ink);
     padding-bottom: 4px;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.entry-link:hover {
+    color: var(--amber);
+    border-color: var(--amber);
 }
 
 
@@ -766,38 +787,46 @@ a {
 ========================================================= */
 
 .pull {
+    position: relative;
     padding-top: 70px;
     padding-bottom: 130px;
-
     text-align: center;
 }
 
+.pull::before {
+    content: "“";
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--serif);
+    font-size: 220px;
+    line-height: 1;
+    color: var(--amber);
+    opacity: 0.08;
+    pointer-events: none;
+}
+
 .pull blockquote {
+    position: relative;
     max-width: 900px;
-
     margin: 0 auto;
-
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: clamp(44px, 6vw, 78px);
     font-weight: 500;
     line-height: 1;
-
     letter-spacing: -3px;
 }
 
 .pull cite {
     display: block;
-
     margin-top: 30px;
-
     font-size: 11px;
     font-style: normal;
     font-weight: 600;
-
     letter-spacing: 1.5px;
     text-transform: uppercase;
-
-    color: #c8791f;
+    color: var(--amber);
 }
 
 
@@ -807,69 +836,58 @@ a {
 
 .finale {
     position: relative;
-
     overflow: hidden;
-
     padding: 110px 0;
-
-    background: #241f19;
+    background: var(--ink);
     color: #fff;
 }
 
 .finale-glow {
     position: absolute;
-
     width: 550px;
     height: 550px;
-
     right: -150px;
     top: -250px;
-
     border-radius: 50%;
-
     background: rgba(200, 121, 31, 0.14);
-
     filter: blur(20px);
+    animation: glowPulse 7s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.12); opacity: 0.75; }
 }
 
 .finale-inner {
     position: relative;
     z-index: 2;
-
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-
     gap: 70px;
 }
 
 .finale h2 {
     max-width: 800px;
-
     margin-top: 18px;
-
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: clamp(46px, 6vw, 76px);
     font-weight: 500;
     line-height: 1;
-
     letter-spacing: -3px;
 }
 
 .finale p {
     max-width: 600px;
-
     margin-top: 25px;
-
     color: #cfc6bc;
 }
 
 .finale-actions {
     display: flex;
     flex-wrap: wrap;
-
     gap: 14px;
-
     margin-top: 35px;
 }
 
@@ -880,19 +898,15 @@ a {
 
 .finale-outline:hover {
     background: #fff;
-    color: #241f19;
+    color: var(--ink);
 }
 
 .finale-note {
     max-width: 260px;
-
     margin: 0 !important;
-
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: 21px;
-
     line-height: 1.4;
-
     color: #fff !important;
 }
 
@@ -921,17 +935,8 @@ a {
     }
 
     .hero-figure {
-        min-height: 550px;
-    }
-
-    .hero-photo {
-        height: 520px;
-        max-width: 100%;
-    }
-
-    .hero-stamp {
-        left: 4%;
-        top: 55%;
+        max-width: 380px;
+        margin: 0 auto;
     }
 
     .manifesto {
@@ -942,8 +947,7 @@ a {
     .focus-row {
         grid-template-columns: 55px 1fr;
         gap: 20px;
-
-        padding: 30px 0;
+        padding: 30px 0 30px 40px;
     }
 
     .focus-row p {
@@ -963,7 +967,6 @@ a {
     .finale-note {
         max-width: 450px;
     }
-
 }
 
 
@@ -981,10 +984,6 @@ a {
         padding: 35px 0 55px;
     }
 
-    .hero-grid {
-        min-height: auto;
-    }
-
     .hero-eyebrow {
         margin-bottom: 15px;
     }
@@ -997,13 +996,11 @@ a {
 
     .hero-lede {
         margin-top: 25px;
-
         font-size: 16px;
     }
 
     .hero-actions {
         margin-top: 27px;
-
         flex-direction: column;
         align-items: stretch;
     }
@@ -1013,37 +1010,22 @@ a {
     }
 
     .hero-figure {
-        min-height: 440px;
+        max-width: 300px;
     }
-
-    .hero-photo {
-        height: 420px;
-
-        border-radius: 0;
-    }
-
-    /*
-       Mobile circle position.
-       It overlaps the left side of the image.
-    */
 
     .hero-stamp {
-        left: 13%;
-        top: 51%;
-
-        width: 125px;
-        height: 125px;
+        top: -14px;
+        right: -14px;
+        width: 90px;
+        height: 90px;
     }
 
     .hero-caption {
-        right: 0;
-        bottom: -10px;
-
-        width: 245px;
-
-        padding: 18px;
-
-        font-size: 17px;
+        right: -8px;
+        bottom: -14px;
+        width: 200px;
+        padding: 16px 18px;
+        font-size: 16px;
     }
 
     .stat-row {
@@ -1053,12 +1035,11 @@ a {
     .stat-row > div {
         min-height: 115px;
         padding: 20px;
-
-        border-bottom: 1px solid #ddd4c8;
+        border-bottom: 1px solid var(--rule);
     }
 
     .stat-row > div:nth-child(odd) {
-        border-left: 1px solid #ddd4c8;
+        border-left: 1px solid var(--rule);
     }
 
     .stat-row strong {
@@ -1076,12 +1057,12 @@ a {
     .focus-head {
         flex-direction: column;
         align-items: flex-start;
-
         margin-bottom: 40px;
     }
 
     .focus-row {
         grid-template-columns: 45px 1fr;
+        padding-left: 34px;
     }
 
     .focus-row h3 {
@@ -1119,6 +1100,10 @@ a {
         letter-spacing: -2px;
     }
 
+    .pull::before {
+        font-size: 140px;
+    }
+
     .finale {
         padding: 80px 0;
     }
@@ -1127,7 +1112,6 @@ a {
         font-size: 48px;
         letter-spacing: -2px;
     }
-
 }
 
 
@@ -1145,26 +1129,19 @@ a {
         font-size: 43px;
     }
 
-    .hero-photo {
-        height: 360px;
-    }
-
     .hero-figure {
-        min-height: 390px;
+        max-width: 250px;
     }
 
     .hero-stamp {
-        left: 14%;
-        top: 48%;
-
-        width: 105px;
-        height: 105px;
+        width: 76px;
+        height: 76px;
     }
 
     .hero-caption {
-        width: 220px;
-
-        font-size: 16px;
+        width: 175px;
+        font-size: 15px;
+        padding: 14px 16px;
     }
 
     .stat-row {
@@ -1172,11 +1149,19 @@ a {
     }
 
     .stat-row > div {
-        border-left: 1px solid #ddd4c8;
+        border-left: 1px solid var(--rule);
     }
 
     .focus-row {
         grid-template-columns: 1fr;
+        padding-left: 0;
+    }
+
+    .focus-row::before {
+        position: static;
+        display: block;
+        margin-bottom: 8px;
+        transform: none;
     }
 
     .focus-row p,
@@ -1195,189 +1180,13 @@ a {
     .finale h2 {
         font-size: 40px;
     }
-
-}
-
-/* =========================================================
-   HERO IMAGE — SMALLER + CIRCLE TOP RIGHT
-========================================================= */
-
-.hero-figure {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-photo {
-    width: 88%;
-    max-width: 520px;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 18px 45px rgba(36, 31, 25, 0.15);
-}
-
-.hero-photo img {
-    width: 100%;
-    height: 460px;
-    display: block;
-    object-fit: cover;
-}
-
-
-/* =========================================================
-   ROUND STAMP — TOP RIGHT OF IMAGE
-========================================================= */
-
-.hero-stamp {
-    position: absolute;
-    top: -35px;
-    right: 0;
-    width: 125px;
-    height: 125px;
-    z-index: 10;
-    pointer-events: none;
-}
-
-.hero-stamp svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    overflow: visible;
-    animation: stampRotate 24s linear infinite;
-}
-
-.hero-stamp text {
-    transform-origin: 64px 64px;
-}
-
-@keyframes stampRotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .hero-photo {
-        width: 92%;
-    }
-
-    .hero-photo img {
-        height: 360px;
-    }
-
-    .hero-stamp {
-        top: -25px;
-        right: -5px;
-        width: 105px;
-        height: 105px;
-    }
-
-}
-
-/* =========================================================
-   HERO IMAGE ANIMATION
-========================================================= */
-
-.hero-photo {
-    position: relative;
-    overflow: hidden;
-    animation: heroImageReveal 1.2s ease-out both;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-/* Image slowly moves upward when page loads */
-@keyframes heroImageReveal {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* Subtle zoom effect */
-.hero-photo img {
-    display: block;
-    width: 100%;
-    transition: transform 0.8s ease;
-}
-
-.hero-photo:hover img {
-    transform: scale(1.05);
-}
-
-
-/* Attractive lift on hover */
-.hero-photo:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 25px 50px rgba(36, 31, 25, 0.20);
-}
-
-
-/* =========================================================
-   VERY SUBTLE FLOATING EFFECT
-========================================================= */
-
-.hero-photo {
-    animation:
-        heroImageReveal 1.2s ease-out both,
-        heroImageFloat 6s ease-in-out 1.2s infinite;
-}
-
-@keyframes heroImageFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px);
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .hero-photo {
-        animation:
-            heroImageReveal 1s ease-out both,
-            heroImageFloat 7s ease-in-out 1s infinite;
-    }
-
-    .hero-photo:hover img {
-        transform: none;
-    }
-
-    .hero-photo:hover {
-        transform: none;
-    }
-
 }
 
 
 /* =========================================================
    THE HOPESUP — FOOTER
    Editorial / Creative Studio Footer
-   ========================================================= */
+========================================================= */
 
 .footer {
     position: relative;
@@ -1385,13 +1194,8 @@ a {
     background: #211c18;
     color: #f7f1e8;
     overflow: hidden;
-    font-family: "Work Sans", Arial, sans-serif;
+    font-family: var(--sans);
 }
-
-
-/* =========================================================
-   DECORATIVE BACKGROUND
-   ========================================================= */
 
 .footer::before {
     content: "";
@@ -1415,59 +1219,32 @@ a {
     border-radius: 50%;
 }
 
-
-/* =========================================================
-   CONTAINER
-   ========================================================= */
-
 .footer .container {
     position: relative;
     z-index: 2;
-
     width: min(1180px, calc(100% - 50px));
     margin: 0 auto;
 }
-
-
-/* =========================================================
-   FOOTER GRID
-   ========================================================= */
 
 .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 0.8fr 1fr 1fr;
     gap: 55px;
-
     padding-bottom: 65px;
 }
-
-
-/* =========================================================
-   FOOTER ABOUT
-   ========================================================= */
 
 .footer-about {
     max-width: 330px;
 }
 
-
-/* =========================================================
-   FOOTER LOGO
-   ========================================================= */
-
 .footer .mark {
     display: inline-flex;
     align-items: center;
     gap: 11px;
-
     margin-bottom: 22px;
-
     color: #fffaf3;
     text-decoration: none;
-
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .footer .mark:hover {
@@ -1475,32 +1252,19 @@ a {
     opacity: 0.9;
 }
 
-
-/* =========================================================
-   FOOTER SUN
-   ========================================================= */
-
 .mark-sun {
     width: 40px;
     height: 40px;
-
     flex-shrink: 0;
-
-    transition:
-        transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .footer .mark:hover .mark-sun {
     transform: rotate(15deg);
 }
 
-
-/* =========================================================
-   FOOTER WORDMARK
-   ========================================================= */
-
 .mark-word {
-    font-family: "Fraunces", Georgia, serif;
+    font-family: var(--serif);
     font-size: 25px;
     font-weight: 500;
     letter-spacing: -1px;
@@ -1512,32 +1276,18 @@ a {
     font-style: normal;
 }
 
-
-/* =========================================================
-   ABOUT TEXT
-   ========================================================= */
-
 .footer-about > p {
     max-width: 310px;
-
     margin: 0;
-
     color: #bdb4aa;
-
     font-size: 14px;
     line-height: 1.8;
 }
-
-
-/* =========================================================
-   SOCIAL LINKS
-   ========================================================= */
 
 .footer-socials {
     display: flex;
     align-items: center;
     gap: 9px;
-
     margin-top: 27px;
 }
 
@@ -1545,71 +1295,42 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 36px;
     height: 36px;
-
     color: #d8d0c8;
-
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 50%;
-
     font-size: 10px;
     font-weight: 600;
-
     text-decoration: none;
-
-    transition:
-        color 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
+    transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
 .footer-socials a:hover {
     color: #211c18;
     background: #e5b65d;
     border-color: #e5b65d;
-
     transform: translateY(-3px);
 }
 
-
-/* =========================================================
-   FOOTER HEADINGS
-   ========================================================= */
-
 .footer-heading {
     position: relative;
-
     margin-bottom: 20px;
-
     color: #e5b65d;
-
     font-size: 10px;
     font-weight: 700;
-
     letter-spacing: 1.8px;
     text-transform: uppercase;
 }
 
 .footer-heading::after {
     content: "";
-
     display: block;
-
     width: 28px;
     height: 1px;
-
     margin-top: 9px;
-
     background: rgba(229, 182, 93, 0.55);
 }
-
-
-/* =========================================================
-   FOOTER LINKS
-   ========================================================= */
 
 .footer-links {
     display: flex;
@@ -1619,39 +1340,24 @@ a {
 
 .footer-links a {
     position: relative;
-
     display: inline-flex;
     align-items: center;
-
     width: fit-content;
-
     color: #c8c0b8;
-
     font-size: 13px;
     line-height: 1.5;
-
     text-decoration: none;
-
-    transition:
-        color 0.25s ease,
-        transform 0.25s ease;
+    transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .footer-links a::before {
     content: "→";
-
     position: absolute;
     left: -18px;
-
     color: #e5b65d;
-
     opacity: 0;
-
     transform: translateX(-5px);
-
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .footer-links a:hover {
@@ -1664,26 +1370,13 @@ a {
     transform: translateX(0);
 }
 
-
-/* =========================================================
-   CONTACT NOTE
-   ========================================================= */
-
 .footer-note {
     max-width: 220px;
-
     margin: 22px 0 0;
-
     color: #918980;
-
     font-size: 12px;
     line-height: 1.7;
 }
-
-
-/* =========================================================
-   EMAIL LINK
-   ========================================================= */
 
 .footer-links a[href^="mailto"] {
     color: #f0e8dd;
@@ -1694,259 +1387,63 @@ a {
     color: #e5b65d;
 }
 
-
-/* =========================================================
-   FOOTER BOTTOM
-   ========================================================= */
-
 .footer-bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 20px;
-
     padding-top: 24px;
-
-    border-top:
-        1px solid
-        rgba(255, 255, 255, 0.10);
-
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
     color: #817970;
-
     font-size: 10px;
     line-height: 1.5;
-
     letter-spacing: 0.3px;
 }
-
-
-/* Right bottom text */
 
 .footer-bottom span:last-child {
     color: #9b9188;
     font-style: italic;
 }
 
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
 @media (max-width: 900px) {
-
-    .footer {
-        padding-top: 65px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1.3fr 1fr 1fr;
-        gap: 40px;
-    }
-
-    .footer-about {
-        grid-column: 1 / -1;
-        max-width: 500px;
-        padding-bottom: 15px;
-    }
-
-    .footer-about > p {
-        max-width: 450px;
-    }
+    .footer { padding-top: 65px; }
+    .footer-grid { grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; }
+    .footer-about { grid-column: 1 / -1; max-width: 500px; padding-bottom: 15px; }
+    .footer-about > p { max-width: 450px; }
 }
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
 
 @media (max-width: 650px) {
-
-    .footer {
-        padding: 55px 0 24px;
-    }
-
-    .footer .container {
-        width: calc(100% - 34px);
-    }
-
-
-    /* Stack footer sections */
-
-    .footer-grid {
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-
-        gap: 38px 25px;
-
-        padding-bottom: 42px;
-    }
-
-
-    /* About takes full width */
-
-    .footer-about {
-        grid-column: 1 / -1;
-
-        max-width: 100%;
-
-        padding-bottom: 5px;
-    }
-
-    .footer-about > p {
-        max-width: 100%;
-
-        font-size: 13px;
-        line-height: 1.75;
-    }
-
-
-    /* Logo */
-
-    .footer .mark {
-        margin-bottom: 18px;
-    }
-
-    .mark-sun {
-        width: 36px;
-        height: 36px;
-    }
-
-    .mark-word {
-        font-size: 23px;
-    }
-
-
-    /* Social */
-
-    .footer-socials {
-        margin-top: 22px;
-    }
-
-    .footer-socials a {
-        width: 34px;
-        height: 34px;
-    }
-
-
-    /* Headings */
-
-    .footer-heading {
-        margin-bottom: 17px;
-
-        font-size: 9px;
-        letter-spacing: 1.5px;
-    }
-
-
-    /* Links */
-
-    .footer-links {
-        gap: 9px;
-    }
-
-    .footer-links a {
-        font-size: 12px;
-    }
-
-
-    /* Contact */
-
-    .footer-note {
-        max-width: 180px;
-
-        margin-top: 18px;
-
-        font-size: 11px;
-    }
-
-
-    /* Bottom */
-
-    .footer-bottom {
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 7px;
-
-        padding-top: 20px;
-
-        font-size: 9px;
-    }
+    .footer { padding: 55px 0 24px; }
+    .footer .container { width: calc(100% - 34px); }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 38px 25px; padding-bottom: 42px; }
+    .footer-about { grid-column: 1 / -1; max-width: 100%; padding-bottom: 5px; }
+    .footer-about > p { max-width: 100%; font-size: 13px; line-height: 1.75; }
+    .footer .mark { margin-bottom: 18px; }
+    .mark-sun { width: 36px; height: 36px; }
+    .mark-word { font-size: 23px; }
+    .footer-socials { margin-top: 22px; }
+    .footer-socials a { width: 34px; height: 34px; }
+    .footer-heading { margin-bottom: 17px; font-size: 9px; letter-spacing: 1.5px; }
+    .footer-links { gap: 9px; }
+    .footer-links a { font-size: 12px; }
+    .footer-note { max-width: 180px; margin-top: 18px; font-size: 11px; }
+    .footer-bottom { align-items: flex-start; flex-direction: column; gap: 7px; padding-top: 20px; font-size: 9px; }
 }
-
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
 
 @media (max-width: 420px) {
-
-    .footer {
-        padding-top: 48px;
-    }
-
-    .footer .container {
-        width: calc(100% - 28px);
-    }
-
-    .footer-grid {
-        gap: 32px 18px;
-    }
-
-    .mark-sun {
-        width: 33px;
-        height: 33px;
-    }
-
-    .mark-word {
-        font-size: 21px;
-    }
-
-    .footer-about > p {
-        font-size: 12px;
-    }
-
-    .footer-heading {
-        font-size: 8px;
-        letter-spacing: 1.3px;
-    }
-
-    .footer-links a {
-        font-size: 11px;
-    }
-
-    .footer-note {
-        font-size: 10px;
-    }
-
-    .footer-bottom {
-        font-size: 8px;
-    }
+    .footer { padding-top: 48px; }
+    .footer .container { width: calc(100% - 28px); }
+    .footer-grid { gap: 32px 18px; }
+    .mark-sun { width: 33px; height: 33px; }
+    .mark-word { font-size: 21px; }
+    .footer-about > p { font-size: 12px; }
+    .footer-heading { font-size: 8px; letter-spacing: 1.3px; }
+    .footer-links a { font-size: 11px; }
+    .footer-note { font-size: 10px; }
+    .footer-bottom { font-size: 8px; }
 }
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
 
 .footer a:focus-visible {
     outline: 2px solid #e5b65d;
     outline-offset: 4px;
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .footer *,
-    .footer *::before,
-    .footer *::after {
-        transition: none !important;
-    }
 }
