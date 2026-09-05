@@ -2,393 +2,2039 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>How To Deal With A Toxic Friend | The Hope Sup</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="Blog.css">
+    <meta name="description"
+          content="How to deal with a toxic friend, protect your peace, recognize unhealthy friendships, and move forward.">
+
+    <title>
+        How To Deal With A Toxic Friend | The Hope Sup
+    </title>
+
+    <!-- COMMON BLOG CSS -->
+    <link rel="stylesheet"
+          href="/Blogs/Blog.css">
+
+    <!-- FOOTER CSS -->
+    <link rel="stylesheet"
+          href="/Style/Footer.css">
+
+
+    <!-- =====================================================
+         COMMENTS CSS
+    ====================================================== -->
+
+    <style>
+
+        .comments-section {
+            background: #f7f3ed;
+            padding: 90px 20px 100px;
+            margin-top: 80px;
+            border-top: 1px solid #e4ddd4;
+        }
+
+        .comments-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .comments-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .comments-label {
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #b47a32;
+            margin-bottom: 12px;
+        }
+
+        .comments-heading h2 {
+            margin: 0 0 12px;
+            font-size: 42px;
+            line-height: 1.2;
+            color: #2b211b;
+        }
+
+        .comments-heading p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #756b63;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           COMMENT FORM
+        ====================================================== */
+
+        .comment-form-card {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(48, 42, 38, 0.08);
+            border: 1px solid #ebe4dc;
+            margin-bottom: 55px;
+        }
+
+        .comment-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .comment-field {
+            margin-bottom: 22px;
+        }
+
+        .comment-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #3b3029;
+        }
+
+        .comment-field label span {
+            font-weight: 400;
+            color: #91877f;
+        }
+
+        .comment-field input,
+        .comment-field textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #dcd3ca;
+            background: #fcfbf9;
+            border-radius: 10px;
+            padding: 13px 15px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            color: #302a26;
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .comment-field textarea {
+            min-height: 130px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .comment-field input:focus,
+        .comment-field textarea:focus {
+            border-color: #c8791f;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(200, 121, 31, 0.10);
+        }
+
+        .character-count {
+            text-align: right;
+            margin-top: 6px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #978d84;
+        }
+
+        .comment-submit {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            background: #241f19;
+            color: #ffffff;
+            padding: 15px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .comment-submit:hover {
+            background: #c8791f;
+            transform: translateY(-2px);
+        }
+
+        .comment-submit:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+            transform: none;
+        }
+
+        .comment-status {
+            display: none;
+            margin-top: 15px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .comment-status.success {
+            display: block;
+            background: #edf7ee;
+            color: #286334;
+            border: 1px solid #cfe8d1;
+        }
+
+        .comment-status.error {
+            display: block;
+            background: #fff0ed;
+            color: #a13b2d;
+            border: 1px solid #f1c9c2;
+        }
+
+
+        /* =====================================================
+           COMMENTS LIST
+        ====================================================== */
+
+        .comments-list-wrapper {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 35px;
+            border: 1px solid #ebe4dc;
+        }
+
+        .comments-list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+
+            border-bottom: 1px solid #e8e1d9;
+            padding-bottom: 18px;
+            margin-bottom: 10px;
+        }
+
+        .comments-list-header h3 {
+            margin: 0;
+            font-family: Georgia, serif;
+            font-size: 26px;
+            color: #2b211b;
+        }
+
+        #commentCount {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #8a7f76;
+        }
+
+
+        /* =====================================================
+           INDIVIDUAL COMMENT
+        ====================================================== */
+
+        .comment-item {
+            display: flex;
+            gap: 16px;
+            padding: 25px 0;
+            border-bottom: 1px solid #eee8e1;
+            animation: commentAppear 0.35s ease;
+        }
+
+        .comment-item:last-child {
+            border-bottom: none;
+        }
+
+        .comment-avatar {
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #d69b4d,
+                #8c5522
+            );
+
+            color: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+        }
+
+        .comment-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .comment-top {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .comment-author {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #30251f;
+        }
+
+        .comment-date {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #9a9087;
+        }
+
+        .comment-text {
+            margin: 0;
+            color: #5d544d;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            line-height: 1.7;
+
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =====================================================
+           EMPTY / LOADING
+        ====================================================== */
+
+        .comments-loading,
+        .comments-empty {
+            padding: 35px 15px;
+            text-align: center;
+            color: #8b8179;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .comments-loading::before {
+            content: "";
+
+            width: 20px;
+            height: 20px;
+
+            display: block;
+
+            margin: 0 auto 12px;
+
+            border: 2px solid #ddd4cb;
+            border-top-color: #c8791f;
+
+            border-radius: 50%;
+
+            animation: commentSpin 0.8s linear infinite;
+        }
+
+
+        /* =====================================================
+           ANIMATION
+        ====================================================== */
+
+        @keyframes commentAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes commentSpin {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 700px) {
+
+            .comments-section {
+                padding: 65px 15px 75px;
+                margin-top: 50px;
+            }
+
+            .comments-heading h2 {
+                font-size: 32px;
+            }
+
+            .comments-heading p {
+                font-size: 15px;
+            }
+
+            .comment-form-card,
+            .comments-list-wrapper {
+                padding: 22px;
+                border-radius: 14px;
+            }
+
+            .comment-form-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .comments-list-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .comment-item {
+                gap: 12px;
+            }
+
+            .comment-avatar {
+                flex-basis: 38px;
+                width: 38px;
+                height: 38px;
+                font-size: 14px;
+            }
+
+            .comment-text {
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <!-- Header -->
-    <header class="blog-header">
-        <div class="blog-header-inner">
 
-            <a href="../index.html" class="blog-logo">
-                The Hope Sup
-            </a>
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-            <a href="../index.html" class="back-home">
-                ← Back to Articles
-            </a>
+<header class="blog-header">
 
-        </div>
-    </header>
+    <div class="blog-header-inner">
 
+        <a href="/index.html"
+           class="blog-logo">
 
-    <!-- Main Article -->
-    <main class="blog-page">
+            The Hope Sup
 
-        <article>
-
-            <!-- Article Header -->
-            <header class="article-header">
-
-                <div class="article-category">
-                    RELATIONSHIPS
-                </div>
-
-                <h1>
-                    How To Deal With<br>
-                    A Toxic Friend
-                </h1>
-
-                <p class="article-subtitle">
-                    End a toxic friendship, protect your peace, and surround yourself with people who truly support you.
-                </p>
-
-                <div class="article-meta">
-                    July 15, 2017 • The Hope Sup
-                </div>
-
-            </header>
+        </a>
 
 
-            <!-- Featured Image -->
-            <figure class="featured-image">
+        <a href="/Blog.html"
+           class="back-home">
 
-                <img
-                    src="/Image/HELLO.png"
-                    alt="How to deal with a toxic friend"
-                >
+            ← Back to Articles
 
-                <figcaption>
-                    Image from The Hope Sup
-                </figcaption>
+        </a>
 
-            </figure>
+    </div>
+
+</header>
 
 
-            <!-- Article Content -->
-            <div class="article-content">
 
-                <p class="opening">
-                    Friends are an important part of our lives. As we grow up, our friends influence our thoughts, beliefs, and the way we see the world.
-                </p>
+<!-- =====================================================
+     MAIN ARTICLE
+===================================================== -->
+
+<main class="blog-page">
+
+    <article>
+
+
+        <!-- =================================================
+             ARTICLE HEADER
+        ================================================== -->
+
+        <header class="article-header">
+
+            <div class="article-category">
+                RELATIONSHIPS
+            </div>
+
+
+            <h1>
+
+                How To Deal With<br>
+                A Toxic Friend
+
+            </h1>
+
+
+            <p class="article-subtitle">
+
+                End a toxic friendship, protect your peace,
+                and surround yourself with people who truly
+                support you.
+
+            </p>
+
+
+            <div class="article-meta">
+
+                July 15, 2017 • The Hope Sup
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             FEATURED IMAGE
+        ================================================== -->
+
+        <figure class="featured-image">
+
+            <img
+                src="/Image/HELLO.png"
+                alt="How to deal with a toxic friend"
+            >
+
+            <figcaption>
+
+                Image from The Hope Sup
+
+            </figcaption>
+
+        </figure>
+
+
+
+        <!-- =================================================
+             ARTICLE CONTENT
+        ================================================== -->
+
+        <div class="article-content">
+
+
+            <p class="opening">
+
+                Friends are an important part of our lives.
+                As we grow up, our friends influence our thoughts,
+                beliefs, and the way we see the world.
+
+            </p>
+
+
+            <p>
+
+                True friends care about us and support us without
+                expecting something in return. Friendship, like
+                every relationship, should be a two-way street.
+
+            </p>
+
+
+            <p>
+
+                But toxic friendships are different. Sometimes,
+                without realizing it, we become friends with people
+                who negatively affect our lives.
+
+            </p>
+
+
+            <p>
+
+                People change, and someone who once seemed like
+                a great friend can become manipulative, negative,
+                or emotionally draining.
+
+            </p>
+
+
+
+            <!-- PERSONAL EXPERIENCE -->
+
+            <h2>
+
+                My Experience With A Toxic Friend
+
+            </h2>
+
+
+            <p>
+
+                I was in a toxic friendship for three years during
+                high school. I was an introvert and cared too much
+                about what other people thought of me.
+
+            </p>
+
+
+            <p>
+
+                I was also a people pleaser who found it difficult
+                to say no. My friend, whom I'll call Z, was my
+                classmate. After my best friend moved away, I felt
+                lonely and started spending more time with Z.
+
+            </p>
+
+
+            <p>
+
+                At first, she seemed nice and popular. But
+                eventually, I realized that she was manipulative
+                and self-obsessed.
+
+            </p>
+
+
+            <p>
+
+                I wanted to belong to her group, so I allowed her
+                to treat me badly because I was afraid of losing
+                other friends too.
+
+            </p>
+
+
+            <p>
+
+                Later, I realized that the friendship was draining
+                me. My grades were dropping, and I was starting
+                to feel worthless.
+
+            </p>
+
+
+            <p>
+
+                Fortunately, I made some new friends who supported
+                me. When school ended and I moved to another city
+                for college, I finally had the chance to leave that
+                friendship behind.
+
+            </p>
+
+
+            <blockquote>
+
+                Sometimes, an unpleasant experience gives you
+                the perspective and courage you need to move forward.
+
+            </blockquote>
+
+
+            <p>
+
+                I reflected on my mistakes and became more
+                confident. I learned to recognize true friends
+                and understand which people I needed to keep
+                at a safe distance.
+
+            </p>
+
+
+
+            <!-- SIGNS -->
+
+            <h2>
+
+                You Know You Have A Toxic Friend When
+
+            </h2>
+
+
+            <p>
+                <strong>
+                    1. They become jealous when you achieve
+                    something instead of being happy for you.
+                </strong>
+            </p>
+
+
+            <p>
+                <strong>
+                    2. They dominate and manipulate you, making
+                    you misuse your time or resources for them.
+                </strong>
+            </p>
+
+
+            <p>
+                <strong>
+                    3. They rarely encourage you, while you
+                    constantly praise and help them.
+                </strong>
+            </p>
+
+
+            <p>
+                <strong>
+                    4. They never really listen to you.
+                </strong>
+            </p>
+
+
+            <p>
+                <strong>
+                    5. They drain your positive energy and leave
+                    you feeling unhappy or insecure.
+                </strong>
+            </p>
+
+
+            <p>
+                <strong>
+                    6. They appear to be a great friend to others,
+                    but you know their true behavior.
+                </strong>
+            </p>
+
+
+            <p>
+                <strong>
+                    7. They speak negatively about your family
+                    while praising their own.
+                </strong>
+            </p>
+
+
+            <p>
+                <strong>
+                    8. They constantly ask for favors but rarely
+                    appreciate your efforts or return them.
+                </strong>
+            </p>
+
+
+            <p>
+                <strong>
+                    9. They make you feel lonely even when you
+                    are with them.
+                </strong>
+            </p>
+
+
+            <p>
+                <strong>
+                    10. You feel powerless and angry with yourself
+                    for allowing the behavior.
+                </strong>
+            </p>
+
+
+
+            <!-- IMPORTANT BOX -->
+
+            <div class="important-box">
 
                 <p>
-                    True friends care about us and support us without expecting something in return. Friendship, like every relationship, should be a two-way street.
-                </p>
 
-                <p>
-                    But toxic friendships are different. Sometimes, without realizing it, we become friends with people who negatively affect our lives.
-                </p>
-
-                <p>
-                    People change, and someone who once seemed like a great friend can become manipulative, negative, or emotionally draining.
-                </p>
-
-
-                <!-- Personal Experience -->
-                <h2>
-                    My Experience With A Toxic Friend
-                </h2>
-
-                <p>
-                    I was in a toxic friendship for three years during high school. I was an introvert and cared too much about what other people thought of me.
-                </p>
-
-                <p>
-                    I was also a people pleaser who found it difficult to say no. My friend, whom I'll call Z, was my classmate. After my best friend moved away, I felt lonely and started spending more time with Z.
-                </p>
-
-                <p>
-                    At first, she seemed nice and popular. But eventually, I realized that she was manipulative and self-obsessed.
-                </p>
-
-                <p>
-                    I wanted to belong to her group, so I allowed her to treat me badly because I was afraid of losing other friends too.
-                </p>
-
-                <p>
-                    Later, I realized that the friendship was draining me. My grades were dropping, and I was starting to feel worthless.
-                </p>
-
-                <p>
-                    Fortunately, I made some new friends who supported me. When school ended and I moved to another city for college, I finally had the chance to leave that friendship behind.
-                </p>
-
-                <blockquote>
-                    Sometimes, an unpleasant experience gives you the perspective and courage you need to move forward.
-                </blockquote>
-
-                <p>
-                    I reflected on my mistakes and became more confident. I learned to recognize true friends and understand which people I needed to keep at a safe distance.
-                </p>
-
-
-                <!-- Signs -->
-                <h2>
-                    You Know You Have A Toxic Friend When
-                </h2>
-
-                <p>
-                    <strong>1. They become jealous when you achieve something instead of being happy for you.</strong>
-                </p>
-
-                <p>
-                    <strong>2. They dominate and manipulate you, making you misuse your time or resources for them.</strong>
-                </p>
-
-                <p>
-                    <strong>3. They rarely encourage you, while you constantly praise and help them.</strong>
-                </p>
-
-                <p>
-                    <strong>4. They never really listen to you.</strong>
-                </p>
-
-                <p>
-                    <strong>5. They drain your positive energy and leave you feeling unhappy or insecure.</strong>
-                </p>
-
-                <p>
-                    <strong>6. They appear to be a great friend to others, but you know their true behavior.</strong>
-                </p>
-
-                <p>
-                    <strong>7. They speak negatively about your family while praising their own.</strong>
-                </p>
-
-                <p>
-                    <strong>8. They constantly ask for favors but rarely appreciate your efforts or return them.</strong>
-                </p>
-
-                <p>
-                    <strong>9. They make you feel lonely even when you are with them.</strong>
-                </p>
-
-                <p>
-                    <strong>10. You feel powerless and angry with yourself for allowing the behavior.</strong>
-                </p>
-
-
-                <div class="important-box">
-
-                    <p>
-                        <strong>
-                            You don't have to be nice to people who treat you badly. You don't have to like everyone.
-                        </strong>
-                    </p>
-
-                    <p>
-                        You deserve friendships that make you feel respected, supported, and valued.
-                    </p>
-
-                </div>
-
-
-                <!-- What To Do -->
-                <h2>
-                    How To Get Rid Of A Toxic Friend
-                </h2>
-
-                <p>
-                    <strong>1. Avoid them.</strong> If possible, spend less time around them and stay close to people who make you feel good.
-                </p>
-
-                <p>
-                    <strong>2. Spend more time with your true friends.</strong> Surround yourself with people who encourage and support you.
-                </p>
-
-                <p>
-                    <strong>3. Focus on important things.</strong> Give more attention to your family, studies, career, and meaningful relationships.
-                </p>
-
-                <p>
-                    <strong>4. Pick up a hobby.</strong> Try something productive such as playing a sport, learning an instrument, swimming, or simply doing something you enjoy.
-                </p>
-
-                <p>
-                    <strong>5. Don't contact them.</strong> Gradually reduce communication and stop giving them the attention they use to control you.
-                </p>
-
-                <p>
-                    <strong>6. Meet new people.</strong> Not everyone is toxic. There are good people who will encourage and support you.
-                </p>
-
-
-                <!-- Moving On -->
-                <h2>
-                    Don't Blame Yourself
-                </h2>
-
-                <p>
-                    Never beat yourself up for making this mistake. It is natural to feel angry when you realize that you trusted the wrong person.
-                </p>
-
-                <p>
-                    What matters is that you recognized the problem and made the decision to leave.
-                </p>
-
-                <p>
-                    You have to
-                    <a href="https://www.thehopesup.com/2017/07/5-ways-to-be-more-forgiving.html"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        forgive yourself
-                    </a>
-                    and move forward.
-                </p>
-
-                <p>
-                    See the experience as a life lesson. It can make you more aware, improve your self-esteem, and help you make better decisions in the future.
-                </p>
-
-                <p>
-                    Not every friendship is meant to last forever. You should not waste your energy on people who constantly bring negativity into your life.
-                </p>
-
-
-                <!-- Final Message -->
-                <div class="final-message">
-
-                    <div class="final-label">
-                        FREE YOURSELF
-                    </div>
-
-                    <p>
-                        You don't have to stay in a friendship that makes you unhappy. Recognize the signs, protect your peace, and choose people who genuinely value you.
-                    </p>
-
-                </div>
-
-
-                <!-- Question -->
-                <p>
                     <strong>
-                        What is your experience with toxic people? How did you deal with them?
+                        You don't have to be nice to people who
+                        treat you badly. You don't have to like
+                        everyone.
                     </strong>
+
                 </p>
 
+
                 <p>
-                    Share your experience in the comments below and, if you liked this article, don't forget to share it with others.
+
+                    You deserve friendships that make you feel
+                    respected, supported, and valued.
+
                 </p>
 
             </div>
 
 
-            <!-- Author -->
-            <section class="article-author">
 
-                <div class="author-avatar">
-                    HS
-                </div>
+            <!-- WHAT TO DO -->
 
-                <div class="author-info">
+            <h2>
 
-                    <div class="author-name">
-                        The Hope Sup
-                    </div>
+                How To Get Rid Of A Toxic Friend
 
-                    <div class="author-role">
-                        Personal Growth & Relationships
-                    </div>
+            </h2>
 
-                </div>
-
-            </section>
-
-
-            <!-- Related Articles -->
-            <section class="related-articles">
-
-                <h2>
-                    Related Posts
-                </h2>
-
-                <div class="related-grid">
-
-                    <a
-                        href="ThingsYouShould.html"
-                        class="related-card"
-                    >
-                        <h3>
-                            5 Things You Should Never Do After An Argument
-                        </h3>
-
-                        <p>
-                            Learn what to avoid after an argument and how to handle difficult situations better.
-                        </p>
-
-                        <span>
-                            Read Article →
-                        </span>
-                    </a>
-
-
-                    <a
-                        href="ThingsToRemember.html"
-                        class="related-card"
-                    >
-                        <h3>
-                            3 Things To Remember When You Want To Change People
-                        </h3>
-
-                        <p>
-                            Important things to remember when trying to change someone's behavior.
-                        </p>
-
-                        <span>
-                            Read Article →
-                        </span>
-                    </a>
-
-
-                    <a
-                        href="UnexpectedBenefits.html"
-                        class="related-card"
-                    >
-                        <h3>
-                            5 Unexpected Benefits of Being Ignored
-                        </h3>
-
-                        <p>
-                            Sometimes being ignored can teach you important lessons about yourself and relationships.
-                        </p>
-
-                        <span>
-                            Read Article →
-                        </span>
-                    </a>
-
-                </div>
-
-            </section>
-
-        </article>
-
-    </main>
-
-
-    <!-- Footer -->
-    <footer class="blog-footer">
-
-        <div class="blog-footer-inner">
 
             <p>
-                © 2026 The Hope Sup. All rights reserved.
+
+                <strong>1. Avoid them.</strong>
+                If possible, spend less time around them and stay
+                close to people who make you feel good.
+
             </p>
 
-            <a href="../index.html">
-                Back to Home
-            </a>
+
+            <p>
+
+                <strong>2. Spend more time with your true friends.</strong>
+                Surround yourself with people who encourage
+                and support you.
+
+            </p>
+
+
+            <p>
+
+                <strong>3. Focus on important things.</strong>
+                Give more attention to your family, studies,
+                career, and meaningful relationships.
+
+            </p>
+
+
+            <p>
+
+                <strong>4. Pick up a hobby.</strong>
+                Try something productive such as playing a sport,
+                learning an instrument, swimming, or simply doing
+                something you enjoy.
+
+            </p>
+
+
+            <p>
+
+                <strong>5. Don't contact them.</strong>
+                Gradually reduce communication and stop giving
+                them the attention they use to control you.
+
+            </p>
+
+
+            <p>
+
+                <strong>6. Meet new people.</strong>
+                Not everyone is toxic. There are good people who
+                will encourage and support you.
+
+            </p>
+
+
+
+            <!-- MOVING ON -->
+
+            <h2>
+
+                Don't Blame Yourself
+
+            </h2>
+
+
+            <p>
+
+                Never beat yourself up for making this mistake.
+                It is natural to feel angry when you realize that
+                you trusted the wrong person.
+
+            </p>
+
+
+            <p>
+
+                What matters is that you recognized the problem
+                and made the decision to leave.
+
+            </p>
+
+
+            <p>
+
+                You have to
+
+                <a
+                    href="https://www.thehopesup.com/2017/07/5-ways-to-be-more-forgiving.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    forgive yourself
+                </a>
+
+                and move forward.
+
+            </p>
+
+
+            <p>
+
+                See the experience as a life lesson. It can make
+                you more aware, improve your self-esteem, and help
+                you make better decisions in the future.
+
+            </p>
+
+
+            <p>
+
+                Not every friendship is meant to last forever.
+                You should not waste your energy on people who
+                constantly bring negativity into your life.
+
+            </p>
+
+
+
+            <!-- FINAL MESSAGE -->
+
+            <div class="final-message">
+
+                <div class="final-label">
+
+                    FREE YOURSELF
+
+                </div>
+
+
+                <p>
+
+                    You don't have to stay in a friendship that
+                    makes you unhappy. Recognize the signs, protect
+                    your peace, and choose people who genuinely
+                    value you.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- QUESTION -->
+
+            <p>
+
+                <strong>
+
+                    What is your experience with toxic people?
+                    How did you deal with them?
+
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                Share your experience in the comments below and,
+                if you liked this article, don't forget to share
+                it with others.
+
+            </p>
+
 
         </div>
 
-    </footer>
+
+
+        <!-- =================================================
+             AUTHOR
+        ================================================== -->
+
+        <section class="article-author">
+
+            <div class="author-avatar">
+
+                HS
+
+            </div>
+
+
+            <div class="author-info">
+
+                <div class="author-name">
+
+                    The Hope Sup
+
+                </div>
+
+
+                <div class="author-role">
+
+                    Personal Growth & Relationships
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RELATED ARTICLES
+        ================================================== -->
+
+        <section class="related-articles">
+
+            <h2>
+
+                Related Posts
+
+            </h2>
+
+
+            <div class="related-grid">
+
+
+                <a
+                    href="/Blogs/ThingsYouShould.html"
+                    class="related-card"
+                >
+
+                    <h3>
+
+                        5 Things You Should Never Do
+                        After An Argument
+
+                    </h3>
+
+
+                    <p>
+
+                        Learn what to avoid after an argument
+                        and how to handle difficult situations better.
+
+                    </p>
+
+
+                    <span>
+
+                        Read Article →
+
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    href="/Blogs/ThingsToRemember.html"
+                    class="related-card"
+                >
+
+                    <h3>
+
+                        3 Things To Remember When You
+                        Want To Change People
+
+                    </h3>
+
+
+                    <p>
+
+                        Important things to remember when trying
+                        to change someone's behavior.
+
+                    </p>
+
+
+                    <span>
+
+                        Read Article →
+
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    href="/Blogs/UnexpectedBenefits.html"
+                    class="related-card"
+                >
+
+                    <h3>
+
+                        5 Unexpected Benefits
+                        of Being Ignored
+
+                    </h3>
+
+
+                    <p>
+
+                        Sometimes being ignored can teach you
+                        important lessons about yourself
+                        and relationships.
+
+                    </p>
+
+
+                    <span>
+
+                        Read Article →
+
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </article>
+
+</main>
+
+
+
+<!-- =====================================================
+     COMMENTS SECTION
+===================================================== -->
+
+<section class="comments-section">
+
+    <div class="comments-container">
+
+
+        <div class="comments-heading">
+
+            <span class="comments-label">
+
+                JOIN THE CONVERSATION
+
+            </span>
+
+
+            <h2>
+
+                What do you think?
+
+            </h2>
+
+
+            <p>
+
+                Share your thoughts, ideas or experiences
+                with us and other readers.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             COMMENT FORM
+        ================================================== -->
+
+        <div class="comment-form-card">
+
+            <form id="commentForm">
+
+
+                <div class="comment-form-grid">
+
+
+                    <div class="comment-field">
+
+                        <label for="commentName">
+
+                            Your name
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="commentName"
+                            maxlength="50"
+                            autocomplete="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="comment-field">
+
+                        <label for="commentEmail">
+
+                            Email
+                            <span>(optional)</span>
+
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="commentEmail"
+                            maxlength="100"
+                            autocomplete="email"
+                            placeholder="you@example.com"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="comment-field">
+
+                    <label for="commentMessage">
+
+                        Your comment
+
+                    </label>
+
+
+                    <textarea
+                        id="commentMessage"
+                        rows="5"
+                        maxlength="500"
+                        placeholder="Write your thoughts..."
+                        required
+                    ></textarea>
+
+
+                    <div class="character-count">
+
+                        Maximum 500 characters
+
+                    </div>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="comment-submit"
+                    id="commentSubmit"
+                >
+
+                    <span>
+
+                        Post Comment
+
+                    </span>
+
+
+                    <span>
+
+                        →
+
+                    </span>
+
+                </button>
+
+
+
+                <div
+                    id="commentStatus"
+                    class="comment-status"
+                ></div>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- =================================================
+             COMMENTS LIST
+        ================================================== -->
+
+        <div class="comments-list-wrapper">
+
+
+            <div class="comments-list-header">
+
+                <h3>
+
+                    Comments
+
+                </h3>
+
+
+                <span id="commentCount">
+
+                    Loading...
+
+                </span>
+
+            </div>
+
+
+            <div
+                id="commentsList"
+                class="comments-list"
+            >
+
+                <div class="comments-loading">
+
+                    Loading comments...
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REUSABLE FOOTER
+===================================================== -->
+
+<div id="footer-placeholder"></div>
+
+
+
+<!-- =====================================================
+     FOOTER LOADER
+===================================================== -->
+
+<script>
+
+    fetch("/Footer.html")
+
+        .then(function(response) {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Footer.html could not be loaded."
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(function(data) {
+
+            document.getElementById(
+                "footer-placeholder"
+            ).innerHTML = data;
+
+        })
+
+        .catch(function(error) {
+
+            console.error(
+                "Footer loading error:",
+                error
+            );
+
+        });
+
+</script>
+
+
+
+<!-- =====================================================
+     FIREBASE COMMENTS
+===================================================== -->
+
+<script type="module">
+
+    /* =====================================================
+       FIREBASE IMPORTS
+    ===================================================== */
+
+    import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+    import {
+        getFirestore,
+        collection,
+        addDoc,
+        query,
+        where,
+        getDocs,
+        serverTimestamp
+    }
+        from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+
+    /* =====================================================
+       FIREBASE CONFIGURATION
+    ===================================================== */
+
+    const firebaseConfig = {
+
+        apiKey:
+            "AIzaSyBxAvmT6UbWpKtLxllJPn-Vimr7BFXJC4",
+
+        authDomain:
+            "the-hope-sup.firebaseapp.com",
+
+        projectId:
+            "the-hope-sup",
+
+        storageBucket:
+            "the-hope-sup.firebasestorage.app",
+
+        messagingSenderId:
+            "153836503835",
+
+        appId:
+            "1:153836503835:web:07e99ddbe455805c9c89be",
+
+        measurementId:
+            "G-7844C245GL"
+
+    };
+
+
+
+    /* =====================================================
+       INITIALIZE FIREBASE
+    ===================================================== */
+
+    const app =
+        initializeApp(firebaseConfig);
+
+    const db =
+        getFirestore(app);
+
+
+    console.log(
+        "Firebase connected successfully!"
+    );
+
+
+
+    /* =====================================================
+       ARTICLE INFORMATION
+    ===================================================== */
+
+    const PAGE_ID =
+        "how-to-deal-with-a-toxic-friend";
+
+    const PAGE_TITLE =
+        "How To Deal With A Toxic Friend";
+
+
+
+    /* =====================================================
+       GET HTML ELEMENTS
+    ===================================================== */
+
+    const commentForm =
+        document.getElementById("commentForm");
+
+    const commentName =
+        document.getElementById("commentName");
+
+    const commentEmail =
+        document.getElementById("commentEmail");
+
+    const commentMessage =
+        document.getElementById("commentMessage");
+
+    const commentSubmit =
+        document.getElementById("commentSubmit");
+
+    const commentStatus =
+        document.getElementById("commentStatus");
+
+    const commentsList =
+        document.getElementById("commentsList");
+
+    const commentCount =
+        document.getElementById("commentCount");
+
+
+
+    /* =====================================================
+       SHOW STATUS
+    ===================================================== */
+
+    function showStatus(message, type) {
+
+        commentStatus.textContent =
+            message;
+
+        commentStatus.className =
+            "comment-status " + type;
+
+    }
+
+
+
+    /* =====================================================
+       FORMAT DATE
+    ===================================================== */
+
+    function formatCommentDate(timestamp) {
+
+        if (
+            !timestamp ||
+            typeof timestamp.toDate !== "function"
+        ) {
+
+            return "Just now";
+
+        }
+
+
+        const date =
+            timestamp.toDate();
+
+
+        return date.toLocaleString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       CREATE COMMENT ELEMENT
+    ===================================================== */
+
+    function createCommentElement(data) {
+
+        const comment =
+            document.createElement("div");
+
+        comment.className =
+            "comment-item";
+
+
+        /* Avatar */
+
+        const avatar =
+            document.createElement("div");
+
+        avatar.className =
+            "comment-avatar";
+
+
+        const name =
+            data.name || "Reader";
+
+
+        avatar.textContent =
+            name.charAt(0).toUpperCase();
+
+
+
+        /* Content */
+
+        const content =
+            document.createElement("div");
+
+        content.className =
+            "comment-content";
+
+
+
+        /* Top */
+
+        const top =
+            document.createElement("div");
+
+        top.className =
+            "comment-top";
+
+
+
+        /* Author */
+
+        const author =
+            document.createElement("span");
+
+        author.className =
+            "comment-author";
+
+        author.textContent =
+            name;
+
+
+
+        /* Date */
+
+        const date =
+            document.createElement("span");
+
+        date.className =
+            "comment-date";
+
+        date.textContent =
+            formatCommentDate(
+                data.createdAt
+            );
+
+
+
+        /* Message */
+
+        const text =
+            document.createElement("p");
+
+        text.className =
+            "comment-text";
+
+        text.textContent =
+            data.message || "";
+
+
+
+        /* Build */
+
+        top.appendChild(author);
+
+        top.appendChild(date);
+
+        content.appendChild(top);
+
+        content.appendChild(text);
+
+        comment.appendChild(avatar);
+
+        comment.appendChild(content);
+
+
+        return comment;
+
+    }
+
+
+
+    /* =====================================================
+       POST COMMENT
+    ===================================================== */
+
+    commentForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                commentName.value.trim();
+
+            const email =
+                commentEmail.value.trim();
+
+            const message =
+                commentMessage.value.trim();
+
+
+
+            /* Validation */
+
+            if (!name) {
+
+                showStatus(
+                    "Please enter your name.",
+                    "error"
+                );
+
+                commentName.focus();
+
+                return;
+
+            }
+
+
+            if (name.length > 50) {
+
+                showStatus(
+                    "Your name must be 50 characters or less.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (email.length > 100) {
+
+                showStatus(
+                    "Your email must be 100 characters or less.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (!message) {
+
+                showStatus(
+                    "Please write a comment.",
+                    "error"
+                );
+
+                commentMessage.focus();
+
+                return;
+
+            }
+
+
+            if (message.length > 500) {
+
+                showStatus(
+                    "Your comment must be 500 characters or less.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+
+            /* Disable button */
+
+            commentSubmit.disabled =
+                true;
+
+            commentSubmit.innerHTML =
+                "<span>Posting...</span>";
+
+
+
+            try {
+
+
+                /* =============================================
+                   SAVE COMMENT TO FIRESTORE
+                ============================================== */
+
+                await addDoc(
+                    collection(db, "comments"),
+                    {
+
+                        pageId:
+                            PAGE_ID,
+
+                        pageTitle:
+                            PAGE_TITLE,
+
+                        name:
+                            name,
+
+                        email:
+                            email,
+
+                        message:
+                            message,
+
+                        createdAt:
+                            serverTimestamp()
+
+                    }
+                );
+
+
+
+                /* Clear form */
+
+                commentForm.reset();
+
+
+
+                /* Success */
+
+                showStatus(
+                    "Thank you! Your comment has been posted.",
+                    "success"
+                );
+
+
+
+                /* Reload comments */
+
+                await loadComments();
+
+
+            }
+            catch(error) {
+
+                console.error(
+                    "Error posting comment:",
+                    error
+                );
+
+
+                showStatus(
+                    "Unable to post your comment. Please try again.",
+                    "error"
+                );
+
+            }
+
+
+
+            /* Enable button */
+
+            commentSubmit.disabled =
+                false;
+
+            commentSubmit.innerHTML = `
+                <span>Post Comment</span>
+                <span>→</span>
+            `;
+
+        }
+    );
+
+
+
+    /* =====================================================
+       LOAD COMMENTS
+    ===================================================== */
+
+    async function loadComments() {
+
+        try {
+
+
+            const commentsQuery =
+                query(
+                    collection(db, "comments"),
+                    where(
+                        "pageId",
+                        "==",
+                        PAGE_ID
+                    )
+                );
+
+
+
+            const snapshot =
+                await getDocs(
+                    commentsQuery
+                );
+
+
+
+            /* Convert documents */
+
+            const comments =
+                snapshot.docs.map(
+                    function(doc) {
+
+                        return doc.data();
+
+                    }
+                );
+
+
+
+            /* Newest first */
+
+            comments.sort(
+                function(a, b) {
+
+                    const timeA =
+                        a.createdAt &&
+                        typeof a.createdAt.toMillis === "function"
+
+                            ? a.createdAt.toMillis()
+
+                            : 0;
+
+
+                    const timeB =
+                        b.createdAt &&
+                        typeof b.createdAt.toMillis === "function"
+
+                            ? b.createdAt.toMillis()
+
+                            : 0;
+
+
+                    return timeB - timeA;
+
+                }
+            );
+
+
+
+            /* Clear list */
+
+            commentsList.innerHTML =
+                "";
+
+
+
+            /* Count */
+
+            const total =
+                comments.length;
+
+
+            if (total === 0) {
+
+                commentCount.textContent =
+                    "0 comments";
+
+            }
+
+            else if (total === 1) {
+
+                commentCount.textContent =
+                    "1 comment";
+
+            }
+
+            else {
+
+                commentCount.textContent =
+                    total + " comments";
+
+            }
+
+
+
+            /* No comments */
+
+            if (total === 0) {
+
+                const empty =
+                    document.createElement("div");
+
+                empty.className =
+                    "comments-empty";
+
+                empty.textContent =
+                    "No comments yet. Be the first to share your thoughts.";
+
+                commentsList.appendChild(
+                    empty
+                );
+
+                return;
+
+            }
+
+
+
+            /* Display comments */
+
+            comments.forEach(
+                function(data) {
+
+                    const comment =
+                        createCommentElement(
+                            data
+                        );
+
+                    commentsList.appendChild(
+                        comment
+                    );
+
+                }
+            );
+
+
+        }
+        catch(error) {
+
+            console.error(
+                "Loading comments failed:",
+                error
+            );
+
+
+            commentCount.textContent =
+                "Comments unavailable";
+
+
+            commentsList.innerHTML =
+                "";
+
+
+            const errorMessage =
+                document.createElement("div");
+
+            errorMessage.className =
+                "comments-empty";
+
+            errorMessage.textContent =
+                "Comments could not be loaded right now. Please try again later.";
+
+
+            commentsList.appendChild(
+                errorMessage
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       LOAD COMMENTS WHEN PAGE OPENS
+    ===================================================== */
+
+    loadComments();
+
+</script>
+
 
 </body>
 

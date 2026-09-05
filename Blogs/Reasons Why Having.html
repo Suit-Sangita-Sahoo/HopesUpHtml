@@ -2,300 +2,2398 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>True Friends | The Hope Sup</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="Blog.css">
+    <meta name="description"
+          content="The Importance of True Friends — True friends make life better, support your growth, and stay by your side through every change.">
+
+    <title>
+        The Importance of True Friends | The Hope Sup
+    </title>
+
+
+    <!-- BLOG CSS -->
+    <link rel="stylesheet"
+          href="/Blogs/Blog.css">
+          <link rel="stylesheet" href="/Style/common.css">
+
+
+    <!-- FOOTER CSS -->
+    <link rel="stylesheet"
+          href="/Style/Footer.css">
+
+
+    <!-- =====================================================
+         COMMENTS CSS
+    ====================================================== -->
+
+    <style>
+
+        /* =====================================================
+           COMMENTS SECTION
+        ===================================================== */
+
+        .comments-section {
+
+            background: #f7f3ed;
+
+            padding: 90px 20px 100px;
+
+            margin-top: 80px;
+
+            border-top: 1px solid #e4ddd4;
+
+        }
+
+
+        .comments-container {
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .comments-heading {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .comments-label {
+
+            display: inline-block;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            color: #b47a32;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .comments-heading h2 {
+
+            margin: 0 0 12px;
+
+            font-size: 42px;
+
+            line-height: 1.2;
+
+            color: #2b211b;
+
+        }
+
+
+        .comments-heading p {
+
+            max-width: 600px;
+
+            margin: 0 auto;
+
+            color: #756b63;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+        }
+
+
+
+        /* =====================================================
+           COMMENT FORM
+        ====================================================== */
+
+        .comment-form-card {
+
+            background: #ffffff;
+
+            padding: 35px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 45px rgba(48, 42, 38, 0.08);
+
+            border: 1px solid #ebe4dc;
+
+            margin-bottom: 55px;
+
+        }
+
+
+        .comment-form-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+
+        }
+
+
+        .comment-field {
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .comment-field label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color: #3b3029;
+
+        }
+
+
+        .comment-field label span {
+
+            font-weight: 400;
+
+            color: #91877f;
+
+        }
+
+
+        .comment-field input,
+        .comment-field textarea {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            border: 1px solid #dcd3ca;
+
+            background: #fcfbf9;
+
+            border-radius: 10px;
+
+            padding: 13px 15px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 15px;
+
+            color: #302a26;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+
+        }
+
+
+        .comment-field textarea {
+
+            min-height: 130px;
+
+            resize: vertical;
+
+            line-height: 1.6;
+
+        }
+
+
+        .comment-field input:focus,
+        .comment-field textarea:focus {
+
+            border-color: #c8791f;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 0 0 3px rgba(200, 121, 31, 0.10);
+
+        }
+
+
+        .character-count {
+
+            text-align: right;
+
+            margin-top: 6px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            color: #978d84;
+
+        }
+
+
+        .comment-submit {
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #241f19;
+
+            color: #ffffff;
+
+            padding: 15px 20px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 10px;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                opacity 0.2s ease;
+
+        }
+
+
+        .comment-submit:hover {
+
+            background: #c8791f;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .comment-submit:disabled {
+
+            cursor: not-allowed;
+
+            opacity: 0.6;
+
+            transform: none;
+
+        }
+
+
+        .comment-status {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 12px 15px;
+
+            border-radius: 8px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .comment-status.success {
+
+            display: block;
+
+            background: #edf7ee;
+
+            color: #286334;
+
+            border: 1px solid #cfe8d1;
+
+        }
+
+
+        .comment-status.error {
+
+            display: block;
+
+            background: #fff0ed;
+
+            color: #a13b2d;
+
+            border: 1px solid #f1c9c2;
+
+        }
+
+
+
+        /* =====================================================
+           COMMENTS LIST
+        ====================================================== */
+
+        .comments-list-wrapper {
+
+            background: #ffffff;
+
+            border-radius: 18px;
+
+            padding: 35px;
+
+            border: 1px solid #ebe4dc;
+
+        }
+
+
+        .comments-list-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            border-bottom: 1px solid #e8e1d9;
+
+            padding-bottom: 18px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .comments-list-header h3 {
+
+            margin: 0;
+
+            font-family: Georgia, serif;
+
+            font-size: 26px;
+
+            color: #2b211b;
+
+        }
+
+
+        #commentCount {
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            color: #8a7f76;
+
+        }
+
+
+
+        /* =====================================================
+           INDIVIDUAL COMMENT
+        ====================================================== */
+
+        .comment-item {
+
+            display: flex;
+
+            gap: 16px;
+
+            padding: 25px 0;
+
+            border-bottom: 1px solid #eee8e1;
+
+            animation: commentAppear 0.35s ease;
+
+        }
+
+
+        .comment-item:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .comment-avatar {
+
+            flex: 0 0 44px;
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #d69b4d,
+                #8c5522
+            );
+
+            color: #ffffff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .comment-content {
+
+            flex: 1;
+
+            min-width: 0;
+
+        }
+
+
+        .comment-top {
+
+            display: flex;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .comment-author {
+
+            font-family: Arial, sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            color: #30251f;
+
+        }
+
+
+        .comment-date {
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            color: #9a9087;
+
+        }
+
+
+        .comment-text {
+
+            margin: 0;
+
+            color: #5d544d;
+
+            font-family: Georgia, serif;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            white-space: pre-wrap;
+
+            overflow-wrap: anywhere;
+
+        }
+
+
+
+        /* =====================================================
+           LOADING / EMPTY
+        ====================================================== */
+
+        .comments-loading,
+        .comments-empty {
+
+            padding: 35px 15px;
+
+            text-align: center;
+
+            color: #8b8179;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .comments-loading::before {
+
+            content: "";
+
+            width: 20px;
+
+            height: 20px;
+
+            display: block;
+
+            margin: 0 auto 12px;
+
+            border: 2px solid #ddd4cb;
+
+            border-top-color: #c8791f;
+
+            border-radius: 50%;
+
+            animation: commentSpin 0.8s linear infinite;
+
+        }
+
+
+
+        /* =====================================================
+           ANIMATION
+        ====================================================== */
+
+        @keyframes commentAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(8px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes commentSpin {
+
+            to {
+
+                transform: rotate(360deg);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 700px) {
+
+            .comments-section {
+
+                padding: 65px 15px 75px;
+
+                margin-top: 50px;
+
+            }
+
+
+            .comments-heading h2 {
+
+                font-size: 32px;
+
+            }
+
+
+            .comments-heading p {
+
+                font-size: 15px;
+
+            }
+
+
+            .comment-form-card,
+            .comments-list-wrapper {
+
+                padding: 22px;
+
+                border-radius: 14px;
+
+            }
+
+
+            .comment-form-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
+
+            }
+
+
+            .comments-list-header {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 5px;
+
+            }
+
+
+            .comment-item {
+
+                gap: 12px;
+
+            }
+
+
+            .comment-avatar {
+
+                flex-basis: 38px;
+
+                width: 38px;
+
+                height: 38px;
+
+                font-size: 14px;
+
+            }
+
+
+            .comment-text {
+
+                font-size: 14px;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <!-- Header -->
-    <header class="blog-header">
-        <div class="blog-header-inner">
 
-            <a href="../index.html" class="blog-logo">
-                The Hope Sup
-            </a>
 
-            <a href="../index.html" class="back-home">
-                ← Back to Articles
-            </a>
+<!-- =====================================================
+     REUSABLE HEADER
+===================================================== -->
+
+<div id="header-placeholder"></div>
+
+
+
+<!-- =====================================================
+     MAIN ARTICLE
+===================================================== -->
+
+<main class="blog-page">
+
+    <article class="blog-post">
+
+
+        <!-- =================================================
+             ARTICLE HEADER
+        ================================================== -->
+
+        <header class="article-header">
+
+            <span class="article-category">
+
+                RELATIONSHIPS
+
+            </span>
+
+
+            <h1>
+
+                The Importance of<br>
+                True Friends
+
+            </h1>
+
+
+            <p class="article-subtitle">
+
+                True friends make life better, support your growth,
+                and stay by your side through every change.
+
+            </p>
+
+
+            <div class="article-meta">
+
+                The Hope Sup • Relationships
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             FEATURED IMAGE
+        ================================================== -->
+
+        <figure class="featured-image">
+
+            <img
+                src="/Image/Add heading (1).png"
+                alt="True Friends"
+            >
+
+
+            <figcaption>
+
+                Photo by
+
+                <a
+                    href="https://unsplash.com/photos/jk8rarn6lmw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ian Schneider
+                </a>
+
+                on
+
+                <a
+                    href="https://unsplash.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Unsplash
+                </a>
+
+            </figcaption>
+
+        </figure>
+
+
+
+        <!-- =================================================
+             ARTICLE CONTENT
+        ================================================== -->
+
+        <div class="article-content">
+
+
+            <p class="opening">
+
+                Human beings naturally connect with others and make
+                friends through school, college, work, and social media.
+
+            </p>
+
+
+            <p>
+
+                We may know hundreds or even thousands of people,
+                but how many do we actually talk to every day?
+
+            </p>
+
+
+            <p>
+
+                Many people we call friends are really acquaintances.
+                We may occasionally talk to them or interact with
+                their posts, but we may not have a meaningful place
+                in each other's lives.
+
+            </p>
+
+
+            <p>
+
+                And that's perfectly fine. Managing relationships is
+                difficult, and it is impossible to maintain a deep
+                connection with everyone.
+
+            </p>
+
+
+            <p>
+
+                Among the people we know, there are usually two
+                kinds of friends.
+
+            </p>
+
+
+
+            <!-- GROUP A -->
+
+            <h2>
+
+                Group A: The Troop
+
+            </h2>
+
+
+            <p>
+
+                These are the people who seem cool to you and share
+                common interests with you.
+
+            </p>
+
+
+            <p>
+
+                You hang out together, take pictures, and enjoy
+                spending time with them. However, you cannot always
+                rely on them.
+
+            </p>
+
+
+            <p>
+
+                Some of them may only contact you when they need
+                something. You may value the friendship, but the
+                connection is not always deep.
+
+            </p>
+
+
+
+            <!-- GROUP B -->
+
+            <h2>
+
+                Group B: The Best Friends
+
+            </h2>
+
+
+            <p>
+
+                These are the people you feel truly close to.
+                They may be part of your larger friend group or
+                completely separate from it.
+
+            </p>
+
+
+            <p>
+
+                They care about you and are honest with you because
+                they genuinely want the best for you.
+
+            </p>
+
+
+            <p>
+
+                Sometimes, you meet someone who is so similar to you
+                that you instantly connect. You do not have to force
+                the friendship—it simply happens.
+
+            </p>
+
+
+            <p>
+
+                These are the people with whom you can build lifelong
+                relationships. Even the ups and downs of life cannot
+                easily break that bond.
+
+            </p>
+
+
+
+            <!-- REASONS -->
+
+            <h2>
+
+                Why You Should Appreciate Your True Friend
+
+            </h2>
+
+
+            <p>
+
+                <strong>
+                    1. Their encouragement pushes you to do things
+                    you may not have the courage to do. You believe
+                    in and trust them.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    2. You can be completely yourself around them.
+                    You can be silly, embarrassing, and unapologetic
+                    without feeling uncomfortable.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    3. They help you grow and always stand by you.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    4. You can talk to them about anything without
+                    being afraid of judgment. You know they will
+                    support you.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    5. Whenever something exciting or unusual happens,
+                    they are among the first people you want to tell.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    6. You love them because they are always ready
+                    to spend time with you.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    7. They often understand what you are thinking
+                    before you even say it.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    8. Their criticism does not hurt you because you
+                    know it comes from a place of honesty and care.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    9. You always have a good laugh together, share
+                    countless inside jokes, and feel completely
+                    comfortable around them.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    10. They stop you from getting into trouble
+                    because they know you well and understand your
+                    limits.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    11. They make you feel good about yourself,
+                    remind you of your worth, and motivate you to
+                    keep going.
+                </strong>
+
+            </p>
+
+
+
+            <!-- FINAL MESSAGE -->
+
+            <div class="final-message">
+
+                <div class="final-label">
+
+                    APPRECIATE YOUR FRIENDS
+
+                </div>
+
+
+                <p>
+
+                    Go out there and let your true friend know
+                    how much they mean to you.
+
+                </p>
+
+            </div>
+
 
         </div>
-    </header>
 
 
-    <!-- Main Article -->
-    <main class="blog-page">
 
-        <article>
+        <!-- =================================================
+             AUTHOR
+        ================================================== -->
 
-            <!-- Article Header -->
-            <header class="article-header">
+        <section class="article-author">
 
-                <div class="article-category">
-                    RELATIONSHIPS
+            <div class="author-avatar">
+
+                HS
+
+            </div>
+
+
+            <div class="author-info">
+
+                <div class="author-name">
+
+                    The Hope Sup
+
                 </div>
 
-                <h1>
-                    The Importance of<br>
-                    True Friends
-                </h1>
 
-                <p class="article-subtitle">
-                    True friends make life better, support your growth, and stay by your side through every change.
-                </p>
+                <div class="author-role">
 
-                <div class="article-meta">
-                    The Hope Sup • Relationships
+                    Personal Growth & Relationships
+
                 </div>
 
-            </header>
+            </div>
+
+        </section>
 
 
-            <!-- Featured Image -->
-            <figure class="featured-image">
-
-                <img
-                    src="/Image/Add heading (1).png"
-                    alt="True Friends"
-                >
-
-                <figcaption>
-                    Photo by
-                    <a
-                        href="https://unsplash.com/photos/jk8rarn6lmw"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Ian Schneider
-                    </a>
-                    on
-                    <a
-                        href="https://unsplash.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Unsplash
-                    </a>
-                </figcaption>
-
-            </figure>
+    </article>
 
 
-            <!-- Article Content -->
-            <div class="article-content">
+    <!-- =====================================================
+         RELATED ARTICLES
+    ===================================================== -->
 
-                <p class="opening">
-                    Human beings naturally connect with others and make friends through school, college, work, and social media.
-                </p>
+    <section class="related-articles">
+
+        <h2>
+
+            You May Also Like
+
+        </h2>
+
+
+        <div class="related-grid">
+
+
+            <a
+                href="/Blogs/PositiveSelfTalk.html"
+                class="related-card"
+            >
+
+                <h3>
+
+                    Positive Self Talk
+
+                </h3>
+
 
                 <p>
-                    We may know hundreds or even thousands of people, but how many do we actually talk to every day?
+
+                    Learn how changing your inner dialogue can
+                    improve the way you see yourself.
+
                 </p>
+
+
+                <span>
+
+                    Read Article →
+
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="/Blogs/ThingsYouShould.html"
+                class="related-card"
+            >
+
+                <h3>
+
+                    Things You Should Remember
+
+                </h3>
+
 
                 <p>
-                    Many people we call friends are really acquaintances. We may occasionally talk to them or interact with their posts, but we may not have a meaningful place in each other's lives.
+
+                    Simple reminders to help you handle difficult
+                    moments with a better mindset.
+
                 </p>
+
+
+                <span>
+
+                    Read Article →
+
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="/Blogs/Changegoals.html"
+                class="related-card"
+            >
+
+                <h3>
+
+                    Change Your Goals
+
+                </h3>
+
 
                 <p>
-                    And that's perfectly fine. Managing relationships is difficult, and it is impossible to maintain a deep connection with everyone.
-                </p>
 
-                <p>
-                    Among the people we know, there are usually two kinds of friends.
-                </p>
+                    Sometimes changing your direction can help
+                    you discover a better path.
 
-
-                <!-- Group A -->
-                <h2>
-                    Group A: The Troop
-                </h2>
-
-                <p>
-                    These are the people who seem cool to you and share common interests with you.
-                </p>
-
-                <p>
-                    You hang out together, take pictures, and enjoy spending time with them. However, you cannot always rely on them.
-                </p>
-
-                <p>
-                    Some of them may only contact you when they need something. You may value the friendship, but the connection is not always deep.
                 </p>
 
 
-                <!-- Group B -->
-                <h2>
-                    Group B: The Best Friends
-                </h2>
+                <span>
 
-                <p>
-                    These are the people you feel truly close to. They may be part of your larger friend group or completely separate from it.
-                </p>
+                    Read Article →
 
-                <p>
-                    They care about you and are honest with you because they genuinely want the best for you.
-                </p>
+                </span>
 
-                <p>
-                    Sometimes, you meet someone who is so similar to you that you instantly connect. You do not have to force the friendship—it simply happens.
-                </p>
-
-                <p>
-                    These are the people with whom you can build lifelong relationships. Even the ups and downs of life cannot easily break that bond.
-                </p>
+            </a>
 
 
-                <!-- Reasons -->
-                <h2>
-                    Why You Should Appreciate Your True Friend
-                </h2>
+        </div>
 
-                <p>
-                    <strong>1. Their encouragement pushes you to do things you may not have the courage to do. You believe in and trust them.</strong>
-                </p>
-
-                <p>
-                    <strong>2. You can be completely yourself around them. You can be silly, embarrassing, and unapologetic without feeling uncomfortable.</strong>
-                </p>
-
-                <p>
-                    <strong>3. They help you grow and always stand by you.</strong>
-                </p>
-
-                <p>
-                    <strong>4. You can talk to them about anything without being afraid of judgment. You know they will support you.</strong>
-                </p>
-
-                <p>
-                    <strong>5. Whenever something exciting or unusual happens, they are among the first people you want to tell.</strong>
-                </p>
-
-                <p>
-                    <strong>6. You love them because they are always ready to spend time with you.</strong>
-                </p>
-
-                <p>
-                    <strong>7. They often understand what you are thinking before you even say it.</strong>
-                </p>
-
-                <p>
-                    <strong>8. Their criticism does not hurt you because you know it comes from a place of honesty and care.</strong>
-                </p>
-
-                <p>
-                    <strong>9. You always have a good laugh together, share countless inside jokes, and feel completely comfortable around them.</strong>
-                </p>
-
-                <p>
-                    <strong>10. They stop you from getting into trouble because they know you well and understand your limits.</strong>
-                </p>
-
-                <p>
-                    <strong>11. They make you feel good about yourself, remind you of your worth, and motivate you to keep going.</strong>
-                </p>
+    </section>
 
 
-                <!-- Final Message -->
-                <div class="final-message">
+</main>
 
-                    <div class="final-label">
-                        APPRECIATE YOUR FRIENDS
+
+
+<!-- =====================================================
+     COMMENTS SECTION
+===================================================== -->
+
+<section class="comments-section">
+
+    <div class="comments-container">
+
+
+        <!-- COMMENTS HEADING -->
+
+        <div class="comments-heading">
+
+            <span class="comments-label">
+
+                JOIN THE CONVERSATION
+
+            </span>
+
+
+            <h2>
+
+                What do you think?
+
+            </h2>
+
+
+            <p>
+
+                Share your thoughts, ideas or experiences
+                with us and other readers.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             COMMENT FORM
+        ================================================== -->
+
+        <div class="comment-form-card">
+
+            <form id="commentForm">
+
+
+                <div class="comment-form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="comment-field">
+
+                        <label for="commentName">
+
+                            Your name
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="commentName"
+                            maxlength="50"
+                            autocomplete="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
                     </div>
 
-                    <p>
-                        Go out there and let your true friend know how much they mean to you.
-                    </p>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="comment-field">
+
+                        <label for="commentEmail">
+
+                            Email
+
+                            <span>
+                                (optional)
+                            </span>
+
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="commentEmail"
+                            maxlength="100"
+                            autocomplete="email"
+                            placeholder="you@example.com"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- COMMENT -->
+
+                <div class="comment-field">
+
+                    <label for="commentMessage">
+
+                        Your comment
+
+                    </label>
+
+
+                    <textarea
+                        id="commentMessage"
+                        rows="5"
+                        maxlength="500"
+                        placeholder="Write your thoughts..."
+                        required
+                    ></textarea>
+
+
+                    <div class="character-count">
+
+                        Maximum 500 characters
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="comment-submit"
+                    id="commentSubmit"
+                >
+
+                    <span>
+
+                        Post Comment
+
+                    </span>
+
+
+                    <span>
+
+                        →
+
+                    </span>
+
+                </button>
+
+
+
+                <!-- STATUS -->
+
+                <div
+                    id="commentStatus"
+                    class="comment-status"
+                ></div>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- =================================================
+             COMMENTS LIST
+        ================================================== -->
+
+        <div class="comments-list-wrapper">
+
+
+            <div class="comments-list-header">
+
+                <h3>
+
+                    Comments
+
+                </h3>
+
+
+                <span id="commentCount">
+
+                    Loading...
+
+                </span>
+
+            </div>
+
+
+
+            <div
+                id="commentsList"
+                class="comments-list"
+            >
+
+                <div class="comments-loading">
+
+                    Loading comments...
 
                 </div>
 
             </div>
 
 
-            <!-- Author -->
-            <section class="article-author">
-
-                <div class="author-avatar">
-                    HS
-                </div>
-
-                <div class="author-info">
-
-                    <div class="author-name">
-                        The Hope Sup
-                    </div>
-
-                    <div class="author-role">
-                        Personal Growth & Relationships
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- Related Articles -->
-            <section class="related-articles">
-
-                <h2>
-                    You May Also Like
-                </h2>
-
-                <div class="related-grid">
-
-                    <a href="PositiveSelfTalk.html" class="related-card">
-                        <h3>Positive Self Talk</h3>
-                        <p>
-                            Learn how changing your inner dialogue can improve the way you see yourself.
-                        </p>
-                        <span>Read Article →</span>
-                    </a>
-
-                    <a href="ThingsYouShould.html" class="related-card">
-                        <h3>Things You Should Remember</h3>
-                        <p>
-                            Simple reminders to help you handle difficult moments with a better mindset.
-                        </p>
-                        <span>Read Article →</span>
-                    </a>
-
-                    <a href="Changegoals.html" class="related-card">
-                        <h3>Change Your Goals</h3>
-                        <p>
-                            Sometimes changing your direction can help you discover a better path.
-                        </p>
-                        <span>Read Article →</span>
-                    </a>
-
-                </div>
-
-            </section>
-
-        </article>
-
-    </main>
-
-
-    <!-- Footer -->
-    <footer class="blog-footer">
-
-        <div class="blog-footer-inner">
-
-            <p>
-                © 2026 The Hope Sup. All rights reserved.
-            </p>
-
-            <a href="../index.html">
-                Back to Home
-            </a>
-
         </div>
 
-    </footer>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REUSABLE FOOTER
+===================================================== -->
+
+<div id="footer-placeholder"></div>
+
+
+
+<!-- =====================================================
+     HEADER LOADER
+===================================================== -->
+
+<script>
+
+fetch("/Header.html")
+
+    .then(function(response) {
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Header.html could not be loaded."
+            );
+
+        }
+
+        return response.text();
+
+    })
+
+    .then(function(data) {
+
+        document.getElementById(
+            "header-placeholder"
+        ).innerHTML = data;
+
+
+        /* MOBILE MENU */
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const mobileMenu =
+            document.getElementById("mobileMenu");
+
+
+        if (menuButton && mobileMenu) {
+
+            menuButton.addEventListener(
+                "click",
+                function() {
+
+                    const isOpen =
+                        mobileMenu.classList.toggle("show");
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        isOpen
+                    );
+
+                }
+            );
+
+
+            document
+                .querySelectorAll(".mobile-menu > a")
+                .forEach(function(link) {
+
+                    link.addEventListener(
+                        "click",
+                        function() {
+
+                            mobileMenu.classList.remove(
+                                "show"
+                            );
+
+                            menuButton.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                        }
+                    );
+
+                });
+
+        }
+
+
+        /* MOBILE SERVICES */
+
+        const mobileApproachButton =
+            document.getElementById(
+                "mobileApproachButton"
+            );
+
+        const mobileServices =
+            document.getElementById(
+                "mobileServices"
+            );
+
+
+        if (
+            mobileApproachButton &&
+            mobileServices
+        ) {
+
+            mobileApproachButton.addEventListener(
+                "click",
+                function() {
+
+                    mobileServices.classList.toggle(
+                        "show"
+                    );
+
+                    mobileApproachButton.classList.toggle(
+                        "open"
+                    );
+
+                }
+            );
+
+        }
+
+    })
+
+    .catch(function(error) {
+
+        console.error(
+            "Header loading error:",
+            error
+        );
+
+    });
+
+</script>
+
+
+
+<!-- =====================================================
+     FOOTER LOADER
+===================================================== -->
+
+<script>
+
+fetch("/Footer.html")
+
+    .then(function(response) {
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Footer.html could not be loaded."
+            );
+
+        }
+
+        return response.text();
+
+    })
+
+    .then(function(data) {
+
+        document.getElementById(
+            "footer-placeholder"
+        ).innerHTML = data;
+
+    })
+
+    .catch(function(error) {
+
+        console.error(
+            "Footer loading error:",
+            error
+        );
+
+    });
+
+</script>
+
+
+
+<!-- =====================================================
+     FIREBASE COMMENTS
+===================================================== -->
+
+<script type="module">
+
+
+    /* =====================================================
+       FIREBASE IMPORTS
+    ===================================================== */
+
+    import {
+        initializeApp
+    }
+    from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+    import {
+        getFirestore,
+        collection,
+        addDoc,
+        query,
+        where,
+        getDocs,
+        serverTimestamp
+    }
+    from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+
+    /* =====================================================
+       FIREBASE CONFIGURATION
+    ===================================================== */
+
+    const firebaseConfig = {
+
+        apiKey:
+            "AIzaSyBxAvmT6UbWpKtLxllJPn-Vimr7BFXJC4",
+
+        authDomain:
+            "the-hope-sup.firebaseapp.com",
+
+        projectId:
+            "the-hope-sup",
+
+        storageBucket:
+            "the-hope-sup.firebasestorage.app",
+
+        messagingSenderId:
+            "153836503835",
+
+        appId:
+            "1:153836503835:web:07e99ddbe455805c9c89be",
+
+        measurementId:
+            "G-7844C245GL"
+
+    };
+
+
+
+    /* =====================================================
+       INITIALIZE FIREBASE
+    ===================================================== */
+
+    const app =
+        initializeApp(firebaseConfig);
+
+
+    const db =
+        getFirestore(app);
+
+
+    console.log(
+        "Firebase connected successfully!"
+    );
+
+
+
+    /* =====================================================
+       ARTICLE INFORMATION
+    ===================================================== */
+
+    const PAGE_ID =
+        "the-importance-of-true-friends";
+
+
+    const PAGE_TITLE =
+        "The Importance of True Friends";
+
+
+
+    /* =====================================================
+       GET ELEMENTS
+    ===================================================== */
+
+    const commentForm =
+        document.getElementById(
+            "commentForm"
+        );
+
+
+    const commentName =
+        document.getElementById(
+            "commentName"
+        );
+
+
+    const commentEmail =
+        document.getElementById(
+            "commentEmail"
+        );
+
+
+    const commentMessage =
+        document.getElementById(
+            "commentMessage"
+        );
+
+
+    const commentSubmit =
+        document.getElementById(
+            "commentSubmit"
+        );
+
+
+    const commentStatus =
+        document.getElementById(
+            "commentStatus"
+        );
+
+
+    const commentsList =
+        document.getElementById(
+            "commentsList"
+        );
+
+
+    const commentCount =
+        document.getElementById(
+            "commentCount"
+        );
+
+
+
+    /* =====================================================
+       SHOW STATUS
+    ===================================================== */
+
+    function showStatus(
+        message,
+        type
+    ) {
+
+        commentStatus.textContent =
+            message;
+
+
+        commentStatus.className =
+            "comment-status " + type;
+
+    }
+
+
+
+    /* =====================================================
+       FORMAT DATE
+    ===================================================== */
+
+    function formatCommentDate(
+        timestamp
+    ) {
+
+        if (
+            !timestamp ||
+            typeof timestamp.toDate !== "function"
+        ) {
+
+            return "Just now";
+
+        }
+
+
+        const date =
+            timestamp.toDate();
+
+
+        return date.toLocaleString(
+            "en-IN",
+            {
+
+                day: "numeric",
+
+                month: "short",
+
+                year: "numeric",
+
+                hour: "numeric",
+
+                minute: "2-digit",
+
+                hour12: true
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       CREATE COMMENT ELEMENT
+    ===================================================== */
+
+    function createCommentElement(
+        data
+    ) {
+
+        const comment =
+            document.createElement("div");
+
+
+        comment.className =
+            "comment-item";
+
+
+
+        /* AVATAR */
+
+        const avatar =
+            document.createElement("div");
+
+
+        avatar.className =
+            "comment-avatar";
+
+
+        const name =
+            data.name || "Reader";
+
+
+        avatar.textContent =
+            name.charAt(0).toUpperCase();
+
+
+
+        /* CONTENT */
+
+        const content =
+            document.createElement("div");
+
+
+        content.className =
+            "comment-content";
+
+
+
+        /* TOP */
+
+        const top =
+            document.createElement("div");
+
+
+        top.className =
+            "comment-top";
+
+
+
+        /* AUTHOR */
+
+        const author =
+            document.createElement("span");
+
+
+        author.className =
+            "comment-author";
+
+
+        author.textContent =
+            name;
+
+
+
+        /* DATE */
+
+        const date =
+            document.createElement("span");
+
+
+        date.className =
+            "comment-date";
+
+
+        date.textContent =
+            formatCommentDate(
+                data.createdAt
+            );
+
+
+
+        /* MESSAGE */
+
+        const text =
+            document.createElement("p");
+
+
+        text.className =
+            "comment-text";
+
+
+        text.textContent =
+            data.message || "";
+
+
+
+        /* BUILD */
+
+        top.appendChild(author);
+
+        top.appendChild(date);
+
+        content.appendChild(top);
+
+        content.appendChild(text);
+
+        comment.appendChild(avatar);
+
+        comment.appendChild(content);
+
+
+        return comment;
+
+    }
+
+
+
+    /* =====================================================
+       POST COMMENT
+    ===================================================== */
+
+    commentForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+
+            const name =
+                commentName.value.trim();
+
+
+            const email =
+                commentEmail.value.trim();
+
+
+            const message =
+                commentMessage.value.trim();
+
+
+
+            /* VALIDATION */
+
+            if (!name) {
+
+                showStatus(
+                    "Please enter your name.",
+                    "error"
+                );
+
+                commentName.focus();
+
+                return;
+
+            }
+
+
+            if (name.length > 50) {
+
+                showStatus(
+                    "Your name must be 50 characters or less.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (email.length > 100) {
+
+                showStatus(
+                    "Your email must be 100 characters or less.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (!message) {
+
+                showStatus(
+                    "Please write a comment.",
+                    "error"
+                );
+
+                commentMessage.focus();
+
+                return;
+
+            }
+
+
+            if (message.length > 500) {
+
+                showStatus(
+                    "Your comment must be 500 characters or less.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+
+            /* DISABLE BUTTON */
+
+            commentSubmit.disabled =
+                true;
+
+
+            commentSubmit.innerHTML =
+                "<span>Posting...</span>";
+
+
+
+            try {
+
+
+                /* SAVE TO FIRESTORE */
+
+                await addDoc(
+                    collection(
+                        db,
+                        "comments"
+                    ),
+                    {
+
+                        pageId:
+                            PAGE_ID,
+
+                        pageTitle:
+                            PAGE_TITLE,
+
+                        name:
+                            name,
+
+                        email:
+                            email,
+
+                        message:
+                            message,
+
+                        createdAt:
+                            serverTimestamp()
+
+                    }
+                );
+
+
+
+                /* RESET FORM */
+
+                commentForm.reset();
+
+
+
+                /* SUCCESS */
+
+                showStatus(
+                    "Thank you! Your comment has been posted.",
+                    "success"
+                );
+
+
+
+                /* RELOAD */
+
+                await loadComments();
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Error posting comment:",
+                    error
+                );
+
+
+                showStatus(
+                    "Unable to post your comment. Please try again.",
+                    "error"
+                );
+
+            }
+
+
+
+            /* ENABLE BUTTON */
+
+            commentSubmit.disabled =
+                false;
+
+
+            commentSubmit.innerHTML = `
+                <span>Post Comment</span>
+                <span>→</span>
+            `;
+
+        }
+    );
+
+
+
+    /* =====================================================
+       LOAD COMMENTS
+    ===================================================== */
+
+    async function loadComments() {
+
+        try {
+
+
+            const commentsQuery =
+                query(
+                    collection(
+                        db,
+                        "comments"
+                    ),
+
+                    where(
+                        "pageId",
+                        "==",
+                        PAGE_ID
+                    )
+                );
+
+
+
+            const snapshot =
+                await getDocs(
+                    commentsQuery
+                );
+
+
+
+            /* CONVERT TO ARRAY */
+
+            const comments =
+                snapshot.docs.map(
+                    function(doc) {
+
+                        return doc.data();
+
+                    }
+                );
+
+
+
+            /* NEWEST FIRST */
+
+            comments.sort(
+                function(a, b) {
+
+                    const timeA =
+                        a.createdAt &&
+                        typeof a.createdAt.toMillis ===
+                        "function"
+
+                            ? a.createdAt.toMillis()
+
+                            : 0;
+
+
+                    const timeB =
+                        b.createdAt &&
+                        typeof b.createdAt.toMillis ===
+                        "function"
+
+                            ? b.createdAt.toMillis()
+
+                            : 0;
+
+
+                    return timeB - timeA;
+
+                }
+            );
+
+
+
+            /* CLEAR */
+
+            commentsList.innerHTML =
+                "";
+
+
+
+            /* COUNT */
+
+            const total =
+                comments.length;
+
+
+            if (total === 0) {
+
+                commentCount.textContent =
+                    "0 comments";
+
+            }
+
+            else if (total === 1) {
+
+                commentCount.textContent =
+                    "1 comment";
+
+            }
+
+            else {
+
+                commentCount.textContent =
+                    total + " comments";
+
+            }
+
+
+
+            /* EMPTY */
+
+            if (total === 0) {
+
+                const empty =
+                    document.createElement("div");
+
+
+                empty.className =
+                    "comments-empty";
+
+
+                empty.textContent =
+                    "No comments yet. Be the first to share your thoughts.";
+
+
+                commentsList.appendChild(
+                    empty
+                );
+
+
+                return;
+
+            }
+
+
+
+            /* DISPLAY */
+
+            comments.forEach(
+                function(data) {
+
+                    const comment =
+                        createCommentElement(
+                            data
+                        );
+
+
+                    commentsList.appendChild(
+                        comment
+                    );
+
+                }
+            );
+
+        }
+
+
+        catch (error) {
+
+            console.error(
+                "Loading comments failed:",
+                error
+            );
+
+
+            commentCount.textContent =
+                "Comments unavailable";
+
+
+            commentsList.innerHTML =
+                "";
+
+
+            const errorMessage =
+                document.createElement("div");
+
+
+            errorMessage.className =
+                "comments-empty";
+
+
+            errorMessage.textContent =
+                "Comments could not be loaded right now. Please try again later.";
+
+
+            commentsList.appendChild(
+                errorMessage
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       LOAD COMMENTS WHEN PAGE OPENS
+    ===================================================== */
+
+    loadComments();
+
+
+</script>
+
 
 </body>
 
