@@ -31,7 +31,11 @@
     <!-- Contact CSS -->
     <link rel="stylesheet"
           href="/Style/Contact.css">
-          <link rel="stylesheet" href="/Style/Footer.css">
+
+
+    <!-- Footer CSS -->
+    <link rel="stylesheet"
+          href="/Style/Footer.css">
 
 
     <!-- Lucide Icons -->
@@ -103,6 +107,7 @@
 
                 <div class="hero-buttons">
 
+
                     <a href="#contact-form-section"
                        class="btn btn-dark">
 
@@ -125,6 +130,7 @@
                         </i>
 
                     </a>
+
 
                 </div>
 
@@ -154,9 +160,11 @@
                 </div>
 
 
+
                 <!-- FLOATING CARD 1 -->
 
                 <div class="floating-card card-top">
+
 
                     <div class="floating-icon">
 
@@ -165,6 +173,7 @@
                         </i>
 
                     </div>
+
 
                     <div>
 
@@ -178,14 +187,18 @@
 
                     </div>
 
+
                 </div>
+
 
 
                 <!-- FLOATING CARD 2 -->
 
                 <div class="floating-card card-bottom">
 
+
                     <div class="status-dot"></div>
+
 
                     <div>
 
@@ -199,7 +212,9 @@
 
                     </div>
 
+
                 </div>
+
 
 
                 <!-- ROTATING BADGE -->
@@ -207,6 +222,7 @@
                 <div class="visual-badge">
 
                     <svg viewBox="0 0 160 160">
+
 
                         <defs>
 
@@ -238,9 +254,11 @@
                             r="8">
                         </circle>
 
+
                     </svg>
 
                 </div>
+
 
             </div>
 
@@ -268,6 +286,7 @@
 
             <div class="contact-information">
 
+
                 <p class="small-label">
                     Get in touch
                 </p>
@@ -294,9 +313,11 @@
                 </p>
 
 
+
                 <!-- EMAIL -->
 
                 <div class="contact-detail">
+
 
                     <div class="contact-icon">
 
@@ -319,12 +340,15 @@
 
                     </div>
 
+
                 </div>
+
 
 
                 <!-- PHONE -->
 
                 <div class="contact-detail">
+
 
                     <div class="contact-icon">
 
@@ -347,12 +371,15 @@
 
                     </div>
 
+
                 </div>
+
 
 
                 <!-- LOCATION -->
 
                 <div class="contact-detail">
+
 
                     <div class="contact-icon">
 
@@ -375,7 +402,9 @@
 
                     </div>
 
+
                 </div>
+
 
 
                 <!-- SMALL QUOTE -->
@@ -391,6 +420,7 @@
 
                 </div>
 
+
             </div>
 
 
@@ -398,6 +428,7 @@
             <!-- RIGHT FORM -->
 
             <div class="contact-form">
+
 
                 <p class="small-label">
                     Send a message
@@ -415,6 +446,7 @@
                 </div>
 
 
+
                 <form id="contact-form">
 
 
@@ -429,6 +461,7 @@
                                 First name
                             </label>
 
+
                             <input
                                 id="firstName"
                                 name="firstName"
@@ -439,11 +472,13 @@
                         </div>
 
 
+
                         <div class="form-group">
 
                             <label for="lastName">
                                 Last name
                             </label>
+
 
                             <input
                                 id="lastName"
@@ -454,6 +489,7 @@
 
                         </div>
 
+
                     </div>
 
 
@@ -462,9 +498,11 @@
 
                     <div class="form-group">
 
+
                         <label for="email">
                             Email
                         </label>
+
 
                         <input
                             id="email"
@@ -472,6 +510,7 @@
                             type="email"
                             placeholder="you@example.com"
                             required>
+
 
                     </div>
 
@@ -481,9 +520,11 @@
 
                     <div class="form-group">
 
+
                         <label for="subject">
                             Subject
                         </label>
+
 
                         <input
                             id="subject"
@@ -491,6 +532,7 @@
                             type="text"
                             placeholder="What would you like to discuss?"
                             required>
+
 
                     </div>
 
@@ -500,9 +542,11 @@
 
                     <div class="form-group">
 
+
                         <label for="message">
                             Message
                         </label>
+
 
                         <textarea
                             id="message"
@@ -510,6 +554,7 @@
                             rows="6"
                             placeholder="Write your message..."
                             required></textarea>
+
 
                     </div>
 
@@ -531,6 +576,7 @@
 
 
                 </form>
+
 
             </div>
 
@@ -559,11 +605,13 @@
                     Prefer email?
                 </p>
 
+
                 <h2>
                     hello@thehopesup.com
                 </h2>
 
             </div>
+
 
 
             <a
@@ -578,6 +626,7 @@
 
             </a>
 
+
         </div>
 
     </div>
@@ -585,11 +634,15 @@
 </section>
 
 
+</main>
+
+
 
 <!-- =====================================================
      FOOTER
 ====================================================== -->
 
+<div id="footer-placeholder"></div>
 
 
 
@@ -599,18 +652,21 @@
 
 <script>
 
-    /* ==============================================
-       LOAD SHARED HEADER
-    ============================================== */
+document.addEventListener("DOMContentLoaded", function () {
 
-    fetch("Header.html")
+
+    /* =====================================================
+       LOAD SHARED HEADER
+    ===================================================== */
+
+    fetch("/Header.html")
 
         .then(function (response) {
 
             if (!response.ok) {
 
                 throw new Error(
-                    "Could not load Header.html"
+                    "Header.html could not be loaded."
                 );
 
             }
@@ -621,33 +677,46 @@
 
         .then(function (html) {
 
-            const header =
+
+            const headerPlaceholder =
                 document.getElementById(
                     "header-placeholder"
                 );
 
-            if (header) {
 
-                header.innerHTML = html;
-
+            if (!headerPlaceholder) {
+                return;
             }
 
 
-            /* LUCIDE ICONS */
+            headerPlaceholder.innerHTML = html;
 
-            if (typeof lucide !== "undefined") {
+
+
+            /* =================================================
+               LUCIDE ICONS
+            ================================================= */
+
+            if (
+                typeof lucide !== "undefined" &&
+                typeof lucide.createIcons === "function"
+            ) {
 
                 lucide.createIcons();
 
             }
 
 
-            /* MOBILE MENU */
+
+            /* =================================================
+               MOBILE MENU
+            ================================================= */
 
             const menuButton =
                 document.getElementById(
                     "menuButton"
                 );
+
 
             const mobileMenu =
                 document.getElementById(
@@ -657,26 +726,120 @@
 
             if (menuButton && mobileMenu) {
 
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
                 menuButton.addEventListener(
                     "click",
                     function () {
+
 
                         const isOpen =
                             mobileMenu.classList.toggle(
                                 "show"
                             );
 
+
                         menuButton.setAttribute(
                             "aria-expanded",
+                            String(isOpen)
+                        );
+
+
+                        document.body.classList.toggle(
+                            "menu-open",
                             isOpen
                         );
+
+
+                    }
+                );
+
+
+
+                /* CLOSE MENU AFTER LINK CLICK */
+
+                mobileMenu
+                    .querySelectorAll("a")
+                    .forEach(function (link) {
+
+                        link.addEventListener(
+                            "click",
+                            function () {
+
+                                mobileMenu.classList.remove(
+                                    "show"
+                                );
+
+
+                                menuButton.setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
+
+
+                                document.body.classList.remove(
+                                    "menu-open"
+                                );
+
+                            }
+                        );
+
+                    });
+
+            }
+
+
+
+            /* =================================================
+               MOBILE SERVICES
+            ================================================= */
+
+            const mobileApproachButton =
+                document.getElementById(
+                    "mobileApproachButton"
+                );
+
+
+            const mobileServices =
+                document.getElementById(
+                    "mobileServices"
+                );
+
+
+            if (
+                mobileApproachButton &&
+                mobileServices
+            ) {
+
+
+                mobileApproachButton.addEventListener(
+                    "click",
+                    function () {
+
+
+                        mobileServices.classList.toggle(
+                            "show"
+                        );
+
+
+                        mobileApproachButton.classList.toggle(
+                            "open"
+                        );
+
 
                     }
                 );
 
             }
 
+
         })
+
 
         .catch(function (error) {
 
@@ -689,9 +852,9 @@
 
 
 
-    /* ==============================================
+    /* =====================================================
        CONTACT FORM
-    ============================================== */
+    ===================================================== */
 
     const contactForm =
         document.getElementById(
@@ -701,9 +864,11 @@
 
     if (contactForm) {
 
+
         contactForm.addEventListener(
             "submit",
             function (event) {
+
 
                 event.preventDefault();
 
@@ -716,58 +881,99 @@
 
                 if (status) {
 
+
                     status.textContent =
                         "Thank you! Your message has been received.";
+
 
                     status.classList.add(
                         "show"
                     );
+
 
                 }
 
 
                 contactForm.reset();
 
+
             }
         );
 
     }
 
+
+
+    /* =====================================================
+       INITIAL LUCIDE ICONS
+    ===================================================== */
+
+    if (
+        typeof lucide !== "undefined" &&
+        typeof lucide.createIcons === "function"
+    ) {
+
+        lucide.createIcons();
+
+    }
+
+});
+
 </script>
 
 
-        </section>
 
-    </main>
+<!-- =====================================================
+     LOAD FOOTER
+====================================================== -->
+
+<script>
+
+fetch("/Footer.html")
+
+    .then(function (response) {
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Footer.html could not be loaded."
+            );
+
+        }
+
+        return response.text();
+
+    })
+
+    .then(function (data) {
 
 
-    <!-- FOOTER -->
-    <div id="footer-placeholder"></div>
+        const footerPlaceholder =
+            document.getElementById(
+                "footer-placeholder"
+            );
 
 
-    <!-- FOOTER LOADER -->
-    <script>
-        fetch("/Footer.html")
-            .then(function(response) {
+        if (footerPlaceholder) {
 
-                if (!response.ok) {
-                    throw new Error("Footer.html could not be loaded.");
-                }
+            footerPlaceholder.innerHTML = data;
 
-                return response.text();
+        }
 
-            })
-            .then(function(data) {
+    })
 
-                document.getElementById("footer-placeholder").innerHTML = data;
+    .catch(function (error) {
 
-            })
-            .catch(function(error) {
+        console.error(
+            "Footer loading error:",
+            error
+        );
 
-                console.error("Footer loading error:", error);
+    });
 
-            });
-    </script>
+</script>
+
 
 </body>
+
 </html>
