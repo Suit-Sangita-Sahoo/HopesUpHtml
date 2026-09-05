@@ -243,6 +243,37 @@
     font-size: 16px;
 }
 
+@media (max-width: 760px) {
+
+    .desktop-nav {
+        display: none !important;
+    }
+
+    .menu-button {
+        display: flex !important;
+    }
+
+    .mobile-menu {
+        display: block !important;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: #ffffff;
+        z-index: 9999;
+        transition: max-height 0.35s ease;
+    }
+
+    .mobile-menu.show {
+        max-height: calc(100dvh - 60px);
+        overflow-y: auto;
+    }
+
+}
+
 
 /* =========================================================
    RESET
